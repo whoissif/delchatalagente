@@ -1,0 +1,9 @@
+NOTAS DE COORDINACIÓN DE PLANTA — 2 DE JUNIO DE 2025
+Planta ficticia Bruma | Apuntes sin validar; contrastar con los informes
+
+- Producción: el mes cerró por debajo del plan, sobre todo en la línea 2. Antes de pedir turnos adicionales, confirmar disponibilidad de personal y aprobación de planificación.
+- Calidad: quedan 220 unidades pendientes de liberación final. No contarlas como producto disponible hasta cerrar la revisión.
+- Mantenimiento: falta confirmar la calibración del manómetro del útil de prueba. Incluirlo en el seguimiento de la próxima parada planificada; no intervenir antes de la autorización correspondiente.
+- Suministro: el sensor S-04 puede llegar después del inicio de la semana 3. Pedir fecha confirmada, sin emitir todavía una orden de compra.
+- Energía: revisar el consumo nocturno del compresor en la semana 3 y cotejarlo con las horas de operación. La causa aún no está confirmada.
+- Próxima revisión: 9 de junio. Cada responsable llevará el dato fuente y el estado de su acción.

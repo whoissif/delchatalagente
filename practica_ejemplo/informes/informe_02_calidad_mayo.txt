@@ -1,0 +1,24 @@
+PLANTA BRUMA — INFORME DE CALIDAD Y NO CONFORMIDADES
+Periodo: mayo de 2025 | Revisión: 3 de junio de 2025
+Producto principal: bomba centrífuga PB-40 | Documento ficticio
+
+MUESTREO
+Unidades inspeccionadas: 1.800.
+Unidades con al menos una no conformidad: 63.
+Tasa observada de unidades no conformes: 3,5 % (63 / 1.800, redondeada a una decimal).
+
+CLASIFICACIÓN DE LAS 63 UNIDADES NO CONFORMES
+Fuga en prueba de estanqueidad: 31.
+Vibración por encima del límite interno: 18.
+Rosca fuera de tolerancia: 9.
+Daño superficial: 5.
+Total por causa principal: 63 unidades.
+
+DISPOSICIÓN
+Se retrabajaron 48 unidades y se retuvieron 15 para análisis. Las categorías identifican una causa principal por unidad; no cuentan incidencias secundarias.
+
+SEÑAL PARA INVESTIGAR
+Las fugas se agruparon en lotes ensamblados durante el turno B de la segunda semana. La asociación temporal no demuestra por sí sola la causa. Revisar los registros de proceso antes de atribuir responsabilidad o cambiar parámetros.
+
+LIMITACIONES
+El muestreo no fue aleatorio: se inspeccionó una selección de lotes de alto riesgo. La tasa describe esta muestra y no debe extrapolarse directamente a toda la producción sin validar el método de selección.

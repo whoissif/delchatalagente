@@ -1,0 +1,22 @@
+PLANTA BRUMA — INFORME DE PRODUCCIÓN
+Periodo: mayo de 2025 | Revisión: 3 de junio de 2025
+Producto principal: bomba centrífuga PB-40 | Documento ficticio
+
+RESUMEN
+El plan mensual era ensamblar 18.400 unidades. Se registraron 17.820 unidades terminadas, un cumplimiento del 96,8 % y una diferencia de 580 unidades respecto al plan. La línea 2 concentró la mayor parte del desvío.
+
+RESULTADO POR LÍNEA
+Línea 1: plan 9.800; terminadas 9.550; cumplimiento 97,4 %.
+Línea 2: plan 8.600; terminadas 8.270; cumplimiento 96,2 %.
+Total: plan 18.400; terminadas 17.820.
+
+RESULTADO POR TURNO
+Turno A: 9.160 unidades terminadas.
+Turno B: 8.660 unidades terminadas.
+Total por turnos: 17.820 unidades.
+
+PARADAS REGISTRADAS
+La línea 2 acumuló 12,5 horas de parada durante el periodo: 9 horas por incidencias no planificadas y 3,5 horas de mantenimiento preventivo. La hoja detallada de eventos está en `informe_03_mantenimiento_linea_2.txt`.
+
+OBSERVACIÓN
+La suma por línea y por turno coincide con el total mensual. Las cifras son unidades terminadas, no unidades expedidas. No se ha ajustado el plan por cambios de mezcla de producto.

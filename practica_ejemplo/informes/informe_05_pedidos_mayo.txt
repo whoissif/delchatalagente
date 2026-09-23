@@ -1,0 +1,19 @@
+PLANTA BRUMA — PEDIDOS Y RIESGO DE SUMINISTRO
+Fecha de corte: 30 de mayo de 2025 | Documento ficticio
+
+PLAN DE ENTREGA
+Pedidos confirmados para junio: 18.200 bombas PB-40.
+Producción disponible al cierre de mayo: 17.820 unidades terminadas; 17.600 liberadas por calidad y 220 pendientes de liberación final.
+El equipo de planificación prevé recuperar parte de la diferencia con turnos adicionales, aún sin aprobar.
+
+COMPONENTES A SEGUIR
+Junta J-18: existencias por debajo del mínimo; el plazo de suministro de ejemplo registrado para V-104 es de 8 días laborables. Confirmar fecha antes de planificar.
+Rodamiento R-220: existencias por encima del mínimo; no hace falta pedido inmediato.
+Sensor S-04: existencias por debajo del mínimo; el plazo orientativo registrado para V-101 es de 15 días laborables y podría afectar a la programación de la semana 3 de junio. Confirmar disponibilidad.
+
+ACCIONES PROPUESTAS, PENDIENTES DE APROBACIÓN
+- Confirmar el plan de turnos con producción antes de comprometer fechas adicionales.
+- Solicitar al proveedor una fecha confirmada para el sensor S-04.
+- Revisar la liberación de las 220 unidades pendientes con calidad.
+
+No se ha enviado ningún pedido ni se ha cambiado ninguna fecha de entrega. Consultar `inventario_material.csv` y `contactos_proveedores.csv` para contrastar existencias y datos de suministro.

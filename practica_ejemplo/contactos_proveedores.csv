@@ -1,0 +1,5 @@
+codigo,empresa_ficticia,correo,especialidad,plazo_respuesta_horas,plazo_suministro_dias_laborables,observaciones
+V-101,Instrumentación Bruma,mantenimiento@instrumentacion.ejemplo.test,sensores y control,24,15,Contacto ficticio; confirmar disponibilidad y fecha
+V-102,Rodamientos del Valle,ventas@rodamientos.ejemplo.test,rodamientos industriales,48,12,Contacto ficticio; plazo orientativo
+V-103,Servicios Neumáticos Norte,soporte@neumaticos.ejemplo.test,aire comprimido y lubricación,12,5,Contacto ficticio; plazo orientativo
+V-104,Elastómeros Técnicos,compras@elastomeros.ejemplo.test,juntas de estanqueidad,72,8,Contacto ficticio; plazo de ejemplo pendiente de confirmación

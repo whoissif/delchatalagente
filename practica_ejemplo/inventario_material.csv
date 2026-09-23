@@ -1,0 +1,7 @@
+codigo,descripcion,existencias,stock_minimo,unidad,ubicacion,proveedor
+J-18,Junta elastomérica de estanqueidad,420,600,unidades,Almacén A,V-104
+R-220,Rodamiento sellado 220 mm,850,500,unidades,Almacén A,V-102
+S-04,Sensor de posición inductivo,18,40,unidades,Almacén técnico,V-101
+F-12,Filtro de aire para compresor,27,20,unidades,Almacén técnico,V-103
+M-08,Ventilador para motor M2,6,4,unidades,Almacén técnico,V-101
+G-31,Grasa de montaje grado industrial,34,25,cartuchos,Almacén B,V-103

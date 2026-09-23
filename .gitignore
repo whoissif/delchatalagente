@@ -1,0 +1,13 @@
+# Generated or machine-specific files
+build/node_modules/
+build/pylibs/
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+tmp/
+# Generated standalone slide deck (PDF and editable source are included).
+slides/diapositivas.html

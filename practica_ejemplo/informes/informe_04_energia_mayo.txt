@@ -1,0 +1,21 @@
+PLANTA BRUMA — RESUMEN DE CONSUMO ELÉCTRICO
+Periodo: mayo de 2025 | Documento ficticio
+
+CONSUMO MENSUAL
+Consumo medido: 32.400 kWh.
+Producción terminada del periodo: 17.820 unidades.
+Indicador simple: 1,82 kWh por unidad terminada (32.400 / 17.820, redondeado a dos decimales).
+Referencia interna de abril: 1,70 kWh por unidad.
+
+LECTURAS SEMANALES
+Semana 1: 7.800 kWh.
+Semana 2: 8.100 kWh.
+Semana 3: 8.500 kWh.
+Semana 4: 8.000 kWh.
+Total semanal: 32.400 kWh.
+
+OBSERVACIÓN DE OPERACIONES
+En las lecturas nocturnas de la semana 3 aparece consumo sostenido del compresor principal durante periodos de baja producción. El dato procede del contador de área y todavía no se ha contrastado con el registro de turnos.
+
+ALCANCE
+El indicador no corrige por horas de operación, mezcla de producto, arranques ni producción rechazada. La diferencia con abril es una señal para investigar, no una conclusión sobre eficiencia ni sobre la causa del consumo.

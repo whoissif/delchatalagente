@@ -1,0 +1,23 @@
+{
+  "escenario": "Planta Bruma — ensamblaje de bombas PB-40",
+  "es_ficticio": true,
+  "periodo_informes": "2025-05",
+  "unidades": {
+    "produccion": "unidades terminadas",
+    "energia": "kWh",
+    "tiempo_parada": "horas",
+    "inventario": "unidades o cartuchos según la fila"
+  },
+  "lineas": ["Línea 1", "Línea 2"],
+  "turnos": ["A", "B"],
+  "referencias_internas": {
+    "energia_kwh_por_unidad_abril": 1.7,
+    "fecha_corte_inventario": "2025-05-30"
+  },
+  "criterios_de_trabajo": [
+    "Citar el nombre del archivo usado como fuente.",
+    "Distinguir los hechos registrados de las hipótesis y propuestas.",
+    "No enviar pedidos, cambiar parámetros ni comprometer fechas.",
+    "No presentar recomendaciones como instrucciones de seguridad o mantenimiento."
+  ]
+}

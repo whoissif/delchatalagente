@@ -1,0 +1,21 @@
+PLANTA BRUMA — REGISTRO DE MANTENIMIENTO DE LA LÍNEA 2
+Periodo: mayo de 2025 | Responsable: equipo ficticio de mantenimiento
+
+INTERVENCIONES NO PLANIFICADAS
+06-may, 07:20–09:50 (2,5 h): parada del transportador de entrada. Causa registrada: sensor de posición intermitente. Acción: limpieza y ajuste; revisar repuesto en próxima parada.
+14-may, 14:10–17:10 (3 h): alarma de temperatura en motor M2. Acción: sustitución del ventilador y prueba en vacío.
+22-may, 10:00–13:30 (3,5 h): presión inestable en el útil de prueba. Acción: cambiar una junta; queda pendiente comprobar el manómetro con patrón calibrado.
+Total no planificado: 9 horas.
+
+MANTENIMIENTO PREVENTIVO
+09-may, 3,5 h: inspección mensual, lubricación y verificación de guardas. Trabajo planificado y registrado por separado.
+
+TOTAL DE PARADA DE LA LÍNEA
+9 h no planificadas + 3,5 h planificadas = 12,5 h. Coincide con el resumen mensual de producción.
+
+PENDIENTES
+- Confirmar la calibración del manómetro del útil de prueba antes del 10 de junio.
+- Verificar el sensor del transportador en la siguiente parada planificada.
+- Registrar número de serie del ventilador sustituido; falta en la orden de trabajo.
+
+Este registro resume eventos ficticios. No contiene instrucciones para intervenir maquinaria. Toda intervención real debe seguir los procedimientos aprobados de la planta.
