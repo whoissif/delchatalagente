@@ -1,12 +1,12 @@
-# Entorno de práctica: Planta Bruma
+# Entorno de práctica: Empresa Bruma
 
-## Un expediente industrial, completamente ficticio
+## Un expediente profesional, completamente ficticio
 
-Esta carpeta reúne documentos de una planta imaginaria de ensamblaje de bombas industriales. Incluye informes de producción, calidad, mantenimiento y energía, además de inventario, proveedores, notas de reunión y un acta. Los archivos contienen cifras de ejemplo; los nombres y las direcciones usan dominios reservados como `ejemplo.test`.
+Esta carpeta reúne documentos de una empresa ficticia de ejemplo de bombas profesionales. Incluye informes de producción, calidad, mantenimiento y energía, además de inventario, proveedores, notas de reunión y un acta. Los archivos contienen cifras de ejemplo; los nombres y las direcciones usan dominios reservados como `ejemplo.test`.
 
 **[Descargar el expediente completo (ZIP)](descarga_entorno.zip)** para extraerlo y usar una copia como espacio de trabajo.
 
-Puedes usar el conjunto para probar tareas habituales de análisis y documentación industrial: cruzar cifras entre informes, priorizar una incidencia, resumir una reunión, revisar existencias o preparar un informe para el equipo. No es un modelo de datos de producción ni sustituye procedimientos técnicos o de seguridad reales.
+Puedes usar el conjunto para probar tareas habituales de análisis y documentación profesional: cruzar cifras entre informes, priorizar una incidencia, resumir una reunión, revisar existencias o preparar un informe para el equipo. No es un modelo de datos de producción ni sustituye procedimientos técnicos o de seguridad reales.
 
 ## Empezar de forma segura
 

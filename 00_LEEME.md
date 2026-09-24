@@ -2,7 +2,7 @@
 
 **Título:** Del chat al agente: qué es un harness y cómo se usa.
 **Duración:** 150 minutos de núcleo, ampliable a 180.
-**Audiencia:** ingenieros industriales que ya usan chats o bots de IA. No se requiere experiencia previa en programación.
+**Audiencia:** profesionales que ya usan chats o bots de IA. No se requiere experiencia previa en programación.
 **Formato:** sesión práctica, con el portátil delante. Cada alumno arranca el harness y lo usa.
 **Herramienta:** DeepSeek Harness (`dsh`).
 
@@ -34,7 +34,7 @@ El paquete tiene **tres capas**: los documentos fuente, los formatos para usarlo
 | **Curso interactivo** | `curso/index.html` | Los documentos organizados en 4 módulos y 27 lecciones, con búsqueda, progreso guardado en el navegador y los dos cuestionarios corregidos al momento. Sin servidor y sin conexión. |
 | **Diapositivas** | `slides/diapositivas.html` y `slides/diapositivas.pdf` | 59 diapositivas para proyectar, con **notas del presentador** en todas ellas (tecla `N`). El PDF imprime una diapositiva por página. |
 | **PDF imprimibles** | `pdf/` | Un PDF por documento, más `completo.pdf` con los ocho en un volumen de 62 páginas. |
-| **Entorno de práctica** | `practica_ejemplo/LEEME.html` | Expediente ficticio de una planta industrial; descarga el ZIP y usa una copia como espacio de trabajo. |
+| **Entorno de práctica** | `practica_ejemplo/LEEME.html` | Expediente ficticio de una empresa de ejemplo; descarga el ZIP y usa una copia como espacio de trabajo. |
 | **Fuente Marp** | `slides/slides.md` | La presentación en Markdown de Marp, por si prefieres editarla en VS Code con la extensión Marp o exportarla con `marp-cli`. |
 
 ### 3. Las herramientas (`build/`)

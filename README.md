@@ -1,6 +1,6 @@
-# Del chat al agente: IA para ingeniería industrial
+# Del chat al agente: IA para profesionales
 
-Curso online en español para **ingenieros industriales que ya utilizan chats o bots de IA**. Explica, con ejemplos y prácticas guiadas, cómo un agente puede leer y modificar archivos, usar herramientas y trabajar dentro de límites definidos. No presupone experiencia en programación.
+Curso online en español para **profesionales que ya utilizan chats o bots de IA**. Explica, con ejemplos y prácticas guiadas, cómo un agente puede leer y modificar archivos, usar herramientas y trabajar dentro de límites definidos. No presupone experiencia en programación.
 
 ## Empieza aquí
 
@@ -13,7 +13,7 @@ Abre el **[curso interactivo](curso/index.html)** o la [portada visual](index.ht
 3. **Controlar:** permisos, sandbox y aprobaciones.
 4. **Revisar:** comprobar el trabajo del agente antes de usarlo.
 
-Las prácticas se basan en tareas con documentos y datos, transferibles a operaciones, calidad y mantenimiento. El conjunto de datos del laboratorio es ficticio.
+Las prácticas se basan en tareas con documentos y datos, transferibles a gestión, análisis y administración. El conjunto de datos del laboratorio es ficticio.
 
 ## Material
 

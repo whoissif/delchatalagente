@@ -1,4 +1,4 @@
-# Acta de reunión de operaciones — Planta Bruma
+# Acta de reunión de operaciones — Empresa Bruma
 
 **Fecha:** 2 de junio de 2025  
 **Asunto:** cierre de mayo y preparación del plan de junio  

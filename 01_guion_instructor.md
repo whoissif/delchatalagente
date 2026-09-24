@@ -1,7 +1,7 @@
 # Guion del instructor — Del chat al agente: qué es un harness y cómo se usa
 
 **Duración:** 150 minutos de núcleo, ampliable a 180.
-**Audiencia:** ingenieros industriales que ya usan chats o bots de IA; no se requiere experiencia previa en programación.
+**Audiencia:** profesionales que ya usan chats o bots de IA; no se requiere experiencia previa en programación.
 **Formato:** sesión práctica. Cada alumno trabaja en su portátil.
 **Herramienta:** DeepSeek Harness (`dsh`), arrancado con `npx @deepseek-ai/dsh web`.
 

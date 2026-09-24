@@ -3,7 +3,7 @@
 Documento de apoyo para el instructor del seminario **"Del chat al agente: qué es un harness y cómo se usa"**.
 
 Herramienta: **DeepSeek Harness (`dsh`)**, el harness de agentes de DeepSeek AI.
-Audiencia: ingenieros industriales que ya usan la IA como chat o bot. No se requiere experiencia previa en programación.
+Audiencia: profesionales que ya usan la IA como chat o bot. No se requiere experiencia previa en programación.
 
 ## Cómo usar este documento
 
