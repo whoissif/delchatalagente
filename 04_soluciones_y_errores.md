@@ -41,7 +41,7 @@ Fuente de verdad de lo que ocurre en cada práctica: el cuaderno del alumno `03_
 
 - La interfaz carga y se ve la sesión del proyecto `practica_agente`.
 - El agente **no responde de golpe**: va dando pasos visibles (*Explorado*, *Shell*, *Escribir*…).
-- Existe `INDICE.md` y el agente dice dónde lo ha dejado (puede haberlo guardado dentro de `informes`: el encargo no decía dónde).
+- Existe `INDICE.md` en la raíz de la carpeta y el agente dice dónde lo ha dejado. Si lo dejó dentro de `informes`, sirve para comentar que, si el encargo no fija la ruta, el agente elige.
 - El índice menciona **nombres de archivos reales** de la carpeta: ha leído, no ha inventado. Los originales siguen intactos.
 - El alumno sabe decir qué herramientas ha usado el agente (mirar la carpeta, leer, ejecutar una orden, escribir).
 
@@ -49,7 +49,7 @@ Fuente de verdad de lo que ocurre en cada práctica: el cuaderno del alumno `03_
 
 Petición del alumno:
 
-> Mira qué hay en la carpeta `informes` y hazme un índice de los archivos, agrupados por tipo, en un archivo nuevo llamado `INDICE.md`. No modifiques ningún archivo original.
+> Mira qué hay en la carpeta `informes` y hazme un índice de los archivos, agrupados por tipo, en un archivo nuevo llamado `INDICE.md`, guardado en la raíz de la carpeta de trabajo (no dentro de `informes`). No modifiques ningún archivo original.
 
 Qué haría el agente:
 
@@ -114,7 +114,7 @@ Qué haría el agente:
 
 Petición del alumno:
 
-> Crea un archivo llamado `prueba_agente.txt` en el escritorio de mi usuario, con el texto «prueba».
+> Crea un archivo llamado `prueba_agente.txt` en la carpeta `prueba_permisos` del escritorio de mi usuario, con el texto «prueba».
 
 Qué haría el agente:
 
@@ -123,7 +123,9 @@ Qué haría el agente:
 3. Espera. No escribe nada hasta que el alumno decide.
 4. Con **Permitir una vez**, crea el archivo y termina. Con **Denegar**, se para.
 
-Respuestas esperadas a las tres preguntas: (1) escribir un archivo nuevo en el escritorio; (2) aparecería `prueba_agente.txt` en el escritorio y no cambiaría nada más; (3) sí, pidiéndole que lo haga dentro de la carpeta de trabajo.
+El alumno crea antes, a mano, la carpeta vacía `prueba_permisos` en el escritorio. **El aviso puede cubrir una carpeta entera** (por ejemplo `...\Desktop\prueba_permisos\*`), no solo el archivo: en la prueba de campo con opencode 1.19.5 llegó a pedir la carpeta matriz completa. Por eso se usa una carpeta desechable y el alumno debe leer la ruta y denegar si el alcance es más amplio de lo esperado.
+
+Respuestas esperadas a las tres preguntas: (1) escribir un archivo nuevo en `prueba_permisos`, con un permiso que puede abarcar toda esa carpeta; (2) aparecería `prueba_agente.txt` en el escritorio y no cambiaría nada más; (3) sí, pidiéndole que lo haga dentro de la carpeta de trabajo.
 
 > **Carril B (Claude Code o Codex):** el aviso tiene otro aspecto, pero las opciones equivalen (sí esta vez, sí a partir de ahora, no). Claude Code debe estar en modo normal, no en Auto; Codex, en su modo de serie, que pide permiso para salir de la carpeta.
 
@@ -234,7 +236,8 @@ La conclusión a sacar: **el agente no es más listo ni más tonto; se han cambi
 
 - `AGENTS.md` existe en la raíz del proyecto (el global estaría en `C:\Users\<tu_usuario>\.config\opencode\AGENTS.md`).
 - En una sesión nueva, el agente responde en español, guarda el resultado en `informes` si crea un informe y dice qué archivos ha tocado, **sin recordatorio**.
-- Si se usa la skill, existe `.opencode/skills/resumen-informes/SKILL.md` dentro del proyecto y, tras reiniciar, el agente crea `resumen_general.md` con una tabla de tres columnas (archivo, tema, conclusión) sin modificar los originales.
+- Antes de abrir la conversación nueva, el alumno ha visto `AGENTS.md` en la raíz con las cuatro reglas. En la prueba de campo el agente afirmó haberlo creado sin que existiera; al pedirle que lo comprobara y mostrara el contenido, quedó creado.
+- Si se usa la skill, existe `.opencode/skills/resumen-informes/SKILL.md` dentro del proyecto y, tras reiniciar, el agente crea `informes/resumen_general.md` (la misma carpeta que fija `AGENTS.md`; en la prueba de campo, una skill sin ruta lo dejó en la raíz) con una tabla de tres columnas (archivo, tema, conclusión) sin modificar los originales.
 - El alumno explica la diferencia entre lo que dura una conversación y lo que es permanente.
 
 **Solución de referencia**
@@ -251,7 +254,7 @@ Qué haría el agente:
 
 1. Escribe `AGENTS.md` en la raíz del proyecto con esas líneas: son "las notas que se dejan al becario antes de que empiece".
 2. En una **sesión nueva**, ante «Hazme un resumen de los archivos de la carpeta `informes`», responde en español, aplica las reglas y termina diciendo qué archivos ha tocado.
-3. Para la skill: ante «Crea una skill llamada `resumen-informes`…», la guarda en `.opencode/skills/resumen-informes/SKILL.md`. **Las skills se cargan al arrancar**: tras reiniciar y abrir sesión nueva, «hazme el resumen de informes» crea `resumen_general.md` con la tabla.
+3. Para la skill: ante «Crea una skill llamada `resumen-informes`…», la guarda en `.opencode/skills/resumen-informes/SKILL.md`. **Las skills se cargan al arrancar**: tras reiniciar y abrir sesión nueva, «hazme el resumen de informes» crea `informes/resumen_general.md` con la tabla, una fila por informe y sin fila para el propio resumen.
 4. Si algo no encaja, lo dice y propone corregir la instrucción, no improvisar cada vez.
 
 > **Carril B (Claude Code o Codex):** Claude Code lee `CLAUDE.md`, **no** `AGENTS.md`; hay que crear un `CLAUDE.md` con la línea `@AGENTS.md`. Codex lee `AGENTS.md` directamente. Las skills van en `.claude/skills/<nombre>/SKILL.md` (Claude Code) o `.agents/skills/<nombre>/SKILL.md` (Codex); el formato del `SKILL.md` es el mismo.
@@ -305,7 +308,7 @@ Qué haría el agente:
 
 Petición del alumno (ejemplo del cuaderno):
 
-> En la carpeta `practica_agente/informes` hay cinco informes en texto. Léelos y créame `resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia.
+> En la carpeta `practica_agente/informes` hay cinco informes en texto (`informe_*.txt`). Léelos y créame `informes/resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia.
 > **No modifiques ninguno de los cinco archivos originales.**
 > Al terminar, dime qué archivos has leído y cuántas filas tiene la tabla.
 
@@ -371,6 +374,8 @@ Recuerda a la clase: **el agente no firma su trabajo; lo firma el alumno** al de
 - El CSV original no se ha modificado; la corrección está en el script y explicada.
 - El total cuadra con el informe y el alumno lo ha comprobado él mismo.
 - El alumno distingue «la semana 3 se sale del modelo» (dato) de «es el compresor» (hipótesis).
+- El alumno tiene el total en los dos escenarios (unos 31.650 kWh sin corregir `0.751`; 32.400 interpretándola como MWh) y presenta la conversión como supuesto justificado, no como dato confirmado.
+- Error de campo frecuente en encargos propios con filtro (p. ej. «por debajo del mínimo»): el agente incluye filas que no cumplen la condición (en una prueba, F-12 con 27 frente a mínimo 20 y M-08 con 6 frente a 4). La verificación de la Práctica 5 pide contrastar cada fila.
 
 **Errores frecuentes**
 

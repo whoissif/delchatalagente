@@ -73,7 +73,7 @@ Se abrirá **sola** una página en tu navegador con la interfaz de opencode, en 
 ### Paso 4 — Abre tu carpeta como proyecto
 
 1. Si no ves tu carpeta en la lista de **Proyectos**, pulsa **Añadir proyecto**.
-2. En el buscador, escribe `Documents/practica_agente` y elige tu carpeta.
+2. En el buscador, escribe `Documents/practica_agente` y elige tu carpeta. **Cuidado:** un clic sobre una carpeta puede añadirla directamente como proyecto. Comprueba que la que aparece en **Proyectos** es exactamente `practica_agente` y no una carpeta más amplia como `Documents`. Si te equivocas, cierra ese proyecto y vuelve a empezar: una carpeta matriz como sala da al agente acceso a todo lo que contiene.
 3. Pulsa **Nueva sesión**.
 
 Esa carpeta es la **sala** del agente: lo que hay dentro lo puede tocar; para salir de ella te pedirá permiso. Ojo: la sala es una **regla de permisos, no un muro**. opencode no aísla el programa del resto del ordenador (no tiene *sandbox*); lo verás en la Práctica 3.
@@ -92,17 +92,17 @@ Pulsa sobre el nombre: se abre **Seleccionar modelo**, con los gratuitos marcado
 
 Escribe esto tal cual, cambiando lo que haga falta para que encaje con tu carpeta:
 
-> Mira qué hay en la carpeta `informes` y hazme un índice de los archivos, agrupados por tipo, en un archivo nuevo llamado `INDICE.md`. No modifiques ningún archivo original.
+> Mira qué hay en la carpeta `informes` y hazme un índice de los archivos, agrupados por tipo, en un archivo nuevo llamado `INDICE.md`, guardado en la raíz de la carpeta de trabajo (no dentro de `informes`). No modifiques ningún archivo original.
 
 ### Qué deberías ver
 
 - Que el agente **no responde de golpe**: va dando pasos (*Explorado*, *Shell*, *Escribir*…).
 - Que cada paso aparece en pantalla, indicando qué está haciendo.
-- Que al final te dice **dónde ha dejado** el archivo nuevo. Fíjate: puede que lo haya guardado dentro de `informes` y no en la raíz. Tu encargo no decía dónde; él ha elegido.
+- Que al final te dice **dónde ha dejado** el archivo nuevo. Compruébalo tú: busca `INDICE.md` en la raíz de `practica_agente`, junto a la carpeta `informes`. Si un encargo no dice dónde guardar el resultado, el agente elige, y puede elegir otro sitio.
 
 ### ✅ Comprobación
 
-- [ ] Hay un archivo nuevo, `INDICE.md`, dentro de tu carpeta.
+- [ ] Hay un archivo nuevo, `INDICE.md`, en la raíz de tu carpeta, con ese nombre exacto.
 - [ ] Lo has abierto y el contenido tiene sentido.
 - [ ] Los archivos originales siguen ahí, intactos.
 - [ ] Sabrías decir **qué herramientas** ha usado el agente para hacerlo (mirar la carpeta, leer, ejecutar una orden, escribir...).
@@ -128,13 +128,17 @@ Esta es la práctica más importante del curso. Léela entera antes de empezar.
 
 ### Paso 1 — Pídele algo que está fuera de su zona
 
-**Asegúrate de que estás en una sesión del proyecto `practica_agente`.** Ahora pídele algo que ocurra **fuera** de ella, por ejemplo en el escritorio:
+Primero, **tú a mano**, crea en el escritorio una carpeta vacía llamada `prueba_permisos`. Será la zona de pruebas de fuera: desechable y sin nada que importe.
 
-> Crea un archivo llamado `prueba_agente.txt` en el escritorio de mi usuario, con el texto «prueba».
+**Asegúrate de que estás en una sesión del proyecto `practica_agente`.** Ahora pídele algo que ocurra **fuera** de ella, en esa carpeta:
+
+> Crea un archivo llamado `prueba_agente.txt` en la carpeta `prueba_permisos` del escritorio de mi usuario, con el texto «prueba».
 
 ### Paso 2 — Para y mira
 
-**No apruebes nada todavía.** Va a aparecer un aviso **«Permiso requerido»**: *Acceder a archivos fuera del directorio del proyecto*, con la ruta de tu escritorio debajo. Lee el aviso entero, despacio, antes de tocar nada.
+**No apruebes nada todavía.** Va a aparecer un aviso **«Permiso requerido»**: *Acceder a archivos fuera del directorio del proyecto*, con una ruta debajo. Lee el aviso entero, despacio, antes de tocar nada.
+
+**Lee la ruta que cubre el permiso.** Puede no ser solo el archivo que pediste, sino **toda una carpeta**: por ejemplo `...\Desktop\prueba_permisos\*`, donde el `*` significa «todo lo que hay dentro». Si el alcance es más amplio de lo que esperabas (por ejemplo, todo el escritorio o tu carpeta de documentos), pulsa **Denegar** y vuelve a pedirlo de forma más acotada.
 
 Tiene tres botones: **Denegar**, **Permitir siempre** y **Permitir una vez**.
 
@@ -147,7 +151,7 @@ Tiene tres botones: **Denegar**, **Permitir siempre** y **Permitir una vez**.
 Antes de decidir, contesta por escrito:
 
 1. **¿Qué me está pidiendo exactamente?**
-   (¿leer un archivo? ¿escribir uno nuevo? ¿ejecutar una orden? ¿dónde?)
+   (¿leer un archivo? ¿escribir uno nuevo? ¿ejecutar una orden? ¿dónde? ¿el permiso cubre solo ese archivo o una carpeta entera?)
    ________________________________________________________________
 
 2. **¿Qué pasaría si digo que sí?**
@@ -166,9 +170,9 @@ Ahora sí: pulsa **Permitir una vez**. Y observa lo que pasa.
 
 Repite la petición otra vez:
 
-> Crea un archivo llamado `prueba_agente2.txt` en el escritorio.
+> Crea un archivo llamado `prueba_agente2.txt` en la carpeta `prueba_permisos` del escritorio.
 
-**Te va a volver a preguntar.** Esta vez pulsa **Denegar** y mira qué hace: el agente se para y no lo intenta por otro camino.
+**Te va a volver a preguntar.** Esta vez pulsa **Denegar** y mira qué hace: el agente se para y no lo intenta por otro camino. Denegar también es un buen resultado: has comprobado que el freno funciona. Si después de denegar el agente buscara otra forma de hacerlo (otra ruta, otra orden), eso sí sería un problema: apúntalo y avisa al instructor.
 
 > **«Permitir una vez» es permitir esa vez. No vale para siempre.**
 
@@ -176,12 +180,12 @@ Es incómodo **a propósito**: ese pequeño fastidio es lo que te obliga a pensa
 
 ### Paso 6 — Limpia
 
-Borra el archivo de prueba que has creado en el escritorio, `prueba_agente.txt`.
+Borra el archivo de prueba, `prueba_agente.txt`. Deja la carpeta `prueba_permisos`: la usarás en la Práctica 3.
 
 ### ✅ Comprobación
 
 - [ ] He visto aparecer un aviso de aprobación.
-- [ ] He leído el aviso **antes** de aprobarlo.
+- [ ] He leído el aviso **antes** de aprobarlo, incluida la ruta que cubre.
 - [ ] Sé explicar con mis palabras qué me estaba pidiendo.
 - [ ] He comprobado que al repetir la petición **vuelve a preguntar**, y he visto qué pasa al denegar.
 - [ ] He borrado los archivos de prueba.
@@ -234,7 +238,7 @@ Lo que dice: antes de **editar** cualquier archivo (`edit`) o **ejecutar** cualq
 
 Comprueba también que la puerta sigue cerrada:
 
-> Crea un archivo llamado `prueba_fuera.txt` en el escritorio de mi usuario.
+> Crea un archivo llamado `prueba_fuera.txt` en la carpeta `prueba_permisos` del escritorio de mi usuario.
 
 Tiene que salir el aviso *Acceder a archivos fuera del directorio del proyecto*. Pulsa **Denegar**.
 
@@ -252,7 +256,7 @@ Hay dos palancas, y las dos son tuyas:
 
 ### Paso 7 — Déjalo como estaba
 
-Para las prácticas siguientes, **borra `opencode.json`** y reinicia opencode (Ctrl + C y `opencode web`). Si prefieres seguir aprobando cada cambio, déjalo: solo tendrás más avisos.
+Borra la carpeta `prueba_permisos` del escritorio. Para las prácticas siguientes, **borra `opencode.json`** y reinicia opencode (Ctrl + C y `opencode web`). Si prefieres seguir aprobando cada cambio, déjalo: solo tendrás más avisos.
 
 > **Si usas Claude Code o Codex** (carril B): la prueba es la misma, pero la política de serie es distinta, así que puede que los resultados sean los contrarios.
 > - **Claude Code** pregunta de serie antes de editar un archivo, también dentro de la carpeta. Pulsa **Mayús + Tab** hasta ver *accept edits* (aceptar ediciones) y repite: verás que deja de preguntar. Vuelve al modo normal con Mayús + Tab. La política fija se guarda en `.claude/settings.json`.
@@ -264,7 +268,7 @@ Para las prácticas siguientes, **borra `opencode.json`** y reinicia opencode (C
 
 - [ ] El archivo `prueba_dentro.txt` se creó **sin** pedir aprobación.
 - [ ] Con `opencode.json` y tras reiniciar, `prueba_dentro2.txt` **sí** pidió aprobación.
-- [ ] Escribir en el escritorio pidió aprobación y lo denegué.
+- [ ] Escribir en `prueba_permisos` pidió aprobación y lo denegué.
 - [ ] Sé explicar la diferencia entre la carpeta y la política en una frase.
 
 ### Y no lo olvides
@@ -296,6 +300,10 @@ Lo más fácil es pedírselo al propio agente:
 
 *(Si prefieres escribirlo tú a mano, crea el archivo `AGENTS.md` en la raíz de la carpeta de trabajo y pega esas mismas líneas.)*
 
+**Antes de seguir, compruébalo tú.** Abre la carpeta `practica_agente` en el explorador de archivos: `AGENTS.md` tiene que estar en la raíz, junto a `informes`. Ábrelo y comprueba que contiene las cuatro reglas.
+
+> **Si el agente dice que lo ha creado y no está**, no es raro: a veces un agente da por hecho algo que no ha llegado a hacer. Pídeselo otra vez exigiendo la prueba: «Crea `AGENTS.md` en la raíz, comprueba que existe y enséñame su contenido». Y vuelve a mirarlo tú. Si sigue sin aparecer, créalo a mano.
+
 ### Paso 2 — El detalle que hace que esto sea una prueba de verdad
 
 **Abre una conversación nueva.** No sigas en la misma.
@@ -312,7 +320,7 @@ Y observa si cumple las notas: ¿responde en español?, ¿guarda el resultado en
 
 ### ✅ Comprobación
 
-- [ ] Existe el archivo `AGENTS.md` en la raíz de mi carpeta de trabajo.
+- [ ] He visto con mis ojos `AGENTS.md` en la raíz de mi carpeta de trabajo, con las cuatro reglas, **antes** de abrir la conversación nueva.
 - [ ] He abierto una **conversación nueva**.
 - [ ] El agente ha respetado las instrucciones **sin que se las repita**.
 - [ ] Sé explicar la diferencia entre lo que dura una conversación y lo que es permanente.
@@ -325,9 +333,11 @@ Las notas son preferencias. Los **procedimientos guardados** (skills) son para t
 
 Pídele al agente que te cree una:
 
-> Crea una skill llamada `resumen-informes` que consista en: leer todos los archivos de la carpeta `informes`, crear un archivo `resumen_general.md` con una tabla de tres columnas (archivo, tema, conclusión) y no modificar los originales.
+> Crea una skill llamada `resumen-informes` que consista en: leer los informes `.txt` de la carpeta `informes` (no el propio resumen ni otros archivos), crear o sustituir `informes/resumen_general.md` con una tabla de tres columnas (archivo, tema, conclusión) y no modificar los originales.
 
-opencode la guarda en `.opencode/skills/resumen-informes/SKILL.md`. **Las skills se cargan al arrancar**: apaga opencode (Ctrl + C), vuelve a arrancarlo con `opencode web` y, en una sesión nueva, pídele «hazme el resumen de informes». Comprueba que sigue la receta: debe crear `resumen_general.md` con la tabla. Si no reinicias, responderá en el chat sin usarla.
+Fíjate en que la ruta de salida, `informes/resumen_general.md`, es la misma que dicen tus notas de `AGENTS.md`. **Las notas y la skill no deben competir:** si una dice una carpeta y la otra otra, no sabrás cuál seguirá el agente.
+
+opencode la guarda en `.opencode/skills/resumen-informes/SKILL.md`. **Las skills se cargan al arrancar**: apaga opencode (Ctrl + C), vuelve a arrancarlo con `opencode web` y, en una sesión nueva, pídele «hazme el resumen de informes». Comprueba que sigue la receta: debe crear `informes/resumen_general.md` (no en la raíz) con una fila por informe y sin una fila para el propio resumen. Si no reinicias, responderá en el chat sin usarla.
 
 > **Si usas Claude Code o Codex** (carril B):
 > - **Codex** lee `AGENTS.md` directamente. Guarda las skills en `.agents/skills/<nombre>/SKILL.md`.
@@ -360,7 +370,7 @@ Este patrón es lo más útil que te llevas hoy. Cópialo de aquí en adelante:
 
 **Ejemplo completo:**
 
-> «En la carpeta `practica_agente/informes` hay cinco informes en texto. Léelos y créame `resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia.
+> «En la carpeta `practica_agente/informes` hay cinco informes en texto (`informe_*.txt`). Léelos y créame `informes/resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia.
 > **No modifiques ninguno de los cinco archivos originales.**
 > Al terminar, dime qué archivos has leído y cuántas filas tiene la tabla.»
 
@@ -384,6 +394,7 @@ Cuando diga «hecho», **no está hecho: está propuesto.**
 
 - [ ] He **abierto** el archivo resultante (no vale «tiene buena pinta»).
 - [ ] He **contado**: ¿están todos los elementos?, ¿las filas que debería?
+- [ ] Si la tabla selecciona filas por una condición (por ejemplo, «existencias por debajo del mínimo»), he **contrastado cada fila con el archivo original**: todas la cumplen de verdad (existencias < mínimo) y no falta ninguna que la cumpla. Una fila que no cumple la condición es un error, aunque el informe lo presente con seguridad.
 - [ ] He comprobado que **los archivos que no debía tocar siguen intactos**.
 - [ ] Le he preguntado **qué archivos ha tocado**, y la respuesta cuadra con lo que veo.
 
@@ -391,7 +402,7 @@ Cuando diga «hecho», **no está hecho: está propuesto.**
 
 - [ ] He escrito un encargo con las cuatro partes.
 - [ ] El agente ha producido un resultado.
-- [ ] He verificado el resultado abriéndolo y contando.
+- [ ] He verificado el resultado abriéndolo, contando y comprobando las cifras de cada fila.
 - [ ] He comprobado que lo que no debía tocarse no se ha tocado.
 - [ ] Sé decir **una cosa que revisaría mejor la próxima vez**.
 
@@ -419,6 +430,11 @@ Copia este encargo tal cual (tiene las cuatro partes):
 > **No modifiques el CSV original.** Si corriges algún dato, hazlo en el script y dime cuál y por qué.
 > Al terminar, dime el consumo total y compáralo con los 32.400 kWh del informe de energía.»
 
+> **Tres controles para toda la práctica**
+> 1. Confirma filas, columnas, unidades y valores vacíos **antes** de calcular.
+> 2. Calcula el total **con y sin** la lectura sospechosa, y no edites el CSV original.
+> 3. Compara el exceso con el modelo ajustado con todos los datos y con la semana 3 fuera del ajuste. Trata los dos resultados como **señales**, no como prueba de la causa.
+
 ### Paso 2 — Mira antes de que calcule
 
 Fíjate en la respuesta al punto 1. Hay **dos trampas** puestas a propósito en los datos. ¿Las ha encontrado el agente antes de calcular? Si no, pregúntale: «¿Todas las lecturas de `kwh_total` están en las mismas unidades?».
@@ -426,13 +442,13 @@ Fíjate en la respuesta al punto 1. Hay **dos trampas** puestas a propósito en 
 ### Paso 3 — Revisa el programa, no solo el número
 
 - Abre el script. No hace falta entenderlo todo: busca **dónde lee el archivo**, **qué filas descarta o corrige** y **qué fórmula ajusta**.
-- Pregúntale: «¿Has usado los mismos datos para ajustar el modelo y para evaluarlo? ¿Qué pasa si quitas la semana 3 al ajustar?».
+- **Obligatorio:** pregúntale «¿Has usado los mismos datos para ajustar el modelo y para evaluarlo?» y pídele una segunda estimación: «Ajusta el modelo sin la semana 3 y calcula otra vez su exceso». Si la semana rara entra en el ajuste, tira de la recta hacia ella y su exceso parece menor. Apunta los dos números.
 - Pregúntale: «¿Para qué rango de producción vale este modelo?».
 
 ### Paso 4 — Totales de control
 
 Comprueba **tú** dos números contra el informe original:
-- [ ] El consumo total sale **32.400 kWh** (si sale unos 31.650, hay una lectura mal sumada).
+- [ ] El consumo total sale **32.400 kWh** si la lectura `0.751` se interpreta como 0,751 MWh (751 kWh), y unos 31.650 sin corregirla. Pide los dos escenarios. Que cuadre con el informe hace muy probable la conversión, pero sigue siendo un **supuesto**: sin una fuente que confirme las unidades, preséntalo así y anota la justificación.
 - [ ] Las unidades terminadas suman **17.820**.
 
 ### ✅ Comprobación
@@ -441,6 +457,7 @@ Comprueba **tú** dos números contra el informe original:
 - [ ] Ha detectado (solo o con tu pregunta) la lectura en otras unidades y el valor vacío.
 - [ ] El CSV original está intacto y el script está guardado para repetirlo.
 - [ ] El total cuadra con el informe.
+- [ ] Tengo el exceso de esa semana con los dos ajustes (con todos los datos y sin la semana 3) y sé por qué difieren.
 - [ ] Sé decir qué semana se sale del modelo y **qué dato lo confirma** (pista: hay una columna que no está en el informe).
 - [ ] He revisado las **unidades** de lo que me dice: ¿kWh al día o en toda la semana? Los modelos a veces aciertan el número y se equivocan en la unidad.
 
