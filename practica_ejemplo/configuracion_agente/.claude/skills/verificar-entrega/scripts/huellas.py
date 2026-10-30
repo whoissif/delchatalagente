@@ -3,7 +3,7 @@
   python .claude/skills/verificar-entrega/scripts/huellas.py foto      # antes de empezar
   python .claude/skills/verificar-entrega/scripts/huellas.py comprobar # al terminar
 
-Guarda la foto en .claude/huellas.json. Ignora .claude/ y .dsh/ (configuración).
+Guarda la foto en .claude/huellas.json. Ignora .claude/ y .opencode/ (configuración).
 """
 import hashlib
 import json
@@ -13,7 +13,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 RAIZ = Path.cwd()
 FOTO = RAIZ / ".claude" / "huellas.json"
-IGNORAR = {".claude", ".dsh", "__pycache__"}
+IGNORAR = {".claude", ".opencode", "__pycache__"}
 
 
 def huellas():

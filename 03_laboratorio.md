@@ -16,13 +16,15 @@ Vas a trabajar **siempre dentro de una copia de la carpeta de práctica**. Eso n
 2. Cambia el nombre de la carpeta extraída a `practica_agente`.
 3. Conserva aparte el ZIP original como copia limpia para empezar de nuevo si hace falta.
 4. Comprueba que dentro de `practica_agente` hay una carpeta `informes`, tres archivos CSV y los documentos de configuración y reunión.
-5. **No uses la carpeta original del repositorio como espacio de trabajo.** El agente puede modificar archivos; elige la copia `practica_agente`.
+5. **Trabaja siempre en la copia `practica_agente`**, nunca en el ZIP ni en otra carpeta con tus archivos. El agente puede modificar lo que haya dentro.
 
 > ⚠️ **Por qué insistimos con la copia de seguridad:** el agente va a poder leer y modificar los archivos de esta carpeta, y va a ejecutar acciones de verdad. No es una simulación. Si prefieres practicar con algo que no te importe perder, mejor.
 
 **Qué necesitas tener a mano:**
-- Tu clave de API de DeepSeek (la del correo de preparación).
+- opencode instalado (lo hiciste en la preparación previa). No necesitas clave de API: usaremos sus modelos gratuitos.
 - El portátil con el cargador enchufado.
+
+> **Si te atascas más de tres minutos**, no sigas peleándote en silencio: mira la tabla **«Si algo falla»** de la práctica y, si estás en clase, levanta la mano.
 
 ---
 
@@ -38,59 +40,52 @@ Vas a trabajar **siempre dentro de una copia de la carpeta de práctica**. Eso n
 
 Es una ventana negra o azul donde se escriben órdenes. No pasa nada, no vas a romper nada.
 
-### Paso 2 — Comprueba que tienes Node.js
+### Paso 2 — Comprueba que tienes opencode
 
-El harness necesita un programa que se llama **Node.js**. Seguramente lo dejaste instalado al hacer la preparación previa; compruébalo en un segundo escribiendo esto y pulsando Enter:
-
-```
-node -v
-```
-
-- **Si aparece un número** (por ejemplo `v24.11.0`; cualquier versión 22 o superior sirve), todo bien: pasa al siguiente paso.
-- **Si no aparece nada, o dice que `node` no se reconoce**, hay que instalarlo:
-  1. Entra en la web oficial de Node.js y descarga el instalador.
-  2. Elige la versión marcada como **LTS** (la estable; no la que pone «Current»).
-  3. Instala con las opciones por defecto.
-  4. **Cierra la terminal y ábrela otra vez**, y repite `node -v`.
-
-> La orden `npx`, que usaremos en el paso siguiente, viene **incluida con Node.js**. Por eso, si `node -v` funciona, lo demás ya está listo.
-
-### Paso 3 — Arranca el harness
-
-Escribe esta orden y pulsa Enter:
+El harness que vamos a usar se llama **opencode**. Lo dejaste instalado en la preparación previa; compruébalo escribiendo esto y pulsando Enter:
 
 ```
-npx @deepseek-ai/dsh web
+opencode --version
 ```
 
-La primera vez puede tardar un poco: está descargando lo que necesita. Verás varias líneas pasando por la pantalla. **Es normal.**
+- **Si aparece un número** (por ejemplo `1.19.5`), todo bien: pasa al siguiente paso.
+- **Si dice que `opencode` no se reconoce**, vuelve a la preparación previa (pasos 2 y 3): falta Node.js o falta instalar opencode.
 
-Cuando termine, se abrirá **sola** una página en tu navegador. Si no se abre, ábrela tú y escribe esta dirección:
+### Paso 3 — Arranca el harness dentro de tu carpeta
+
+Primero entra en tu carpeta de práctica. Si la dejaste en Documentos:
 
 ```
-http://127.0.0.1:3080
+cd Documents\practica_agente
 ```
+
+(En macOS: `cd ~/Documents/practica_agente`.) Después arranca la interfaz web:
+
+```
+opencode web
+```
+
+Se abrirá **sola** una página en tu navegador con la interfaz de opencode, en español. Si no se abre, copia la dirección que aparece en la terminal (algo como `http://127.0.0.1:4096`) y pégala en el navegador.
 
 **No cierres la ventana de la terminal.** Si la cierras, se apaga el agente.
 
-### Paso 4 — Configura el modelo
+### Paso 4 — Abre tu carpeta como proyecto
 
-Sin esto, el agente no puede pensar.
+1. Si no ves tu carpeta en la lista de **Proyectos**, pulsa **Añadir proyecto**.
+2. En el buscador, escribe `Documents/practica_agente` y elige tu carpeta.
+3. Pulsa **Nueva sesión**.
 
-1. Busca **Ajustes** (o *Settings*).
-2. Entra en **Modelos** (o *Models*).
-3. Pega tu **clave de API** de DeepSeek.
-4. Guarda.
+Esa carpeta es la **sala** del agente: lo que hay dentro lo puede tocar; para salir de ella te pedirá permiso.
 
-Se aplica al momento, **no hace falta reiniciar nada**.
+### Paso 5 — Comprueba el modelo
 
-### Paso 5 — Elige tu espacio de trabajo
+Debajo del cuadro de mensajes verás el nombre del modelo, por ejemplo **Big Pickle**. Es uno de los **modelos gratuitos** de opencode: no necesitas cuenta ni clave de API.
 
-1. Pulsa el botón **Elegir espacio de trabajo** (o *Choose workspace*).
-2. Añade la carpeta `practica_agente` que has extraído y renombrado.
-3. Selecciónala.
+Pulsa sobre el nombre: se abre **Seleccionar modelo**, con los gratuitos marcados como **Gratis**. Elige **GLM-5.3-Flash** (o **DeepSeek V4.1 Flash**). También son gratuitos y, según la página de privacidad de opencode, sus proveedores no guardan tus datos ni los usan para entrenar; con Big Pickle, en cambio, los datos pueden usarse para mejorar el modelo. *(Datos a 30 de octubre de 2026: los modelos gratuitos cambian a menudo. Si no aparecen, elige otro marcado como gratuito y mira su política en la documentación de opencode.)*
 
-> 🔎 **Si el cuadro donde se escriben los mensajes está deshabilitado y no te deja escribir nada, es casi seguro esto: no has elegido espacio de trabajo.** El agente no sabe dónde trabajar, así que no te deja empezar. Vuelve al paso 5.
+> Gratis no quiere decir privado. **No pongas en esta carpeta datos reales ni confidenciales**: lo que el agente lee se envía al proveedor del modelo.
+
+> **Si usas Claude Code o Codex** (carril B): en vez de los pasos 2 a 5, entra en la carpeta con `cd` y escribe `claude` o `codex`. La primera vez te pedirá iniciar sesión con tu cuenta y confirmar que confías en la carpeta. El modelo ya viene incluido en tu plan; no hay que elegir uno gratuito. Con Claude, también puedes usar la pestaña **Code** de la aplicación de escritorio y elegir ahí la carpeta. Los datos que envías siguen la política de tu cuenta: revísala igual.
 
 ### Paso 6 — Tu primer encargo
 
@@ -100,26 +95,26 @@ Escribe esto tal cual, cambiando lo que haga falta para que encaje con tu carpet
 
 ### Qué deberías ver
 
-- Que el agente **no responde de golpe**: va dando pasos.
+- Que el agente **no responde de golpe**: va dando pasos (*Explorado*, *Shell*, *Escribir*…).
 - Que cada paso aparece en pantalla, indicando qué está haciendo.
-- Que al final te dice **dónde ha dejado** el archivo nuevo.
+- Que al final te dice **dónde ha dejado** el archivo nuevo. Fíjate: puede que lo haya guardado dentro de `informes` y no en la raíz. Tu encargo no decía dónde; él ha elegido.
 
 ### ✅ Comprobación
 
 - [ ] Hay un archivo nuevo, `INDICE.md`, dentro de tu carpeta.
 - [ ] Lo has abierto y el contenido tiene sentido.
 - [ ] Los archivos originales siguen ahí, intactos.
-- [ ] Sabrías decir **qué herramientas** ha usado el agente para hacerlo (mirar la carpeta, leer, escribir...).
+- [ ] Sabrías decir **qué herramientas** ha usado el agente para hacerlo (mirar la carpeta, leer, ejecutar una orden, escribir...).
 
 ### Si algo falla
 
 | Lo que ves | Qué hacer |
 |---|---|
-| «`npx` no se reconoce como una orden» | Node.js no está instalado o la terminal se abrió antes de instalarlo. Cierra la terminal, ábrela otra vez. Si sigue, revisa la guía de instalación previa. |
-| La página no carga | Comprueba que la terminal sigue abierta y que la dirección es exactamente `http://127.0.0.1:3080`. |
-| El cuadro de mensajes está gris | No has elegido espacio de trabajo. Paso 5. |
-| Dice que la clave no es válida | Revisa que has copiado la clave entera, sin espacios, y que la cuenta tiene saldo. |
-| El agente tarda mucho | Está trabajando. Mira el panel de pasos: si avanza, déjalo. |
+| «`opencode` no se reconoce como una orden» | Cierra la terminal y ábrela otra vez. Si sigue, repite la instalación de la preparación previa. |
+| La página no carga | Comprueba que la terminal sigue abierta y copia exactamente la dirección que aparece en ella. |
+| No encuentras tu carpeta en **Añadir proyecto** | Escribe la ruta desde tu usuario, por ejemplo `Documents/practica_agente`. Las carpetas ocultas o temporales no salen. |
+| El modelo responde con un error o dice que está saturado | Los gratuitos a veces se saturan. Pulsa el nombre del modelo, elige otro marcado como **Gratis** y repite. |
+| El agente tarda mucho | Está trabajando. Mira los pasos: si avanzan, déjalo. |
 
 ---
 
@@ -128,19 +123,23 @@ Escribe esto tal cual, cambiando lo que haga falta para que encaje con tu carpet
 **Tiempo:** unos 10 minutos.
 **Objetivo:** ver con tus ojos qué pasa cuando el agente intenta salir de su zona, y entender qué te está pidiendo exactamente.
 
-Esta es la práctica más importante del seminario. Léela entera antes de empezar.
+Esta es la práctica más importante del curso. Léela entera antes de empezar.
 
 ### Paso 1 — Pídele algo que está fuera de su zona
 
-**Asegúrate de que tienes la carpeta `practica_agente` seleccionada como espacio de trabajo.** Ahora pídele algo que ocurra **fuera** de ella, por ejemplo en el escritorio:
+**Asegúrate de que estás en una sesión del proyecto `practica_agente`.** Ahora pídele algo que ocurra **fuera** de ella, por ejemplo en el escritorio:
 
 > Crea un archivo llamado `prueba_agente.txt` en el escritorio de mi usuario, con el texto «prueba».
 
 ### Paso 2 — Para y mira
 
-**No apruebes nada todavía.** Va a aparecer un **aviso de aprobación**. Lee el aviso entero, despacio, antes de tocar nada.
+**No apruebes nada todavía.** Va a aparecer un aviso **«Permiso requerido»**: *Acceder a archivos fuera del directorio del proyecto*, con la ruta de tu escritorio debajo. Lee el aviso entero, despacio, antes de tocar nada.
 
-> ⚠️ **¿Y si no aparece ningún aviso y el archivo se crea solo?** Pasa en agentes con aprobación automática, como Claude Code en **modo Auto**: otra IA (un clasificador) decide por ti si la acción es arriesgada, y escribir un archivo inofensivo en el escritorio suele dejarlo pasar. No es un fallo de la práctica: es su lección más importante. **Sin aviso, el freno de «leer antes de aprobar» desaparece.** Para hacer la práctica tal como está pensada, cambia al modo manual (en Claude Code, `Shift+Tab` hasta salir de *Auto*) y repite.
+Tiene tres botones: **Denegar**, **Permitir siempre** y **Permitir una vez**.
+
+> ⚠️ **Otros agentes no siempre preguntan.** En algunos, como Claude Code en *modo Auto*, otra IA decide por ti si la acción es arriesgada y un archivo inofensivo en el escritorio suele pasar sin aviso. Sin aviso, el freno de «leer antes de aprobar» desaparece. Cuando uses otra herramienta, comprueba primero cómo pregunta.
+
+> **Si usas Claude Code o Codex** (carril B): el aviso tiene otro aspecto y otras palabras, pero las opciones son equivalentes: sí esta vez, sí a partir de ahora, o no. En Claude Code, trabaja en el modo normal (el de serie), no en modo Auto. En Codex, deja el modo de serie, que permite trabajar dentro de la carpeta y pide permiso para salir de ella. Las tres preguntas del paso 3 son exactamente las mismas.
 
 ### Paso 3 — Hazte las tres preguntas
 
@@ -160,7 +159,7 @@ Antes de decidir, contesta por escrito:
 
 ### Paso 4 — Decide, conscientemente
 
-Ahora sí: **permite una vez**. Y observa lo que pasa.
+Ahora sí: pulsa **Permitir una vez**. Y observa lo que pasa.
 
 ### Paso 5 — El detalle que hay que entender
 
@@ -168,7 +167,7 @@ Repite la petición otra vez:
 
 > Crea un archivo llamado `prueba_agente2.txt` en el escritorio.
 
-**Te va a volver a preguntar.**
+**Te va a volver a preguntar.** Esta vez pulsa **Denegar** y mira qué hace: el agente se para y no lo intenta por otro camino.
 
 > **«Permitir una vez» es permitir esa vez. No vale para siempre.**
 
@@ -176,14 +175,14 @@ Es incómodo **a propósito**: ese pequeño fastidio es lo que te obliga a pensa
 
 ### Paso 6 — Limpia
 
-Borra los archivos de prueba que hayas creado en el escritorio. Se llaman `prueba_agente.txt` y `prueba_agente2.txt`.
+Borra el archivo de prueba que has creado en el escritorio, `prueba_agente.txt`.
 
 ### ✅ Comprobación
 
 - [ ] He visto aparecer un aviso de aprobación.
 - [ ] He leído el aviso **antes** de aprobarlo.
 - [ ] Sé explicar con mis palabras qué me estaba pidiendo.
-- [ ] He comprobado que al repetir la petición **vuelve a preguntar**.
+- [ ] He comprobado que al repetir la petición **vuelve a preguntar**, y he visto qué pasa al denegar.
 - [ ] He borrado los archivos de prueba.
 
 ### Los dos malos hábitos que ya puedes reconocer
@@ -198,41 +197,69 @@ Borra los archivos de prueba que hayas creado en el escritorio. Se llaman `prueb
 ## Práctica 3 — Cambiar de política
 
 **Tiempo:** unos 8 minutos.
-**Objetivo:** comprobar que tú decides el tamaño de la sala, y que eso cambia las reglas del juego.
+**Objetivo:** comprobar que dentro de la sala no pregunta, y que **tú puedes cambiar la política** para que pregunte también ahí.
 
 ### Paso 1 — La misma tarea, pero dentro
 
 Pide lo mismo que antes, esta vez **dentro** de tu carpeta de trabajo:
 
-> Crea un archivo llamado `prueba_dentro.txt` en la carpeta `practica_agente`, con el texto «prueba».
+> Crea un archivo llamado `prueba_dentro.txt` en la carpeta de trabajo, con el texto «prueba».
 
 ### Paso 2 — Observa
 
-**No ha preguntado nada.** Lo ha hecho y punto.
+**No ha preguntado nada.** Lo ha hecho y punto. Es la política que trae opencode de serie: **dentro de la carpeta puede leer, escribir y ejecutar órdenes sin preguntar**; solo pide permiso para salir.
 
-### Paso 3 — Saca la conclusión
+### Paso 3 — Cambia la política
 
-> **El agente no es más listo ni más tonto. Has cambiado dónde trabaja.**
+La política se guarda en un archivo, `opencode.json`, en la raíz de tu carpeta. Pídeselo al propio agente:
 
-Al mover el trabajo dentro de la carpeta de trabajo:
-- **Desaparecen los avisos**, porque ya no necesita salir de su zona.
-- **Baja el riesgo**, porque está trabajando en un sitio acotado que tú controlas.
+> Crea en la raíz de esta carpeta un archivo `opencode.json` con exactamente este contenido: `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask"}}`
 
-Por eso, cuando una tarea te obligue a aprobar cien avisos, **la solución no es aprobarlos todos**:
+Lo que dice: antes de **editar** cualquier archivo (`edit`) o **ejecutar** cualquier orden (`bash`), pregunta (`ask`).
 
-> **Si una tarea te obliga a aprobar cien avisos, el problema no es el agente: es dónde está trabajando. Mueve el trabajo dentro de la carpeta y los avisos desaparecen solos.**
+### Paso 4 — Reinicia opencode
+
+**La política se lee al arrancar.** Si pruebas ahora, seguirá sin preguntar. Así que:
+
+1. Ve a la terminal y pulsa **Ctrl + C** para apagar opencode.
+2. Vuelve a arrancarlo con `opencode web`.
+3. Abre una **Nueva sesión** en tu proyecto.
+
+### Paso 5 — Repite la prueba
+
+> Crea un archivo llamado `prueba_dentro2.txt` en la carpeta de trabajo, con el texto «prueba».
+
+**Ahora sí pregunta**, aunque sea dentro de la sala: *Modificar archivos mediante ediciones, escrituras y parches*. Pulsa **Permitir una vez**.
+
+### Paso 6 — Saca la conclusión
+
+> **El agente no es más listo ni más tonto. Has cambiado sus reglas.**
+
+Hay dos palancas, y las dos son tuyas:
+- **Dónde trabaja** (la carpeta): cuanto más pequeña, menos riesgo.
+- **Qué puede hacer sin preguntar** (la política): más avisos, más control; menos avisos, más velocidad.
+
+> **Si una tarea te obliga a aprobar cien avisos, el problema no es el agente: es dónde está trabajando o qué política le has puesto. Mueve el trabajo dentro de la carpeta y ajusta la política; no apruebes a ciegas.**
+
+### Paso 7 — Déjalo como estaba
+
+Para las prácticas siguientes, **borra `opencode.json`** y reinicia opencode (Ctrl + C y `opencode web`). Si prefieres seguir aprobando cada cambio, déjalo: solo tendrás más avisos.
+
+> **Si usas Claude Code o Codex** (carril B): la prueba es la misma, pero la política de serie es distinta, así que puede que los resultados sean los contrarios.
+> - **Claude Code** pregunta de serie antes de editar un archivo, también dentro de la carpeta. Pulsa **Mayús + Tab** hasta ver *accept edits* (aceptar ediciones) y repite: verás que deja de preguntar. Vuelve al modo normal con Mayús + Tab. La política fija se guarda en `.claude/settings.json`.
+> - **Codex**: escribe `/permissions` y elige un modo más estricto (por ejemplo, solo lectura). Repite la prueba y vuelve después al modo de serie.
+>
+> La conclusión no cambia: **las reglas las pones tú**.
 
 ### ✅ Comprobación
 
-- [ ] El archivo `prueba_dentro.txt` existe dentro de `practica_agente`.
-- [ ] **No ha pedido ninguna aprobación.**
-- [ ] Sé explicar la diferencia con la Práctica 2 en una frase.
+- [ ] El archivo `prueba_dentro.txt` se creó **sin** pedir aprobación.
+- [ ] Con `opencode.json` y tras reiniciar, `prueba_dentro2.txt` **sí** pidió aprobación.
+- [ ] Sé explicar la diferencia entre la carpeta y la política en una frase.
 
 ### Y no lo olvides
 
-> **El sandbox reduce el riesgo, no lo elimina.** Todo lo que está **dentro** de la carpeta autorizada, el agente lo puede tocar sin preguntar. Si dentro hay algo que no debería tocarse, el problema es lo que hay en la carpeta.
-
-> **Si usas Claude Code en Windows:** no tiene sandbox, así que la «sala» no la marca la carpeta por sí sola. Hay que construirla con reglas de permisos y un hook. En el entorno de práctica tienes una **configuración de ejemplo** ya montada (`configuracion_agente`); úsala cuando acabes las prácticas.
+> **La carpeta reduce el riesgo, no lo elimina.** Con la política de serie, todo lo que está **dentro** de la carpeta el agente lo puede tocar sin preguntar, incluidas las órdenes de terminal. opencode detecta cuándo una orden apunta fuera de la carpeta y te pregunta, pero **no es un sandbox**: no aísla el programa del resto del ordenador. Si dentro hay algo que no debería tocarse, el problema es lo que hay en la carpeta.
 
 ---
 
@@ -290,7 +317,12 @@ Pídele al agente que te cree una:
 
 > Crea una skill llamada `resumen-informes` que consista en: leer todos los archivos de la carpeta `informes`, crear un archivo `resumen_general.md` con una tabla de tres columnas (archivo, tema, conclusión) y no modificar los originales.
 
-Después, en una conversación nueva, pídele «hazme el resumen de informes» y comprueba que sigue la receta.
+opencode la guarda en `.opencode/skills/resumen-informes/SKILL.md`. **Las skills se cargan al arrancar**: apaga opencode (Ctrl + C), vuelve a arrancarlo con `opencode web` y, en una sesión nueva, pídele «hazme el resumen de informes». Comprueba que sigue la receta: debe crear `resumen_general.md` con la tabla. Si no reinicias, responderá en el chat sin usarla.
+
+> **Si usas Claude Code o Codex** (carril B):
+> - **Codex** lee `AGENTS.md` directamente. Guarda las skills en `.agents/skills/<nombre>/SKILL.md`.
+> - **Claude Code** lee `CLAUDE.md`, no `AGENTS.md`. Pídele: «Crea un `CLAUDE.md` que contenga solo la línea `@AGENTS.md`». Así los dos agentes comparten las mismas notas. Guarda las skills en `.claude/skills/<nombre>/SKILL.md`.
+> - En los dos casos, si no reconoce la skill, abre una sesión nueva. El archivo `SKILL.md` es el mismo formato: una skill escrita en opencode te sirve copiándola a la carpeta correspondiente.
 
 ### La lección, para llevártela
 
@@ -364,7 +396,7 @@ Cuando diga «hecho», **no está hecho: está propuesto.**
 
 En la carpeta está `lecturas_energia_diarias.csv`: el consumo eléctrico diario de la planta ficticia durante las cuatro semanas del informe `informe_04_energia_mayo.txt`, con las unidades producidas y las horas de operación. El informe dice que la semana 3 consumió más y sospecha del compresor por la noche. Vamos a comprobarlo.
 
-> **No necesitas instalar nada más.** El agente puede escribir el script en Python, si lo tienes, o en JavaScript con el Node.js que ya instalaste.
+> **No necesitas instalar nada más.** El agente puede escribir el script en Python, si lo tienes, o en JavaScript con el Node.js que ya instalaste. Si tienes Python pero le faltan librerías (pandas, matplotlib), el agente te propondrá instalarlas: piénsalo antes de aceptar, o pídele que lo haga sin ellas.
 
 ### Paso 1 — El encargo
 
@@ -400,6 +432,7 @@ Comprueba **tú** dos números contra el informe original:
 - [ ] El CSV original está intacto y el script está guardado para repetirlo.
 - [ ] El total cuadra con el informe.
 - [ ] Sé decir qué semana se sale del modelo y **qué dato lo confirma** (pista: hay una columna que no está en el informe).
+- [ ] He revisado las **unidades** de lo que me dice: ¿kWh al día o en toda la semana? Los modelos a veces aciertan el número y se equivocan en la unidad.
 
 > ⚠️ **La lección:** un modelo dice qué es raro; no dice por qué. Que el compresor sea la causa es una hipótesis para comprobar en la planta, no una conclusión del agente.
 
@@ -409,14 +442,19 @@ Comprueba **tú** dos números contra el informe original:
 
 Rellénala sobre la marcha. Te sirve para el cuestionario final y para acordarte de lo que has hecho.
 
-| Práctica | Qué pedí | Qué pasó | Qué comprobé |
-|---|---|---|---|
-| 1 — Primer arranque | | | |
-| 2 — Provocar una aprobación | | | |
-| 3 — Cambiar de política | | | |
-| 4 — Enseñarle un procedimiento | | | |
-| 5 — Encargo integrador | | | |
-| 6 — Datos y modelo (opcional) | | | |
+En las dos últimas columnas, apunta cuántos minutos calculas que te costaría hacerlo **copiando y pegando en un chat** y cuántos te ha costado **con el agente**. Fíjate sobre todo en la Práctica 5: es una tarea tuya.
+
+| Práctica | Qué pedí | Qué pasó | Qué comprobé | Min. con chat | Min. con agente |
+|---|---|---|---|---|---|
+| 1 — Primer arranque | | | | | |
+| 2 — Provocar una aprobación | | | | | |
+| 3 — Cambiar de política | | | | | |
+| 4 — Enseñarle un procedimiento | | | | | |
+| 5 — Encargo integrador | | | | | |
+| 6 — Datos y modelo (opcional) | | | | | |
+
+**Carril que he usado** (opencode, Claude Code, Codex u otro):
+________________________________________________________________
 
 **Lo que me ha sorprendido:**
 ________________________________________________________________

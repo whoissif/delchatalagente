@@ -5,11 +5,11 @@ description: Comprueba, con huellas de los archivos, qué se ha creado, modifica
 
 # Verificar una entrega
 
-**Al empezar la tarea:** `python .dsh/skills/verificar-entrega/scripts/huellas.py foto`
+**Al empezar la tarea:** `python .opencode/skills/verificar-entrega/scripts/huellas.py foto`
 
 **Al terminar:**
 
-1. `python .dsh/skills/verificar-entrega/scripts/huellas.py comprobar`
+1. `python .opencode/skills/verificar-entrega/scripts/huellas.py comprobar`
    - Si salen archivos **MODIFICADOS** o **BORRADOS** que no se pidieron tocar, dilo lo primero.
 2. Abre cada archivo **NUEVO** y comprueba:
    - que tiene lo pedido (cuenta filas o elementos frente al criterio de éxito del encargo);

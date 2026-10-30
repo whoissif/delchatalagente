@@ -1,7 +1,7 @@
 """Skill propuesta-reposicion: artículos bajo stock mínimo con su proveedor.
 
 Cálculo determinista: el agente no debe rehacerlo a mano. No contacta con nadie.
-Uso: python .dsh/skills/propuesta-reposicion/scripts/bajo_minimo.py \
+Uso: python .opencode/skills/propuesta-reposicion/scripts/bajo_minimo.py \
         --inventario inventario_material.csv --proveedores contactos_proveedores.csv
 """
 import argparse

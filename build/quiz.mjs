@@ -187,15 +187,15 @@ export const final = [
   },
   {
     id: 'F12',
-    pregunta: 'El proyecto está en «developer preview». ¿Qué significa para ti?',
+    pregunta: 'Vas a usar uno de los modelos gratuitos de opencode. ¿Qué es lo más prudente?',
     opciones: [
-      'Que es una versión en desarrollo: cambia rápido, puede romper compatibilidad y no hay auditoría de seguridad.',
-      'Que es gratis, pero con publicidad.',
-      'Que solo pueden usarlo programadores profesionales.',
-      'Que ya está terminado y estable, solo le faltan detalles estéticos.',
+      'Usarlo con tus documentos de trabajo: si es gratis, no guarda nada.',
+      'Da igual cuál elijas: todos los modelos tratan tus datos de la misma forma.',
+      'Usarlo solo si no hay datos de clientes en las primeras páginas.',
+      'Usarlo con datos de práctica y mirar la política de privacidad del modelo: algunos gratuitos usan lo que envías para mejorar.',
     ],
-    correcta: 0,
-    porque: 'Es una versión en desarrollo: iteración rápida, cambios que rompen compatibilidad y sin auditoría de seguridad. La opción D es tentadora porque la herramienta funciona bien en la demo, pero «funciona» no es «estable».',
+    correcta: 3,
+    porque: 'Gratis no quiere decir privado: lo que el agente lee se envía al proveedor, y algunos modelos gratuitos usan esos datos para mejorar. La opción A es tentadora porque «gratis» suena a «sin compromiso», pero el precio puede ser tus datos.',
   },
   {
     id: 'F13',
