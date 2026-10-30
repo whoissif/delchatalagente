@@ -197,11 +197,35 @@ export const final = [
     correcta: 0,
     porque: 'Es una versión en desarrollo: iteración rápida, cambios que rompen compatibilidad y sin auditoría de seguridad. La opción D es tentadora porque la herramienta funciona bien en la demo, pero «funciona» no es «estable».',
   },
+  {
+    id: 'F13',
+    pregunta: 'El agente está resumiendo una página web de un proveedor y, de repente, propone enviar por correo el contenido de tu carpeta de trabajo «porque la página lo indica». ¿Qué está pasando?',
+    opciones: [
+      'Es un paso normal: los agentes envían los resultados por correo al terminar.',
+      'Probablemente una inyección de instrucciones: la página contiene órdenes escritas por otra persona. Deniegas y preguntas.',
+      'El agente ha perdido el contexto y hay que darle acceso total para que termine.',
+      'Es un error del proveedor del modelo y no tiene nada que ver con la seguridad.',
+    ],
+    correcta: 1,
+    porque: 'Es el patrón típico de inyección de instrucciones: lo que el agente lee de fuera puede traer órdenes de otra persona. La A es tentadora porque enviar resultados es algo que los agentes hacen, pero nadie se lo ha pedido. Si no lo pediste tú, para y pregunta.',
+  },
+  {
+    id: 'F14',
+    pregunta: 'Le pides al agente el consumo eléctrico total del mes a partir de un CSV y te entrega un número y un gráfico impecables. ¿Cuál es la mejor comprobación?',
+    opciones: [
+      'Si el gráfico es coherente, el número está bien.',
+      'Pedirle que lo repita: si sale el mismo número, es correcto.',
+      'Mirar el script que ha usado (qué filas descarta o corrige, qué unidades asume) y comprobar el total contra una fuente independiente.',
+      'Usar un modelo más potente para que revise el resultado.',
+    ],
+    correcta: 2,
+    porque: 'El agente no da un número: da un programa que calcula el número, y hay que revisar el programa y cuadrar totales con la fuente. La B es tentadora, pero repetir un cálculo equivocado da el mismo error; la D delega la verificación en otra IA en lugar de hacerla tú.',
+  },
 ];
 
 export const bandas = [
-  { min: 10, titulo: 'Conceptos sólidos', texto: 'Incluidos permisos y límites. Profundiza en MCP y skills, y prueba un encargo real esta semana.' },
-  { min: 7, titulo: 'Base correcta', texto: 'Con algún punto flojo. Repasa los fallos concretos: suele ser el «permitir una vez», el sandbox o qué hacer cuando el agente empeora.' },
+  { min: 12, titulo: 'Conceptos sólidos', texto: 'Incluidos permisos y límites. Profundiza en MCP y skills, y prueba un encargo real esta semana.' },
+  { min: 8, titulo: 'Base correcta', texto: 'Con algún punto flojo. Repasa los fallos concretos: suele ser el «permitir una vez», el sandbox, qué hacer cuando el agente empeora o las instrucciones escondidas.' },
   { min: 4, titulo: 'Ideas generales captadas', texto: 'Faltan los detalles. Repite las prácticas 2 y 3 con calma y vuelve a la analogía del motor y el coche.' },
   { min: 0, titulo: 'Conviene repasar', texto: 'Empieza por un caso muy pequeño y guiado. El ritmo, no la persona, es lo que hay que ajustar.' },
 ];

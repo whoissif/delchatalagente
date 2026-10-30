@@ -31,6 +31,7 @@ No necesitas programación para las prácticas iniciales. El agente puede leer l
 
 - [Inventario de componentes](inventario_material.csv): existencias, mínimos de reposición y proveedor asignado.
 - [Proveedores de mantenimiento](contactos_proveedores.csv): especialidad y plazo orientativo de respuesta.
+- [Lecturas diarias de energía](lecturas_energia_diarias.csv): consumo eléctrico diario, consumo nocturno, unidades y horas de operación de las cuatro semanas del informe de energía. Se usa en la práctica 6 (análisis de datos y modelo) y contiene dos errores de registro puestos a propósito.
 - [Configuración del ejemplo](configuracion_ejemplo.json): parámetros ficticios de planta y criterios para los informes.
 - [Notas de coordinación](notas_reunion.txt): apuntes informales sobre las prioridades de la semana.
 - [Acta de operaciones](acta_constitucion.md): acuerdos, responsables y fechas de seguimiento.

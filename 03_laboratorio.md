@@ -2,7 +2,7 @@
 
 **Seminario:** Del chat al agente: qué es un harness y cómo se usa.
 **Qué es esto:** tu cuaderno de prácticas. Lo vas a usar con el portátil delante, escribiendo de verdad.
-**Cuánto dura:** unas dos horas repartidas en cinco prácticas.
+**Cuánto dura:** unas dos horas repartidas en cinco prácticas, más una sexta práctica avanzada y opcional de análisis de datos y modelos.
 
 > **Regla de la sala:** si te atascas más de tres minutos, levanta la mano. No hay nada que haga perder más tiempo que diez personas atascadas en silencio.
 
@@ -15,7 +15,7 @@ Vas a trabajar **siempre dentro de una copia de la carpeta de práctica**. Eso n
 1. Descarga `descarga_entorno.zip` desde la página **Entorno de práctica** del curso y descomprímelo en un lugar fácil de encontrar, como Documentos.
 2. Cambia el nombre de la carpeta extraída a `practica_agente`.
 3. Conserva aparte el ZIP original como copia limpia para empezar de nuevo si hace falta.
-4. Comprueba que dentro de `practica_agente` hay una carpeta `informes`, dos archivos CSV y los documentos de configuración y reunión.
+4. Comprueba que dentro de `practica_agente` hay una carpeta `informes`, tres archivos CSV y los documentos de configuración y reunión.
 5. **No uses la carpeta original del repositorio como espacio de trabajo.** El agente puede modificar archivos; elige la copia `practica_agente`.
 
 > ⚠️ **Por qué insistimos con la copia de seguridad:** el agente va a poder leer y modificar los archivos de esta carpeta, y va a ejecutar acciones de verdad. No es una simulación. Si prefieres practicar con algo que no te importe perder, mejor.
@@ -46,7 +46,7 @@ El harness necesita un programa que se llama **Node.js**. Seguramente lo dejaste
 node -v
 ```
 
-- **Si aparece un número** (por ejemplo `v22.14.0`), todo bien: pasa al siguiente paso.
+- **Si aparece un número** (por ejemplo `v24.11.0`; cualquier versión 22 o superior sirve), todo bien: pasa al siguiente paso.
 - **Si no aparece nada, o dice que `node` no se reconoce**, hay que instalarlo:
   1. Entra en la web oficial de Node.js y descarga el instalador.
   2. Elige la versión marcada como **LTS** (la estable; no la que pone «Current»).
@@ -353,6 +353,54 @@ Cuando diga «hecho», **no está hecho: está propuesto.**
 
 ---
 
+## Práctica 6 — Datos y modelo (avanzada, opcional)
+
+**Tiempo:** unos 20 minutos. Hazla si vas sobrado, o en casa.
+**Objetivo:** encargar un análisis de datos y un modelo sencillo, y **revisar el programa, no solo el número**.
+
+En la carpeta está `lecturas_energia_diarias.csv`: el consumo eléctrico diario de la planta ficticia durante las cuatro semanas del informe `informe_04_energia_mayo.txt`, con las unidades producidas y las horas de operación. El informe dice que la semana 3 consumió más y sospecha del compresor por la noche. Vamos a comprobarlo.
+
+> **No necesitas instalar nada más.** El agente puede escribir el script en Python, si lo tienes, o en JavaScript con el Node.js que ya instalaste.
+
+### Paso 1 — El encargo
+
+Copia este encargo tal cual (tiene las cuatro partes):
+
+> «En `practica_agente` está `lecturas_energia_diarias.csv`. Quiero:
+> 1. Antes de calcular nada, dime cuántas filas hay, qué columnas, en qué unidades crees que está cada una y si ves valores vacíos o raros.
+> 2. Escribe un script en `analisis/energia.py` (o `.js`) que calcule el consumo total y por semana, y que ajuste un modelo lineal sencillo: kWh diarios en función de las unidades terminadas.
+> 3. Usa el modelo para decir qué semana consume más de lo que le corresponde por su producción, y guarda un gráfico en `analisis/`.
+> **No modifiques el CSV original.** Si corriges algún dato, hazlo en el script y dime cuál y por qué.
+> Al terminar, dime el consumo total y compáralo con los 32.400 kWh del informe de energía.»
+
+### Paso 2 — Mira antes de que calcule
+
+Fíjate en la respuesta al punto 1. Hay **dos trampas** puestas a propósito en los datos. ¿Las ha encontrado el agente antes de calcular? Si no, pregúntale: «¿Todas las lecturas de `kwh_total` están en las mismas unidades?».
+
+### Paso 3 — Revisa el programa, no solo el número
+
+- Abre el script. No hace falta entenderlo todo: busca **dónde lee el archivo**, **qué filas descarta o corrige** y **qué fórmula ajusta**.
+- Pregúntale: «¿Has usado los mismos datos para ajustar el modelo y para evaluarlo? ¿Qué pasa si quitas la semana 3 al ajustar?».
+- Pregúntale: «¿Para qué rango de producción vale este modelo?».
+
+### Paso 4 — Totales de control
+
+Comprueba **tú** dos números contra el informe original:
+- [ ] El consumo total sale **32.400 kWh** (si sale unos 31.650, hay una lectura mal sumada).
+- [ ] Las unidades terminadas suman **17.820**.
+
+### ✅ Comprobación
+
+- [ ] El agente ha descrito los datos **antes** de calcular.
+- [ ] Ha detectado (solo o con tu pregunta) la lectura en otras unidades y el valor vacío.
+- [ ] El CSV original está intacto y el script está guardado para repetirlo.
+- [ ] El total cuadra con el informe.
+- [ ] Sé decir qué semana se sale del modelo y **qué dato lo confirma** (pista: hay una columna que no está en el informe).
+
+> ⚠️ **La lección:** un modelo dice qué es raro; no dice por qué. Que el compresor sea la causa es una hipótesis para comprobar en la planta, no una conclusión del agente.
+
+---
+
 ## Hoja de registro
 
 Rellénala sobre la marcha. Te sirve para el cuestionario final y para acordarte de lo que has hecho.
@@ -364,6 +412,7 @@ Rellénala sobre la marcha. Te sirve para el cuestionario final y para acordarte
 | 3 — Cambiar de política | | | |
 | 4 — Enseñarle un procedimiento | | | |
 | 5 — Encargo integrador | | | |
+| 6 — Datos y modelo (opcional) | | | |
 
 **Lo que me ha sorprendido:**
 ________________________________________________________________

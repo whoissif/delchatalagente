@@ -142,7 +142,7 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
    ```
 
    Pulsa **Intro**.
-2. Debe aparecer un número de versión (algo como `v22.` seguido de más números). **Si aparece el número, Node.js está listo.**
+2. Debe aparecer un número de versión (algo como `v24.` seguido de más números; sirve cualquier versión 22 o superior). **Si aparece el número, Node.js está listo.**
 3. Si en su lugar sale un mensaje diciendo que el comando no se reconoce o no se encuentra, Node.js **no está instalado** o la terminal es antigua:
    - Cierra la terminal.
    - Instala Node.js desde la web oficial eligiendo la versión **LTS**.

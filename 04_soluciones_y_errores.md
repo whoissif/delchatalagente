@@ -198,7 +198,7 @@ Qué haría el agente:
 
 **Cómo saber que salió bien**
 
-- El AGENTS.md existe: el global en la carpeta de configuración del usuario (`C:\Users\Usuario\.dsh`), o el del proyecto en la raíz del proyecto.
+- El AGENTS.md existe: el global en la carpeta de configuración del usuario (`C:\Users\<tu_usuario>\.dsh`), o el del proyecto en la raíz del proyecto.
 - En una sesión nueva, el agente sigue el formato o los pasos acordados **sin recordatorio**.
 - Si se usa una skill, existe `.dsh/skills/<nombre>/SKILL.md` dentro del proyecto.
 - El alumno compara: antes había que explicarlo cada vez, ahora no.
@@ -291,6 +291,52 @@ Qué haría el agente:
 
 - Que añada un paso de verificación: pedir al agente que revise su propio informe y señale sus tres puntos más débiles.
 - Después, contrastar esa autocrítica con el archivo real: enseña que el agente se equivoca y se corrige.
+
+---
+
+## Práctica 6 — Datos y modelo (avanzada, opcional)
+
+**Objetivo:** que el alumno vea que en análisis de datos el resultado es un **programa** que hay que revisar, y que un modelo señala anomalías pero no explica causas.
+
+**Las dos trampas del CSV** (`lecturas_energia_diarias.csv`, 28 filas, del 1 al 28 de mayo de 2025)
+
+- **Lectura en otras unidades:** el 10 de mayo, `kwh_total` vale `0.751`. Está en MWh; debería ser 751 kWh. Si nadie la corrige, el total sale **31.649,751 kWh** en vez de **32.400 kWh**, y la semana 2 parece consumir 750 kWh menos.
+- **Valor vacío:** el 17 de mayo no tiene `horas_operacion`. No afecta al modelo pedido (kWh frente a unidades), pero el agente debe decir qué ha hecho con él.
+
+**Valores de referencia** (con la lectura corregida)
+
+| Semana | kWh totales | kWh nocturnos | Media nocturna diaria |
+|---|---|---|---|
+| 1 | 7.800 | 708 | ~101 |
+| 2 | 8.100 | 720 | ~103 |
+| 3 | 8.500 | 1.132 | ~162 |
+| 4 | 8.000 | 733 | ~105 |
+
+- Totales: **32.400 kWh** y **17.820 unidades**: 1,82 kWh por unidad, como dice el informe.
+- Recta ajustada con los 28 días: unos 289 kWh fijos al día más ~1,37 kWh por unidad. Ajustada sin la semana 3, apenas cambia (~267 + 1,38 × unidades).
+- Con cualquiera de los dos ajustes, la semana 3 es la que más consume por encima de lo que le corresponde (unos +295 kWh en la semana con la recta de los 28 días; unos +390 si se ajusta sin la semana 3), y la columna `kwh_nocturno`, que no aparece en el informe, lo confirma: unos 60 kWh más cada noche, también el domingo sin producción.
+
+**Cómo saber que salió bien**
+
+- El agente describe los datos (filas, columnas, unidades, anomalías) **antes** de calcular.
+- El CSV original no se ha modificado; la corrección está en el script y explicada.
+- El total cuadra con el informe y el alumno lo ha comprobado él mismo.
+- El alumno distingue «la semana 3 se sale del modelo» (dato) de «es el compresor» (hipótesis).
+
+**Errores frecuentes**
+
+| Lo que se ve | Qué está pasando | Qué hacer |
+|---|---|---|
+| El total sale unos 31.650 kWh y nadie lo nota | La lectura en MWh se ha sumado tal cual | Es el momento estrella de la práctica: totales de control contra el informe |
+| El agente «limpia» la fila del 10 de mayo borrándola | Tratar lo raro como basura en lugar de entenderlo | Pedir que corrija y justifique en vez de descartar; comparar los totales |
+| El agente edita el CSV original | El encargo no se ha leído entero o se ha aprobado sin mirar | Restaurar desde el ZIP; repasar la parte «qué NO tocar» |
+| No hay Python | El agente intenta instalarlo y salta una aprobación | Denegar y pedirle que use JavaScript con Node.js, que ya está instalado |
+| El informe final afirma que la causa es el compresor | El modelo ha pasado de señal a conclusión | Preguntar «¿qué dato lo demuestra?» y separar hecho de hipótesis |
+
+**Para el debate (si hay tiempo)**
+
+- ¿Qué pasaría si el modelo se usara para predecir un día de 1.200 unidades? (Extrapolación: fuera del rango de los datos.)
+- ¿Se podría usar `kwh_nocturno` para predecir el consumo total del mismo día? (Fuga de datos: forma parte de lo que se quiere predecir.)
 
 ---
 

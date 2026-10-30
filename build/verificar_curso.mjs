@@ -63,9 +63,9 @@ await new Promise((r) => setTimeout(r, 250));
 console.log('\n1. Carga y estructura');
 const datos = window.__CURSO__;
 comprobar('El curso expone sus datos', !!datos);
-comprobar('Hay 28 lecciones', datos && datos.lecciones.length === 28, datos ? `son ${datos.lecciones.length}` : '');
+comprobar('Hay 31 lecciones', datos && datos.lecciones.length === 31, datos ? `son ${datos.lecciones.length}` : '');
 comprobar('Hay 9 grupos', datos && datos.grupos.length === 9, datos ? `son ${datos.grupos.length}` : '');
-comprobar('El cuestionario final tiene 12 preguntas', datos && datos.final.length === 12);
+comprobar('El cuestionario final tiene 14 preguntas', datos && datos.final.length === 14);
 comprobar('El diagnóstico tiene 4 preguntas', datos && datos.diagnostico.length === 4);
 comprobar(
   'Todas las claves del cuestionario apuntan a una opción válida',
@@ -74,7 +74,7 @@ comprobar(
 
 console.log('\n2. Menú lateral');
 const botones = () => Array.from(doc.querySelectorAll('#nav button'));
-comprobar('Se pintan los 28 botones de lección', botones().length === 28, `hay ${botones().length}`);
+comprobar('Se pintan los 31 botones de lección', botones().length === 31, `hay ${botones().length}`);
 comprobar('El menú muestra los títulos de grupo', doc.querySelectorAll('#nav .grupo-titulo').length === 9);
 
 console.log('\n3. Portada');
@@ -111,7 +111,7 @@ if (chk) {
 }
 comprobar('El porcentaje sube al marcarla', doc.getElementById('pct').textContent !== pctAntes,
   `${pctAntes} -> ${doc.getElementById('pct').textContent}`);
-comprobar('La cuenta de completadas se actualiza', doc.getElementById('cuenta').textContent.includes('1 de 28'),
+comprobar('La cuenta de completadas se actualiza', doc.getElementById('cuenta').textContent.includes('1 de 31'),
   doc.getElementById('cuenta').textContent);
 
 console.log('\n6. Búsqueda');
@@ -125,12 +125,12 @@ buscar.dispatchEvent(new window.Event('input', { bubbles: true }));
 comprobar('Una búsqueda sin resultados muestra aviso', !!doc.querySelector('#nav .vacio'));
 buscar.value = '';
 buscar.dispatchEvent(new window.Event('input', { bubbles: true }));
-comprobar('Al vaciar la búsqueda vuelven las 28', botones().length === 28, `hay ${botones().length}`);
+comprobar('Al vaciar la búsqueda vuelven las 31', botones().length === 31, `hay ${botones().length}`);
 
 console.log('\n7. Cuestionario final');
 irA('quiz-final');
 let preguntas = doc.querySelectorAll('#hoja .pregunta');
-comprobar('Se pintan las 12 preguntas', preguntas.length === 12, `hay ${preguntas.length}`);
+comprobar('Se pintan las 14 preguntas', preguntas.length === 14, `hay ${preguntas.length}`);
 const primeraPregunta = doc.querySelector('#hoja .pregunta');
 comprobar('Hay 4 opciones por pregunta', primeraPregunta && primeraPregunta.querySelectorAll('.opcion').length === 4,
   primeraPregunta ? `hay ${primeraPregunta.querySelectorAll('.opcion').length}` : 'sin preguntas');
@@ -145,7 +145,7 @@ for (const p of datos.final) {
 
 const resultado = doc.getElementById('resultado');
 comprobar('Aparece el bloque de resultado', !!resultado);
-comprobar('La nota es 12 / 12', resultado && resultado.textContent.includes('12 / 12'),
+comprobar('La nota es 14 / 14', resultado && resultado.textContent.includes('14 / 14'),
   resultado ? resultado.textContent.slice(0, 60) : '');
 comprobar('Se muestra la banda de interpretación', resultado && resultado.textContent.includes('Conceptos sólidos'));
 comprobar('Se explica una respuesta acertada', !!doc.querySelector('#hoja .explica.bien'));
@@ -164,7 +164,7 @@ console.log('\n9. Persistencia');
 comprobar('Se guarda el progreso en localStorage', !!window.localStorage.getItem('seminario-harness-v1'));
 const guardado = JSON.parse(window.localStorage.getItem('seminario-harness-v1') || '{}');
 comprobar('El estado guardado contiene la lección marcada', !!(guardado.hechas && guardado.hechas[idPermisos]));
-comprobar('El estado guardado contiene las respuestas', !!guardado.respuestas && Object.keys(guardado.respuestas).length >= 12);
+comprobar('El estado guardado contiene las respuestas', !!guardado.respuestas && Object.keys(guardado.respuestas).length >= 14);
 
 console.log('\n10. Diseño, ilustraciones y enlaces');
 irA('portada');

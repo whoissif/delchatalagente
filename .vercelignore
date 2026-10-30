@@ -1,0 +1,7 @@
+# Herramientas de autoría: no hacen falta en el sitio publicado
+build/
+.vscode/
+.idea/
+*.log
+*.tmp
+*.bak
