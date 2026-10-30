@@ -3,7 +3,7 @@
 **Duración:** 150 minutos de núcleo, ampliable a 180.
 **Audiencia:** profesionales que ya usan chats o bots de IA; no se requiere experiencia previa en programación.
 **Formato:** sesión práctica. Cada alumno trabaja en su portátil.
-**Herramienta:** DeepSeek Harness (`dsh`), arrancado con `npx @deepseek-ai/dsh web`.
+**Herramienta:** opencode con modelos gratuitos (sin clave ni cuenta), arrancado con `opencode web`.
 
 > Este guion está pensado para leerse en diagonal mientras se imparte. Lo que está en **negrita dentro de las secciones «Qué decir»** son las frases que conviene decir casi literalmente: son las que sostienen las analogías y evitan que el grupo se pierda.
 
@@ -51,7 +51,7 @@ Orden de ampliación:
 - Proyector y **letra grande** en el terminal y en el navegador. La mitad del grupo no verá una terminal a tamaño normal.
 - Una **carpeta de práctica de ejemplo**, sin datos sensibles, con 5-10 archivos variados (un texto, una hoja de cálculo, alguna imagen) y sus subcarpetas.
 - **Copia de seguridad** de esa carpeta, en otro sitio. El agente va a modificarla delante de todos.
-- **Tu propia clave de API** de reserva por si algún alumno no la consigue.
+- **Un plan B de modelo.** No hace falta clave, pero los modelos gratuitos pueden ir saturados: ten anotado otro gratuito de la lista y prueba el tuyo el día anterior.
 - El resto de documentos del paquete: `03_laboratorio.md` (para los alumnos), `04_soluciones_y_errores.md` (para ti, abierto en otra ventana), `05_glosario_chuleta.md`, `06_evaluacion.md`.
 - Regletas y alargadores. Doce portátiles no caben en cuatro enchufes.
 
@@ -68,6 +68,8 @@ Orden de ampliación:
 - Reparte el cuestionario inicial de `06_evaluacion.md`. **No se puntúa.** Dilo explícitamente: *«Esto no es un examen, es para que yo sepa por dónde empezar. Si no sabes una respuesta, escribe "no lo sé" y ya está.»* (3 min)
 - La promesa, en cuatro puntos: al terminar **sabrás qué es un harness**; lo habrás **arrancado en tu propio portátil**; sabrás **qué permisos estás dando y por qué**; y sabrás **qué no conviene dejarle hacer**.
 - Lo que NO vamos a hacer: no vamos a programar, no vamos a entrenar modelos, y no hace falta que sepas nada de informática más allá de usar el navegador y crear una carpeta.
+- **Presenta los dos carriles** (un minuto): nadie necesita pagar, el curso se hace con opencode y modelos gratuitos; quien ya tenga Claude Pro o Max, o ChatGPT Plus o Pro, puede usar Claude Code o Codex (lección «Elige tu carril»).
+- **Haz la «carrera de tres minutos»** con el mismo encargo para todos: primero a mano con un chat, luego con el agente. Que cada uno apunte cuánto ha tardado, y pídeles que anoten **minutos con chat** y **minutos con agente** en la hoja de registro del laboratorio.
 - Regla de la sala: **«Si te atascas más de tres minutos, levanta la mano. No hay nada que me haga perder más tiempo que diez personas atascadas en silencio.»**
 
 ### Señales de que ha funcionado
@@ -146,7 +148,7 @@ Un harness tiene seis piezas. Las vais a reconocer todas en la pantalla dentro d
 
 **Las herramientas.** No hace falta memorizar la lista; lo que hace falta es saber que existe y saber mirarla:
 
-- Leer archivos del espacio de trabajo.
+- Leer archivos de la carpeta de trabajo.
 - Escribir y modificar archivos.
 - Ejecutar comandos en la terminal (esta es la más potente y la que más respeto merece).
 - Buscar y leer en internet.
@@ -186,14 +188,15 @@ Trabaja con `03_laboratorio.md` delante. Reparte el documento o pide que lo abra
 
 ### Secuencia
 
-1. **Demuestra el arranque completo en tu portátil (4 min),** narrando cada paso: abrir la terminal, comprobar Node con `node -v`, arrancar con `npx @deepseek-ai/dsh web`, ver la dirección en pantalla, abrir el navegador, configurar el modelo en Ajustes → Modelos con la clave de API, elegir el espacio de trabajo, escribir el primer mensaje.
+1. **Demuestra el arranque completo en tu portátil (4 min),** narrando cada paso: abrir la terminal, comprobar Node con `node -v`, comprobar opencode con `opencode --version`, entrar en la carpeta con `cd`, arrancar con `opencode web`, abrir el navegador, pulsar **Añadir proyecto**, abrir una **Nueva sesión**, elegir un modelo marcado como **«Gratis»** y escribir el primer mensaje.
 2. **Todos a la vez (12 min).** Tú circulas. No te quedes con el primero que levante la mano: los que ya lo tienen, que ayuden al de al lado. Un alumno que explica arranca dos aprendizajes.
 3. **Puesta en común (4 min).** Pregunta al grupo: *«¿Qué herramientas ha usado vuestro agente para hacer el resumen?»*. Que las nombren ellos.
 
-### Los dos tropiezos que vas a ver seguro
+### Los tropiezos que vas a ver seguro
 
-- **El cuadro de escribir mensajes está deshabilitado.** Casi siempre es que no han elegido espacio de trabajo. Antes de tocar nada, pregunta: *«¿Has elegido una carpeta de trabajo?»* **Hasta que no eliges espacio de trabajo, el agente no tiene dónde trabajar y no te deja escribir.**
-- **No hay clave de API o no es válida.** Ten la tuya de reserva. Y aprovecha para explicar que **la clave es como la tarjeta del motor: sin ella no arranca, y el uso se paga**.
+- **No encuentra la carpeta en «Añadir proyecto».** Que escriba la ruta a mano: `Documents/practica_agente`. Hasta que el proyecto no está añadido, el agente no tiene dónde trabajar.
+- **El modelo está saturado o no responde.** Que elija otro modelo gratuito de la lista. Aprovecha para explicar que **el modelo es el motor, y aquí el motor lo pone gratis el proveedor a cambio de condiciones: algunos usan los datos que les envías**. Por eso, solo la carpeta de práctica.
+- **Cambió `opencode.json` o creó una skill y no se nota.** opencode lee la configuración y las skills solo al arrancar: que lo apague con Ctrl+C y lo arranque de nuevo.
 
 ### Qué decir mientras circulas
 
@@ -223,7 +226,7 @@ Son tres cosas distintas que la gente mezcla siempre. Escríbelas separadas en l
 
 | Concepto | Qué es | Analogía |
 |---|---|---|
-| **Sandbox** | La zona donde el agente puede moverse: normalmente, la carpeta de trabajo que elegiste. | **La sala donde trabaja el becario.** |
+| **Sala (carpeta de trabajo)** | La zona donde el agente puede moverse: la carpeta que abriste como proyecto. En opencode es una regla de permisos, no un muro: no hay sandbox que aísle el programa. | **La sala donde trabaja el becario.** |
 | **Política de permisos** | El ajuste general: qué se permite sin preguntar y qué no. | **El reglamento de la sala.** |
 | **Aprobación** | El aviso puntual que aparece cuando algo se sale de lo permitido. | **El «¿seguro?» en la puerta.** |
 
@@ -256,11 +259,13 @@ Aquí aparecen dos comportamientos que hay que desactivar ya:
 
 ### Parte 3 — Práctica 3: Cambiar de política (8 min)
 
-La misma tarea que antes, pero hecha dentro de la carpeta de trabajo. Todos la repiten y observan: **ya no pregunta nada.**
+La misma tarea que antes, pero hecha dentro de la carpeta de trabajo. Todos la repiten y observan: **ya no pregunta nada.** Es la política de serie de opencode: dentro de la carpeta lee, escribe y ejecuta órdenes sin preguntar.
+
+Después cambian la política: piden al agente que cree `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask"}}`, **reinician** opencode (Ctrl + C y `opencode web`, sesión nueva) y repiten con `prueba_dentro2.txt`: **ahora sí pregunta**. El tropiezo típico es no reiniciar: la política se lee al arrancar. Al terminar, que borren `opencode.json` y reinicien.
 
 Que saquen ellos la conclusión. Si no sale, dila tú:
 
-> **«El agente no es más listo ni más tonto. Habéis cambiado dónde trabaja, y con eso han desaparecido los avisos y ha bajado el riesgo. Diseñar bien la carpeta es la mitad del trabajo seguro.»**
+> **«El agente no es más listo ni más tonto. Habéis cambiado sus reglas. Hay dos palancas y las dos son vuestras: dónde trabaja (la carpeta) y qué puede hacer sin preguntar (la política).»**
 
 ### Parte 4 — Cierre del bloque (4 min)
 
@@ -305,7 +310,7 @@ Dos niveles, y la diferencia importa:
 
 **`AGENTS.md` son las notas que dejas al becario antes de que empiece.** Si tienes una preferencia que se repite — «responde en español», «no toques la carpeta de facturas», «los informes van siempre en la carpeta `informes`» — no la repitas cada día: escríbela una vez. Hay notas **globales** (para todos tus proyectos) y notas **por proyecto**.
 
-**Las skills son procedimientos guardados, como recetas de cocina.** Cuando repites una tarea siempre igual, la escribes una vez con sus pasos y el agente la sigue cuando le dices «hazme el informe mensual». En este ordenador ya hay una de ejemplo: la de precios de gasolineras.
+**Las skills son procedimientos guardados, como recetas de cocina.** Cuando repites una tarea siempre igual, la escribes una vez con sus pasos y el agente la sigue cuando le dices «hazme el informe mensual». En la configuración de ejemplo hay cuatro de verdad, en `.opencode/skills/`, por ejemplo `resumen-informes`.
 
 **Lección para que se la lleven:** **si te descubres explicando lo mismo por tercera vez, el problema no es el agente: es que no le has dejado notas.**
 
@@ -321,9 +326,9 @@ Aviso de seguridad, obligatorio: **cada enchufe es una conexión nueva a tus cos
 
 > **Las partes 6 y 7 no caben en los 22 minutos del bloque.** Salen del margen de ampliación (hasta 180 minutos). En la sesión de 150, aplica el recorte nº 1: una diapositiva y una frase para cada una.
 
-### Parte 6 — Más allá de `dsh`: Anthropic y OpenAI (3 min, del margen)
+### Parte 6 — Más allá de opencode: Anthropic y OpenAI (3 min, del margen)
 
-La pregunta va a salir seguro: «¿y esto sirve para Claude o para ChatGPT?». Respuesta: **sí, mismas piezas, otro salpicadero.** Enseña la tabla «Mismas piezas, otras marcas»: Claude Code y Codex son el agente con código (terminal, escritorio, web, IDE); Claude Cowork y ChatGPT Work son el agente de oficina sin terminal; el análisis de datos dentro del chat es el paso intermedio, que no toca tu ordenador.
+La pregunta va a salir seguro: «¿y esto sirve para Claude o para ChatGPT?». Respuesta: **sí, mismas piezas, otro salpicadero.** Recuérdales el carril B: con Claude Pro o Max, o ChatGPT Plus o Pro, ya tienen Claude Code o Codex, y las notas (`AGENTS.md`) y las skills que escriban hoy les sirven allí casi sin cambios. Enseña la tabla «Mismas piezas, otras marcas»: Claude Code y Codex son el agente con código (terminal, escritorio, web, IDE); Claude Cowork y ChatGPT Work son el agente de oficina sin terminal; el análisis de datos dentro del chat es el paso intermedio, que no toca tu ordenador.
 
 Después, la tabla de los frenos: `CLAUDE.md` o `AGENTS.md` son las notas; los modos *Plan*, manual, *Auto* y el sandbox son la sala del becario con otros nombres. **Los modos automáticos reducen avisos, no riesgos.** Y un dato que sorprende: en Claude Code el sandbox viene desactivado por defecto.
 
@@ -354,7 +359,7 @@ Escríbelo en la pizarra y que lo copien; es lo más útil que se llevan hoy:
 
 Ejemplo completo, para que se vea el patrón entero:
 
-> «En la carpeta `practica/informes` hay cinco informes en texto. Léelos y créame `resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia. **No modifiques ninguno de los cinco archivos originales.** Al terminar, dime qué archivos has leído y cuántas filas tiene la tabla.»
+> «En la carpeta `practica_agente/informes` hay cinco informes en texto. Léelos y créame `resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia. **No modifiques ninguno de los cinco archivos originales.** Al terminar, dime qué archivos has leído y cuántas filas tiene la tabla.»
 
 ### Verificación obligatoria
 
@@ -380,9 +385,10 @@ Tres voluntarios, un minuto cada uno: qué pidieron, qué les devolvió el agent
 
 No endulces esto. Es información que protege a la gente:
 
-- **Es software experimental, en fase de vistas previas de desarrollo.** Cambia rápido y habrá novedades que rompan lo anterior. No construyas nada crítico encima sin plan B.
-- **No ha pasado una auditoría de seguridad.** No está pensado para ser seguro de serie.
-- **El sandbox y las aprobaciones reducen el riesgo, pero no garantizan aislamiento** y **no deben ser tu único control de seguridad**. Si el trabajo es delicado, la recomendación oficial es usar una máquina virtual o un entorno dedicado y desechable.
+- **opencode cambia muy rápido.** Habrá novedades que rompan lo anterior. No construyas nada crítico encima sin plan B.
+- **De serie confía mucho en el agente.** Dentro de la carpeta lee, escribe y ejecuta órdenes sin preguntar; los frenos los pones tú en `opencode.json`.
+- **No tiene sandbox.** Los permisos y las aprobaciones reducen el riesgo, pero no garantizan aislamiento y **no deben ser tu único control de seguridad**. Si el trabajo es delicado, usa una máquina virtual o un entorno dedicado y desechable.
+- **Gratis no es privado.** Lo que el agente lee se envía al proveedor del modelo, y algunos modelos gratuitos usan esos datos para mejorar.
 - **Lo que sí está en tu mano:** trabajar con el mínimo privilegio necesario, tener copias de seguridad de lo que el agente puede tocar, no exponer credenciales, y revisar plugins y comandos antes de permitirlos.
 
 ### Las cuatro reglas para el lunes
@@ -400,7 +406,7 @@ Cierra con dónde seguir y con la frase que resume el día:
 
 > **«Hoy no habéis aprendido a usar un programa. Habéis aprendido a dirigir a alguien que trabaja muy rápido, que no sabe lo que no sabe, y que tiene acceso a vuestros archivos. La herramienta os va a servir; los frenos os van a proteger.»**
 
-Material para seguir: el manual interactivo de DSH, el glosario y la chuleta de `05_glosario_chuleta.md`, y la documentación oficial del proyecto.
+Material para seguir: la documentación de opencode (https://opencode.ai/docs), el glosario y la chuleta de `05_glosario_chuleta.md`.
 
 ---
 

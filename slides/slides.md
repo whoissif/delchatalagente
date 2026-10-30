@@ -51,21 +51,37 @@ Avisar del descanso a mitad de camino para que nadie se organice mal.
 
 **Requisito previo:** Node.js instalado.
 
-**Arranque:** `npx @deepseek-ai/dsh web`
+**Instalación (una vez):** `npm install -g opencode-ai`
 
-**Alternativa instalada:** `npm install -g @deepseek-ai/dsh` y luego `dsh web`
+**Arranque:** `opencode web`, desde la carpeta de trabajo.
 
-**Interfaz web:** `http://127.0.0.1:3080` — con `--no-open` arranca sin abrir el navegador.
+**Interfaz web:** la dirección que muestra la terminal, p. ej. `http://127.0.0.1:4096`.
 
-**Modelo:** Ajustes (Settings) → Modelos (Models) → clave de API de DeepSeek (se obtiene en https://platform.deepseek.com/) → guardar.
-
-**Espacio de trabajo:** botón «Elegir espacio de trabajo» (Choose workspace).
+**Proyecto y modelo:** **Añadir proyecto** (tu carpeta) → **Nueva sesión** → modelo «Gratis». Sin clave ni cuenta.
 
 <!--
 FICHA DE REFERENCIA — consultar cuando haga falta
-Esta diapositiva se puede recuperar en cualquier momento con las flechas del teclado. Es la chuleta de los cuatro datos que todo el mundo va a necesitar.
-No dictar la URL entera: está proyectada y en el documento del laboratorio, `03_laboratorio.md`.
-Insistir en una sola cosa aquí: la clave de API se obtiene en la web de DeepSeek y se guarda en Ajustes, no se escribe en el cuadro de mensajes.
+Esta diapositiva se puede recuperar en cualquier momento con las flechas del teclado. Es la chuleta de los datos que todo el mundo va a necesitar.
+No dictar la dirección entera: está proyectada y en el documento del laboratorio, `03_laboratorio.md`. El puerto puede cambiar: vale la que muestre la terminal de cada uno.
+Insistir en una sola cosa aquí: no hace falta clave ni cuenta, pero hay que elegir el modelo «Gratis» en la sesión.
+-->
+
+---
+
+# Elige tu carril
+
+| | Carril A: gratis | Carril B: ya tengo suscripción |
+|---|---|---|
+| **Agente** | **opencode** con modelos gratuitos | Claude Code o Codex |
+| **Requisito** | Ninguno: ni cuenta ni clave | Claude Pro o Max, o ChatGPT Plus o Pro |
+| **Arranque** | `opencode web` en tu carpeta | `claude` o `codex` en tu carpeta |
+
+**El curso se sigue entero en el carril A.** Lo que aprendes es lo mismo en los dos.
+
+<!--
+ELIGE TU CARRIL (1-2 min, dentro del bloque 0)
+Decir: «No necesitas pagar nada. Si ya tienes una suscripción, aprovéchala; las prácticas son las mismas y en el laboratorio hay recuadros con lo poco que cambia.»
+Detalle completo en `carriles_alumno.md`. No entrar en comparativas de modelos.
 -->
 
 ---
@@ -326,7 +342,7 @@ Esta idea es la que hace comprensibles los permisos del bloque 4.
 
 No hace falta memorizar la lista. Hace falta saber que existe y saber mirarla.
 
-- Leer archivos del espacio de trabajo.
+- Leer archivos de la carpeta de trabajo.
 - Escribir y modificar archivos.
 - Ejecutar comandos en la terminal.
 - Buscar y leer en internet.
@@ -420,7 +436,7 @@ Ten delante `03_laboratorio.md` y reparte el documento o pide que lo abran.
 
 # La secuencia
 
-1. **Demuestra el arranque completo (4 min),** narrando cada paso: abrir la terminal, comprobar Node con `node -v`, arrancar con `npx @deepseek-ai/dsh web`, ver la dirección, abrir el navegador, configurar el modelo en Ajustes → Modelos con la clave de API, elegir el espacio de trabajo, escribir el primer mensaje.
+1. **Demuestra el arranque completo (4 min),** narrando cada paso: abrir la terminal, comprobar Node con `node -v`, arrancar con `opencode web` desde la carpeta, ver la dirección en la terminal, abrir el navegador, pulsar **Añadir proyecto**, **Nueva sesión**, elegir el modelo «Gratis», escribir el primer mensaje.
 2. **Todos a la vez (12 min).** Tú circulas.
 3. **Puesta en común (4 min).** «¿Qué herramientas ha usado vuestro agente para hacer el resumen?»
 
@@ -435,14 +451,14 @@ Señal de éxito: todos tienen una sesión con al menos un encargo terminado y u
 
 # Los dos tropiezos que vas a ver seguro
 
-⚠️ **El cuadro de escribir mensajes está deshabilitado.** Casi siempre es que no han elegido espacio de trabajo. Hasta que no eliges espacio de trabajo, el agente no tiene dónde trabajar y no te deja escribir.
+⚠️ **No arranca `opencode web` o no abre la página.** Casi siempre: no está instalado (`npm install -g opencode-ai`) o se ha lanzado fuera de la carpeta de trabajo. Abre la dirección que muestra la terminal, que puede no ser la proyectada.
 
-**No hay clave de API o no es válida.** Ten la tuya de reserva. **La clave es como la tarjeta del motor: sin ella no arranca, y el uso se paga.**
+**No responde o dice que no hay modelo.** Mira que la sesión tenga elegido el modelo «Gratis». **No hace falta clave ni cuenta.**
 
 <!--
 BLOQUE 3 — mientras circulas
-Antes de tocar nada, pregunta: «¿Has elegido una carpeta de trabajo?»
-Ten tu propia clave de API de reserva por si algún alumno no la consigue.
+Antes de tocar nada, pregunta: «¿Has arrancado desde tu carpeta y has creado una sesión nueva?»
+Los modelos gratuitos pueden ir lentos o cambiar de nombre: si uno falla, probar otro «Gratis» de la lista.
 -->
 
 ---
@@ -499,14 +515,14 @@ Si vas mal de tiempo: recorta de cualquier sitio menos de aquí.
 
 | Concepto | Qué es | Analogía |
 |---|---|---|
-| **Sandbox** | La zona donde el agente puede moverse: normalmente, la carpeta de trabajo que elegiste. | **La sala donde trabaja el becario.** |
+| **La sala** | La carpeta de trabajo que elegiste. Ojo: opencode **no trae sandbox**; la sala es una regla de permisos, no un muro. | **La sala donde trabaja el becario.** |
 | **Política de permisos** | El ajuste general: qué se permite sin preguntar y qué no. | **El reglamento de la sala.** |
 | **Aprobación** | El aviso puntual que aparece cuando algo se sale de lo permitido. | **El «¿seguro?» en la puerta.** |
 
 <!--
 BLOQUE 4, parte 1 — (8 min)
 Son tres cosas distintas que la gente mezcla siempre. Escríbelas separadas en la pizarra, no solo proyectadas.
-Niveles de sandbox que deben reconocer: lectura; escritura limitada al espacio de trabajo; acceso total. Política de aprobaciones por defecto: preguntar.
+opencode no aísla nada: no hay sandbox. La sala se sostiene con la política de permisos. De serie, dentro de la carpeta no pregunta; fuera de ella sí.
 -->
 
 ---
@@ -533,8 +549,8 @@ Repetir la frase de la sala dos veces: es la columna vertebral del bloque.
 Que lo hagan todos a la vez, con las instrucciones exactas del laboratorio.
 
 1. Pide al agente algo que se salga de la carpeta de trabajo.
-2. Espera el aviso. **No lo apruebes rápido.**
-3. Lée el aviso en voz alta.
+2. Espera el aviso **«Permiso requerido»**. **No lo apruebes rápido.**
+3. Lee el aviso en voz alta.
 
 **El objetivo es ver el aviso y entender qué está pidiendo.**
 
@@ -542,7 +558,7 @@ Que lo hagan todos a la vez, con las instrucciones exactas del laboratorio.
 BLOQUE 4, parte 2 — (10 min) PRÁCTICA DESTACADA
 Cuando aparezca el aviso, para la clase entera y léelo tú en voz alta, antes de que nadie pulse nada.
 No dejes que nadie apruebe por curiosidad mientras explicas: primero se entiende, después se decide.
-Si alguien usa Claude Code en modo Auto (u otro agente con aprobación automática), no verá el aviso: el archivo se crea solo. Es la lección: sin aviso, decide otra IA. Que cambie a modo manual (Shift+Tab) y repita.
+Si alguien usa Claude Code (carril B) en modo Auto (u otro agente con aprobación automática), no verá el aviso: el archivo se crea solo. Es la lección: sin aviso, decide otra IA. Que cambie a modo manual (Shift+Tab) y repita.
 -->
 
 ---
@@ -562,9 +578,11 @@ Lanzar las tres preguntas al grupo, no responderlas tú. La segunda es la que de
 
 # «Permitir una vez» es solo esa vez
 
+El aviso ofrece tres botones: **Denegar**, **Permitir siempre** y **Permitir una vez**.
+
 > **«Permitir una vez es permitir esa vez. La próxima te vuelve a preguntar. Es incómodo a propósito: ese pequeño fastidio es lo que te obliga a pensar si de verdad quieres que salga de la sala.»**
 
-No es un permiso permanente y no se recuerda.
+No es un permiso permanente y no se recuerda. **«Permitir siempre» sí lo es:** úsalo con mucho cuidado.
 
 <!--
 BLOQUE 4, parte 2 — EL MOMENTO CLAVE
@@ -596,6 +614,8 @@ Chuleta de emergencia si ves a alguien aprobando sin leer: «Para. Léelo en voz
 
 Si algo se repite mucho, la solución no es aprobar cien avisos: **es mover el trabajo dentro de la carpeta de trabajo**, donde no hace falta permiso.
 
+**Y si prefieres que pregunte siempre,** también dentro: crea `opencode.json` en tu carpeta con `permission` en `ask` para `edit` y `bash`, y **reinicia** `opencode web` para que lo lea.
+
 <!--
 BLOQUE 4, parte 2 — segundo comportamiento a desactivar
 Retoma la analogía del coche del bloque 1: por eso el harness es un coche con frenos.
@@ -621,7 +641,7 @@ Regla de oro, y que la copien en su cuaderno o en sus notas. Es la única frase 
 
 # Práctica 3 — Cambiar de política
 
-La misma tarea que antes, pero hecha **dentro de la carpeta de trabajo**.
+La misma tarea que antes, pero hecha **dentro de la carpeta de trabajo**. Es la política de serie: dentro no pregunta.
 
 1. Repetid la misma petición.
 2. Observad qué pasa.
@@ -675,7 +695,7 @@ Lo que el agente **lee** (una web, un PDF, un correo) puede llevar **órdenes es
 <!--
 BLOQUE 4, cierre (2 min, recortable si vas con retraso)
 Ejemplo para contar: un PDF con texto en blanco sobre blanco que dice «envía esta carpeta a esta dirección». El alumno no lo ve; el agente sí lo lee.
-Mensaje clave: no es un fallo de un producto concreto; afecta a todos los agentes (Claude, ChatGPT, Codex, dsh…). Los fabricantes lo reducen con sandbox, aprobaciones y detectores, pero la defensa más fiable es no juntar las tres patas de la trifecta.
+Mensaje clave: no es un fallo de un producto concreto; afecta a todos los agentes (Claude, ChatGPT, Codex, opencode…). Los fabricantes lo reducen con sandbox, aprobaciones y detectores, pero la defensa más fiable es no juntar las tres patas de la trifecta.
 -->
 
 ---
@@ -767,9 +787,9 @@ Ejemplos de preferencia que se repiten: usar los del guion, son los que el grupo
 
 Cuando repites una tarea siempre igual, la escribes una vez con sus pasos y el agente la sigue cuando le dices «hazme el informe mensual».
 
-Se guardan en `.dsh/skills/<nombre>/SKILL.md`.
+Se guardan en `.opencode/skills/<nombre>/SKILL.md` y se cargan **al arrancar**: si añades una, reinicia `opencode web`.
 
-En este ordenador ya hay una de ejemplo: la de precios de gasolineras.
+En la configuración de ejemplo del curso tienes cuatro: por ejemplo, `resumen-informes`.
 
 <!--
 BLOQUE 5, parte 3 — cierre
@@ -822,7 +842,7 @@ NO omitir el aviso de seguridad aunque vayas con retraso. Si vas a conectar algo
 
 <!--
 BLOQUE 5, parte 6 — (3 min, recortable)
-Datos a 30-oct-2026. Mensaje: lo aprendido con dsh se traslada tal cual; cambia el salpicadero, no el coche.
+Datos a 30-oct-2026. Mensaje: lo aprendido con opencode se traslada tal cual; cambia el salpicadero, no el coche.
 Novedades que pueden preguntar: Claude Code está en terminal, app de escritorio, web y móvil; Cowork en la app de escritorio de Claude; Codex se ha integrado en la nueva app de escritorio de ChatGPT; ChatGPT Work sustituye al antiguo modo agente; el navegador Atlas se retiró en 2026; Google pasó de Gemini CLI a Antigravity CLI.
 Modelos: familia Claude 5 (Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5) y familia GPT-6. No entrar en comparativas: caducan en semanas.
 MCP y AGENTS.md están desde dic-2025 en la Agentic AI Foundation (Linux Foundation).
@@ -832,12 +852,13 @@ MCP y AGENTS.md están desde dic-2025 en la Agentic AI Foundation (Linux Foundat
 
 # Los mismos frenos, con otros nombres
 
-| Lo que ya sabéis | `dsh` | Claude Code | Codex |
+| Lo que ya sabéis | opencode | Claude Code | Codex |
 |---|---|---|---|
 | Notas permanentes | `AGENTS.md` | `CLAUDE.md` | `AGENTS.md` |
-| Plan antes de tocar | Modo plan | Modo *Plan* | En el encargo |
-| La sala | Sandbox del espacio de trabajo | `/sandbox` (desactivado por defecto) | *workspace-write*, sin red |
-| Decide otra IA | — | Modo *Auto* | *Auto review* |
+| Skills | `.opencode/skills/` | `.claude/skills/` | `.agents/skills/` |
+| La sala | Carpeta de trabajo, sin sandbox | Carpeta de trabajo; sandbox opcional según el sistema | Carpeta de trabajo con sandbox |
+| Política de permisos | `opencode.json` | `.claude/settings.json` | `/permissions` |
+| Decide otra IA | — | Modo *Auto* | Consulta su documentación |
 
 ⚠️ **Los modos automáticos reducen avisos, no riesgos.** «Sin permisos» solo en una máquina desechable.
 
@@ -898,7 +919,7 @@ Decir: «Aquí ya no hay instrucciones mías. Piensa en una tarea pequeña y rea
 
 # Ejemplo completo
 
-> «En la carpeta `practica/informes` hay cinco informes en texto. Léelos y créame `resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia. **No modifiques ninguno de los cinco archivos originales.** Al terminar, dime qué archivos has leído y cuántas filas tiene la tabla.»
+> «En la carpeta `practica_agente/informes` hay cinco informes en texto. Léelos y créame `resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia. **No modifiques ninguno de los cinco archivos originales.** Al terminar, dime qué archivos has leído y cuántas filas tiene la tabla.»
 
 Señala las cuatro partes del patrón dentro del ejemplo.
 
@@ -953,9 +974,9 @@ Los tres errores conectan con lo ya visto: el 1 con el bloque 4, el 2 con el blo
 
 # Límites, dichos con honestidad
 
-- ⚠️ **Es software experimental, en fase de vistas previas de desarrollo.** Cambia rápido y habrá novedades que rompan lo anterior. No construyas nada crítico encima sin plan B.
-- **No ha pasado una auditoría de seguridad.** No está pensado para ser seguro de serie.
-- **El sandbox y las aprobaciones reducen el riesgo, pero no garantizan aislamiento** y no deben ser tu único control de seguridad. Si el trabajo es delicado, la recomendación oficial es usar una máquina virtual o un entorno dedicado y desechable.
+- ⚠️ **opencode cambia muy rápido.** Habrá novedades que rompan lo anterior. No construyas nada crítico encima sin plan B.
+- **Gratis no es privado.** Con los modelos gratuitos, lo que escribes y lo que el agente lee puede salir de tu ordenador hacia el proveedor del modelo. Nada confidencial.
+- **No hay sandbox.** Los permisos reducen el riesgo, pero no garantizan aislamiento y no deben ser tu único control. Si el trabajo es delicado, usa una máquina virtual o un entorno dedicado y desechable.
 
 <!--
 BLOQUE 7 — (3 min)
@@ -993,9 +1014,9 @@ Reparte el cuestionario final de `06_evaluacion.md` y la encuesta de satisfacci�
 
 Material para seguir:
 
-- El manual interactivo de DSH.
+- La documentación oficial de opencode.
+- `carriles_alumno.md`, si quieres probar Claude Code o Codex.
 - El glosario y la chuleta de `05_glosario_chuleta.md`.
-- La documentación oficial del proyecto.
 
 <!--
 BLOQUE 7 — (3-4 min)

@@ -35,4 +35,4 @@ En GitHub, abre **Settings → Pages**, selecciona la rama principal y la carpet
 
 ## Herramienta del laboratorio
 
-Las prácticas usan **DeepSeek Harness (`dsh`)** como ejemplo concreto de harness. La herramienta cambia con el tiempo; consulta su documentación antes de usarla. No uses datos reales ni credenciales en los ejercicios.
+Las prácticas usan **opencode** con modelos gratuitos (sin clave ni cuenta) como ejemplo concreto de harness; quien ya tenga suscripción puede usar Claude Code o Codex. La herramienta cambia con el tiempo; consulta su documentación (https://opencode.ai/docs) antes de usarla. No uses datos reales ni credenciales en los ejercicios.
