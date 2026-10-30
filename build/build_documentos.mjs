@@ -25,16 +25,21 @@ function slug(text) { return plain(text).toLocaleLowerCase('es').normalize('NFD'
 function escapeHtml(text) { return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
 function inline(text) {
   const codes = [];
+  const urls = [];
+  // Las direcciones se apartan para que las reglas de cursiva no rompan rutas con guiones bajos.
+  const apartarUrl = (url) => { urls.push(url); return `\u0001${urls.length - 1}\u0001`; };
   text = text.replace(/`([^`]+)`/g, (_m, value) => { codes.push(`<code>${escapeHtml(value)}</code>`); return `\u0000${codes.length - 1}\u0000`; });
   text = escapeHtml(text)
-    .replace(/!\[([^\]]*)\]\(([^ )]+)(?:\s+"([^"]*)")?\)/g, '<img alt="$1" src="$2" title="$3">')
-    .replace(/\[([^\]]+)\]\(([^ )]+)(?:\s+"([^"]*)")?\)/g, '<a href="$2" title="$3">$1</a>')
+    .replace(/!\[([^\]]*)\]\(([^ )]+)(?:\s+"([^"]*)")?\)/g, (_m, alt, src, title = '') => `<img alt="${alt}" src="${apartarUrl(src)}" title="${title}">`)
+    .replace(/\[([^\]]+)\]\(([^ )]+)(?:\s+"([^"]*)")?\)/g, (_m, label, href, title = '') => `<a href="${apartarUrl(href)}" title="${title}">${label}</a>`)
     .replace(/\*\*(.+?)\*\*|__(.+?)__/g, '<strong>$1$2</strong>')
     .replace(/~~(.+?)~~/g, '<del>$1</del>')
     .replace(/\*(.+?)\*|_(.+?)_/g, '<em>$1$2</em>')
     .replace(/\[( |x|X)\] /g, (_m, checked) => `<input type="checkbox" disabled${checked.trim() ? ' checked' : ''}> `)
     .replace(/(^|\s)(https?:\/\/[^\s<]+)/g, '$1<a href="$2">$2</a>');
-  return text.replace(/\u0000(\d+)\u0000/g, (_m, n) => codes[Number(n)]);
+  return text
+    .replace(/\u0001(\d+)\u0001/g, (_m, n) => urls[Number(n)])
+    .replace(/\u0000(\d+)\u0000/g, (_m, n) => codes[Number(n)]);
 }
 
 function isRule(line) { return /^\s{0,3}(?:[-*_]\s*){3,}$/.test(line); }
