@@ -261,7 +261,7 @@ Aquí aparecen dos comportamientos que hay que desactivar ya:
 
 La misma tarea que antes, pero hecha dentro de la carpeta de trabajo. Todos la repiten y observan: **ya no pregunta nada.** Es la política de serie de opencode: dentro de la carpeta lee, escribe y ejecuta órdenes sin preguntar.
 
-Después cambian la política: piden al agente que cree `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask"}}`, **reinician** opencode (Ctrl + C y `opencode web`, sesión nueva) y repiten con `prueba_dentro2.txt`: **ahora sí pregunta**. El tropiezo típico es no reiniciar: la política se lee al arrancar. Al terminar, que borren `opencode.json` y reinicien.
+Después cambian la política: piden al agente que cree `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`, **reinician** opencode (Ctrl + C y `opencode web`, sesión nueva) y repiten con `prueba_dentro2.txt`: **ahora sí pregunta**. El tropiezo típico es no reiniciar: la política se lee al arrancar. Al terminar, que borren `opencode.json` y reinicien.
 
 Que saquen ellos la conclusión. Si no sale, dila tú:
 

@@ -76,7 +76,11 @@
         num.textContent = l.tipo === 'quiz' ? '?' : (l._i + 1);
         b.appendChild(num);
         b.appendChild(el('span', 'texto', l.titulo));
-        b.appendChild(el('span', 'marca-ok', '\u2713'));
+        if (estado.hechas[l.id]) {
+          var ok = el('span', 'marca-ok', '\u2713');
+          ok.setAttribute('aria-label', 'completada');
+          b.appendChild(ok);
+        }
         b.addEventListener('click', function () {
           ir(l.id);
           cerrarMenu();

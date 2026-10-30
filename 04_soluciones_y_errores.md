@@ -18,11 +18,11 @@ Fuente de verdad de lo que ocurre en cada práctica: el cuaderno del alumno `03_
 
 **Recordatorio de arranque**
 
-- Instalación (una sola vez): `npm install -g opencode-ai`. Se comprueba con `opencode --version`.
+- Instalación (una sola vez): `npm install -g opencode-ai@1.19.5`. Se comprueba con `opencode --version`.
 - Arranque: entrar en la carpeta de práctica con `cd` y escribir `opencode web`.
 - Se abre el navegador solo; si no, copiar la dirección que aparece en la terminal (por ejemplo, **http://127.0.0.1:4096**). El puerto puede variar; se fija con `--port`.
 - **Ctrl + C** apaga opencode; cerrar la terminal también lo apaga.
-- No hay clave de API que configurar. Si PowerShell bloquea la ejecución de scripts, usar **cmd**.
+- No hay clave de API que configurar. Si PowerShell bloquea la ejecución de scripts en un equipo personal, usar **cmd**; en un equipo gestionado, no esquivar la política: soporte informático o práctica en pareja. Versión probada del curso: **1.19.5**; si el alumno tiene otra, que instale esta.
 
 ---
 
@@ -66,7 +66,7 @@ Qué haría el agente:
 | Lo que se ve | Qué está pasando | Qué hacer |
 |---|---|---|
 | «`opencode` no se reconoce como una orden» | Terminal abierta antes de instalar, o instalación incompleta (falta Node.js u opencode) | Cerrar y abrir la terminal; si sigue, repetir la instalación de la preparación previa |
-| PowerShell se niega a ejecutar `opencode` (scripts bloqueados) | La política de ejecución de scripts de PowerShell | Usar **cmd** en lugar de PowerShell |
+| PowerShell se niega a ejecutar `opencode` (scripts bloqueados) | La política de ejecución de scripts de PowerShell | En un equipo personal, usar **cmd**. En un equipo gestionado, no esquivarla: práctica en pareja |
 | La página no carga | La terminal se ha cerrado, o la dirección es otra | Comprobar que la terminal sigue abierta y copiar exactamente la dirección que muestra (el puerto puede no ser el 4096) |
 | El alumno escribe en la terminal y no pasa nada | La terminal solo arranca el servidor; el trabajo se hace en el navegador | Explicar que la terminal es el motor encendido y el navegador es el volante |
 | No encuentra su carpeta en **Añadir proyecto** | El buscador no muestra carpetas ocultas o temporales | Escribir la ruta desde el usuario: `Documents/practica_agente` |
@@ -159,7 +159,7 @@ Respuestas esperadas a las tres preguntas: (1) escribir un archivo nuevo en el e
 **Qué debería pasar**
 
 - El alumno pide crear `prueba_dentro.txt` **dentro** de la carpeta de trabajo: el agente lo hace **sin aviso** (política de serie: dentro lee, escribe y ejecuta órdenes sin preguntar; solo pregunta al salir).
-- Le pide al agente crear `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask"}}`.
+- Le pide al agente crear `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`.
 - La política se lee al arrancar: el alumno **reinicia** (Ctrl + C, `opencode web`, **Nueva sesión**).
 - Al pedir `prueba_dentro2.txt`, ahora **sí** pregunta: *Modificar archivos mediante ediciones, escrituras y parches*. El alumno pulsa **Permitir una vez**.
 - Al final borra `opencode.json` y reinicia, o lo deja si prefiere seguir aprobando.
@@ -177,7 +177,7 @@ Peticiones del alumno:
 
 > Crea un archivo llamado `prueba_dentro.txt` en la carpeta de trabajo, con el texto «prueba».
 
-> Crea en la raíz de esta carpeta un archivo `opencode.json` con exactamente este contenido: `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask"}}`
+> Crea en la raíz de esta carpeta un archivo `opencode.json` con exactamente este contenido: `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`
 
 > Crea un archivo llamado `prueba_dentro2.txt` en la carpeta de trabajo, con el texto «prueba».
 
@@ -394,9 +394,9 @@ Recuerda a la clase: **el agente no firma su trabajo; lo firma el alumno** al de
 | Síntoma | Causa probable | Solución |
 |---|---|---|
 | Al arrancar dice que el puerto está ocupado, o la dirección no es la 4096 | Ya hay otra instancia de opencode u otro programa usando ese puerto; el puerto puede variar | Cerrar la otra instancia, o fijar otro puerto con `--port`, y copiar la dirección que muestra la terminal |
-| `opencode` no se reconoce | opencode no está instalado, o la terminal se abrió antes de instalarlo | Instalar con `npm install -g opencode-ai`, **abrir una terminal nueva** y comprobar con `opencode --version` |
+| `opencode` no se reconoce | opencode no está instalado, o la terminal se abrió antes de instalarlo | Instalar con `npm install -g opencode-ai@1.19.5`, **abrir una terminal nueva** y comprobar con `opencode --version` |
 | `node` o `npm` no se reconocen, o dan errores de versión | Node.js no está instalado o es demasiado antiguo | Instalar o actualizar Node.js y **abrir una terminal nueva** para que tome el PATH |
-| PowerShell bloquea la ejecución de scripts | Política de ejecución de PowerShell | Usar **cmd** |
+| PowerShell bloquea la ejecución de scripts | Política de ejecución de PowerShell | Equipo personal: usar **cmd**. Equipo gestionado: soporte informático o práctica en pareja |
 | La interfaz no carga en el navegador | Se abrió una dirección equivocada, o la terminal se cerró | Copiar a mano la dirección que aparece en la terminal; probar con otro navegador |
 | El navegador no se abre solo | Puede pasar en algunos equipos | Copiar la dirección de la terminal (por ejemplo, http://127.0.0.1:4096) y pegarla en el navegador |
 | Error de modelo, respuesta vacía o modelo «saturado» | Los modelos gratuitos a veces se saturan | Pulsar el nombre del modelo → **Seleccionar modelo** → elegir otro marcado como **Gratis** |

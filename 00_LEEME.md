@@ -47,7 +47,7 @@ El paquete tiene **tres capas**: los documentos fuente, los formatos para usarlo
 | `build/build.mjs` | Genera el curso y los HTML imprimibles a partir de los Markdown. |
 | `build/build_slides.mjs` | Genera la baraja de diapositivas a partir de `slides.md`. |
 | `build/hacer_pdf.py` | Genera los 10 PDF con fpdf2, sin navegador. |
-| `build/verificar_curso.mjs` | 54 comprobaciones del curso en un DOM simulado. |
+| `build/verificar_curso.mjs` | 57 comprobaciones del curso en un DOM simulado. |
 | `build/verificar_slides.mjs` | 26 comprobaciones de las diapositivas. |
 | `build/verificar_pdf.py` | Comprueba páginas, texto extraíble, tildes y frases del original en cada PDF. |
 

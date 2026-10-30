@@ -60,7 +60,7 @@ Términos en orden alfabético, explicados en lenguaje llano y con un ejemplo co
 **Credencial** — Cualquier dato que da acceso a algo tuyo: contraseñas, claves de API, tokens de acceso, datos de tarjeta.
 *En la práctica:* no las pegues en una petición si no son imprescindibles. Lo que escribes viaja al servicio.
 
-**opencode** — El programa de este curso: un harness de código abierto que convierte un modelo en un agente, con interfaz web, herramientas y permisos. Trae modelos gratuitos. Se instala con `npm install -g opencode-ai` y se arranca con `opencode web`.
+**opencode** — El programa de este curso: un harness de código abierto que convierte un modelo en un agente, con interfaz web, herramientas y permisos. Trae modelos gratuitos. Se instala con `npm install -g opencode-ai@1.19.5` y se arranca con `opencode web`.
 *En la práctica:* es el coche completo; el modelo es solo el motor (ver **Harness**, ver **LLM**).
 
 **Delegación** — Pedirle al agente que encargue una parte del trabajo a otro agente y te devuelva el resultado.
@@ -186,7 +186,7 @@ Se parecen, pero no son lo mismo. Una frase para cada pareja:
 
 ### Antes de empezar (cinco minutos)
 
-- **Node.js y opencode instalados** (`npm install -g opencode-ai`). No necesitas clave de API.
+- **Node.js y opencode instalados** (`npm install -g opencode-ai@1.19.5`). No necesitas clave de API.
 - **Decide la carpeta de trabajo** y comprueba que tiene dentro lo que necesitas. No trabajes sobre tu carpeta personal entera.
 - **Elige un modelo gratuito que no use tus datos para entrenar** (mira la política de privacidad de opencode).
 - **Haz una copia de seguridad** de lo que el agente vaya a tocar.
@@ -194,7 +194,7 @@ Se parecen, pero no son lo mismo. Una frase para cada pareja:
 
 ### Puesta en marcha (5 pasos)
 
-1. **Instala Node.js** si no lo tienes, y después opencode: `npm install -g opencode-ai`.
+1. **Instala Node.js** si no lo tienes, y después opencode: `npm install -g opencode-ai@1.19.5`.
 2. **Abre la terminal en la carpeta que quieras usar como espacio de trabajo** y arranca: `opencode web`.
 3. **Espera a que se abra el navegador.** Si no se abre solo, copia la dirección que aparece en la terminal (por ejemplo http://127.0.0.1:4096).
 4. **Abre la carpeta:** «Añadir proyecto» → escribe la ruta (por ejemplo `Documents/practica_agente`) → elígela → «Nueva sesión».
@@ -275,7 +275,7 @@ Una petición vaga se convierte en una petición con **objetivo**, **alcance** y
 
 ### Datos de referencia
 
-- Instalación: `npm install -g opencode-ai`; comprobar con `opencode --version`
+- Instalación: `npm install -g opencode-ai@1.19.5`; comprobar con `opencode --version`
 - Arranque con interfaz web: `opencode web` (desde la carpeta de trabajo)
 - Interfaz web: la dirección que aparece en la terminal, por ejemplo http://127.0.0.1:4096
 - Configuración del usuario en Windows: `C:\Users\<tu_usuario>\.config\opencode`, con el `opencode.json` y el AGENTS.md globales

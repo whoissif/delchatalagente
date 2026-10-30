@@ -38,7 +38,7 @@ Vas a trabajar **siempre dentro de una copia de la carpeta de práctica**. Eso n
 - **Windows:** menú Inicio → escribe `PowerShell` o `Terminal` → ábrelo.
 - **macOS:** `Cmd + Espacio` → escribe `Terminal` → Enter.
 
-Es una ventana negra o azul donde se escriben órdenes. No pasa nada, no vas a romper nada.
+Es una ventana negra o azul donde se escriben órdenes. Abrirla no cambia nada por sí solo: lo que cambia cosas son las órdenes que escribes. En este curso, escribe solo las que se indican, y el agente trabajará únicamente en la carpeta ficticia de práctica.
 
 ### Paso 2 — Comprueba que tienes opencode
 
@@ -48,7 +48,8 @@ El harness que vamos a usar se llama **opencode**. Lo dejaste instalado en la pr
 opencode --version
 ```
 
-- **Si aparece un número** (por ejemplo `1.19.5`), todo bien: pasa al siguiente paso.
+- **Si aparece `1.19.5`**, todo bien: pasa al siguiente paso. Es la versión probada en este curso.
+- **Si aparece otro número**, instala la del curso para que las prácticas de permisos funcionen como se describen: `npm install -g opencode-ai@1.19.5`.
 - **Si dice que `opencode` no se reconoce**, vuelve a la preparación previa (pasos 2 y 3): falta Node.js o falta instalar opencode.
 
 ### Paso 3 — Arranca el harness dentro de tu carpeta
@@ -75,7 +76,7 @@ Se abrirá **sola** una página en tu navegador con la interfaz de opencode, en 
 2. En el buscador, escribe `Documents/practica_agente` y elige tu carpeta.
 3. Pulsa **Nueva sesión**.
 
-Esa carpeta es la **sala** del agente: lo que hay dentro lo puede tocar; para salir de ella te pedirá permiso.
+Esa carpeta es la **sala** del agente: lo que hay dentro lo puede tocar; para salir de ella te pedirá permiso. Ojo: la sala es una **regla de permisos, no un muro**. opencode no aísla el programa del resto del ordenador (no tiene *sandbox*); lo verás en la Práctica 3.
 
 ### Paso 5 — Comprueba el modelo
 
@@ -213,9 +214,9 @@ Pide lo mismo que antes, esta vez **dentro** de tu carpeta de trabajo:
 
 La política se guarda en un archivo, `opencode.json`, en la raíz de tu carpeta. Pídeselo al propio agente:
 
-> Crea en la raíz de esta carpeta un archivo `opencode.json` con exactamente este contenido: `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask"}}`
+> Crea en la raíz de esta carpeta un archivo `opencode.json` con exactamente este contenido: `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`
 
-Lo que dice: antes de **editar** cualquier archivo (`edit`) o **ejecutar** cualquier orden (`bash`), pregunta (`ask`).
+Lo que dice: antes de **editar** cualquier archivo (`edit`) o **ejecutar** cualquier orden (`bash`), pregunta (`ask`); y para cualquier ruta **fuera de la carpeta** (`external_directory`), pregunta también. Esta última ya viene así de serie en la versión 1.19.5, pero la escribimos para que tu protección no dependa de la versión. Referencia: [permisos de opencode](https://opencode.ai/docs/permissions).
 
 ### Paso 4 — Reinicia opencode
 
@@ -230,6 +231,14 @@ Lo que dice: antes de **editar** cualquier archivo (`edit`) o **ejecutar** cualq
 > Crea un archivo llamado `prueba_dentro2.txt` en la carpeta de trabajo, con el texto «prueba».
 
 **Ahora sí pregunta**, aunque sea dentro de la sala: *Modificar archivos mediante ediciones, escrituras y parches*. Pulsa **Permitir una vez**.
+
+Comprueba también que la puerta sigue cerrada:
+
+> Crea un archivo llamado `prueba_fuera.txt` en el escritorio de mi usuario.
+
+Tiene que salir el aviso *Acceder a archivos fuera del directorio del proyecto*. Pulsa **Denegar**.
+
+> **Si no pregunta en alguno de los dos casos**, para: no sigas creyendo que tienes una protección que no has visto funcionar. Comprueba que reiniciaste opencode y que `opencode --version` dice 1.19.5. Si la interfaz o los avisos no se parecen a lo que describe este cuaderno, avisa al instructor.
 
 ### Paso 6 — Saca la conclusión
 
@@ -255,6 +264,7 @@ Para las prácticas siguientes, **borra `opencode.json`** y reinicia opencode (C
 
 - [ ] El archivo `prueba_dentro.txt` se creó **sin** pedir aprobación.
 - [ ] Con `opencode.json` y tras reiniciar, `prueba_dentro2.txt` **sí** pidió aprobación.
+- [ ] Escribir en el escritorio pidió aprobación y lo denegué.
 - [ ] Sé explicar la diferencia entre la carpeta y la política en una frase.
 
 ### Y no lo olvides

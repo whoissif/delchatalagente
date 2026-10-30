@@ -166,13 +166,15 @@ Si solo pudieras leer un capítulo de estos apuntes, sería este.
 
 | Concepto | Qué es | En una frase |
 |---|---|---|
-| **Sandbox** | La zona donde el agente puede moverse. Normalmente, la carpeta de trabajo que tú elegiste. | **La sala donde trabaja el becario.** |
+| **Sala (carpeta de trabajo)** | La zona donde el agente puede moverse sin preguntar: la carpeta que tú elegiste. | **La sala donde trabaja el becario.** |
 | **Política de permisos** | El ajuste general: qué está permitido sin preguntar y qué no. | **El reglamento de la sala.** |
 | **Aprobación** | El aviso puntual que aparece cuando algo se sale de lo permitido. | **El «¿seguro?» en la puerta.** |
 
 Y la frase que lo resume todo:
 
 > **Dentro de la sala, el becario hace lo que quiera. Para salir de la sala, te pide permiso.**
+
+**Dónde deja de valer la analogía.** En opencode, la sala es una **regla de permisos**, no un muro: el programa sigue teniendo acceso técnico a todo tu ordenador, y es él quien decide preguntarte. Un **sandbox** de verdad aísla el programa para que no pueda salir aunque quiera. opencode no tiene sandbox; otros agentes lo ofrecen como opción. Por eso importa tanto qué carpeta eliges y qué política le pones.
 
 ### 4.2 La decisión más importante que vas a tomar
 
