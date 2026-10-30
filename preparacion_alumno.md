@@ -34,7 +34,7 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
 1. En la terminal, escribe y pulsa Intro:
 
    ```
-   npm install -g opencode-ai
+   npm install -g opencode-ai@1.19.5
    ```
 
 2. Espera a que termine (unos segundos o un par de minutos). Verás un mensaje como `added 3 packages`.
@@ -47,6 +47,8 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
 
    Debe aparecer un número de versión, por ejemplo `1.19.5`.
 
+> Instalamos la **versión 1.19.5**, la que se ha probado en este curso. opencode cambia casi cada semana y una versión más nueva puede cambiar cómo se escriben los permisos. Si ya tenías otra, esta orden la sustituye.
+>
 > `npm` viene con Node.js. La orden instala opencode **en tu usuario**, de forma permanente; para quitarlo más adelante, `npm uninstall -g opencode-ai`.
 
 ## Paso 4. Descarga la carpeta de práctica
@@ -73,7 +75,7 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
 
 - **Un error casi nunca significa que hayas roto algo**: suele faltar un paso. Cerrar la terminal y volver a abrirla arregla la mayoría.
 - **«npm», «node» u «opencode» no se reconoce:** falta instalar algo o la terminal se abrió antes de instalarlo. Vuelve al paso 2 o al 3.
-- **En Windows sale un error rojo sobre «ejecución de scripts deshabilitada»:** usa la terminal **Símbolo del sistema** (`cmd`) en lugar de PowerShell para estas órdenes.
+- **En Windows sale un error rojo sobre «ejecución de scripts deshabilitada»:** usa el **Símbolo del sistema** (`cmd`), la terminal clásica de Windows. En un ordenador personal, PowerShell trae bloqueados de serie scripts como el que instala opencode, y `cmd` no los necesita. **Si es un equipo gestionado por tu empresa o universidad** y te impide instalar o ejecutar programas, no intentes saltarte esa restricción: consulta con soporte informático, usa un equipo personal o sigue las prácticas en pareja.
 - **La página no carga:** comprueba que la terminal sigue abierta y copia exactamente la dirección que aparece en ella.
 - **No tienes permisos para instalar** (ordenador del trabajo): pide ayuda a tu departamento de informática o usa un ordenador personal.
 - **Te has atascado más de diez minutos:** no te quedes ahí. Copia el texto del error y búscalo en la [documentación oficial de opencode](https://opencode.ai/docs/) o pregunta en su comunidad (en *Recursos oficiales*, al final del menú).

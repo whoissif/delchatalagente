@@ -51,7 +51,7 @@ Avisar del descanso a mitad de camino para que nadie se organice mal.
 
 **Requisito previo:** Node.js instalado.
 
-**Instalación (una vez):** `npm install -g opencode-ai`
+**Instalación (una vez):** `npm install -g opencode-ai@1.19.5`
 
 **Arranque:** `opencode web`, desde la carpeta de trabajo.
 
@@ -451,7 +451,7 @@ Señal de éxito: todos tienen una sesión con al menos un encargo terminado y u
 
 # Los dos tropiezos que vas a ver seguro
 
-⚠️ **No arranca `opencode web` o no abre la página.** Casi siempre: no está instalado (`npm install -g opencode-ai`) o se ha lanzado fuera de la carpeta de trabajo. Abre la dirección que muestra la terminal, que puede no ser la proyectada.
+⚠️ **No arranca `opencode web` o no abre la página.** Casi siempre: no está instalado (`npm install -g opencode-ai@1.19.5`) o se ha lanzado fuera de la carpeta de trabajo. Abre la dirección que muestra la terminal, que puede no ser la proyectada.
 
 **No responde o dice que no hay modelo.** Mira que la sesión tenga elegido el modelo «Gratis». **No hace falta clave ni cuenta.**
 

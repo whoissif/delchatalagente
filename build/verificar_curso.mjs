@@ -76,6 +76,8 @@ console.log('\n2. Menú lateral');
 const botones = () => Array.from(doc.querySelectorAll('#nav button'));
 comprobar('Se pintan los 28 botones de lección', botones().length === 28, `hay ${botones().length}`);
 comprobar('El menú muestra los títulos de grupo', doc.querySelectorAll('#nav .grupo-titulo').length === 8);
+comprobar('Sin marcas ✓ antes de completar nada', doc.querySelectorAll('#nav .marca-ok').length === 0,
+  `hay ${doc.querySelectorAll('#nav .marca-ok').length}`);
 
 console.log('\n3. Portada');
 const hoja = doc.getElementById('hoja');
@@ -113,6 +115,8 @@ comprobar('El porcentaje sube al marcarla', doc.getElementById('pct').textConten
   `${pctAntes} -> ${doc.getElementById('pct').textContent}`);
 comprobar('La cuenta de completadas se actualiza', doc.getElementById('cuenta').textContent.includes('1 de 28'),
   doc.getElementById('cuenta').textContent);
+comprobar('Solo la sección completada lleva ✓ en el menú', doc.querySelectorAll('#nav .marca-ok').length === 1,
+  `hay ${doc.querySelectorAll('#nav .marca-ok').length}`);
 
 console.log('\n6. Búsqueda');
 const buscar = doc.getElementById('buscar');
@@ -216,6 +220,7 @@ comprobar('No quedan frases de seminario presencial',
   !/correo de preparación|Seminario:|\[día\]|\[lugar\]|Documento 0\d/.test(todoElTexto));
 comprobar('La portada no anuncia módulos vacíos', !/· 0 lecciones|1 lecciones/.test(todoElTexto));
 comprobar('Las prácticas usan opencode, sin clave de API de pago', /opencode web/.test(todoElTexto) && !/dsh|DeepSeek Harness|platform\.deepseek|127\.0\.0\.1:3080/.test(todoElTexto));
+comprobar('La instalación fija la versión probada de opencode', /opencode-ai@1\.19\.5/.test(todoElTexto) && !/ install -g opencode-ai(?!@)/.test(todoElTexto));
 comprobar('«Elige tu carril» va justo después de la preparación, con carril gratuito y de suscripción',
   titulos.indexOf('Elige tu carril') === titulos.indexOf('Prepara tu ordenador') + 1 && /Claude Code/.test(todoElTexto) && /Codex/.test(todoElTexto) && /Min. con agente/.test(todoElTexto));
 

@@ -55,12 +55,12 @@ Vas a necesitar **Node.js** instalado. Es el programa con el que se instala la h
 1. En la terminal, escribe este comando y pulsa **Intro**:
 
    ```
-   npm install -g opencode-ai
+   npm install -g opencode-ai@1.19.5
    ```
 
 2. Espera a que termine (unos segundos o un par de minutos).
 3. Cierra la terminal, ábrela otra vez y escribe `opencode --version`. Debe aparecer un número de versión.
-4. **Si en Windows sale un error rojo** sobre la ejecución de scripts, usa el **Símbolo del sistema** (`cmd`) en lugar de PowerShell.
+4. **Si en Windows sale un error rojo** sobre la ejecución de scripts, usa el **Símbolo del sistema** (`cmd`), la terminal clásica de Windows. En un ordenador personal, PowerShell trae bloqueados de serie scripts como el que instala opencode, y `cmd` no los necesita. **Si es un equipo gestionado por tu empresa o universidad** y te impide instalar o ejecutar programas, no intentes saltarte esa restricción: consulta con soporte informático, usa un equipo personal o sigue las prácticas en pareja.
 
 > Los modelos gratuitos **no son privados**: lo que el agente lee de tu carpeta se envía al proveedor del modelo, y algunos usan esos datos para mejorar. Por eso solo trabajaremos con archivos de práctica, nunca con datos reales.
 
@@ -157,7 +157,7 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
 1. Escribe el comando:
 
    ```
-   npm install -g opencode-ai
+   npm install -g opencode-ai@1.19.5
    ```
 
 2. Pulsa **Intro** y espera a que termine.
@@ -169,7 +169,7 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
    ```
 
    Debe aparecer un número de versión (por ejemplo `1.19.5`).
-5. Si en Windows PowerShell bloquea la ejecución de scripts, usa **cmd** (Símbolo del sistema).
+5. Si en Windows PowerShell bloquea la ejecución de scripts, usa **cmd** (Símbolo del sistema). En un equipo gestionado que lo impida, no lo esquives: consulta con soporte informático.
 
 ## Paso 4. Arrancar opencode
 

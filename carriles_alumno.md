@@ -15,7 +15,7 @@ No hace falta llegar arriba del todo. El objetivo es que salgas del curso **un p
 | 3. Un agente en tu carpeta | Trabaja sobre tus archivos y tú apruebas | **opencode con modelos gratuitos** | Claude Code (Claude Pro o Max), Codex (ChatGPT Plus o Pro) |
 | 4. Un agente con método | Notas, procedimientos, política de permisos y verificación | opencode | Los mismos |
 
-Si en tu ordenador del trabajo no puedes instalar nada, haz las prácticas en casa o quédate en los peldaños 1 y 2: con unas buenas instrucciones fijas ya habrás avanzado.
+Si en tu ordenador del trabajo no puedes instalar nada, no intentes saltarte esa restricción: haz las prácticas en un equipo personal, síguelas en pareja con alguien que sí pueda instalar, o quédate en los peldaños 1 y 2. Con unas buenas instrucciones fijas ya habrás avanzado.
 
 ## Carril A — Sin suscripción: opencode (el del curso)
 

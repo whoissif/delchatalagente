@@ -11,7 +11,7 @@ export const tema = String.raw`
   --borde-fuerte:#c9d0e0;
   --texto:#1a2133;
   --texto-suave:#5a6478;
-  --texto-tenue:#8b94a8;
+  --texto-tenue:#5f6a80;
   --primario:#2f4bd8;
   --primario-2:#1e3aa8;
   --primario-suave:#e9edff;
@@ -40,7 +40,7 @@ html[data-tema="oscuro"]{
   --borde-fuerte:#333c4e;
   --texto:#e7eaf2;
   --texto-suave:#a6aec2;
-  --texto-tenue:#7b859c;
+  --texto-tenue:#8e97ac;
   --primario:#8fa4ff;
   --primario-2:#aabaff;
   --primario-suave:#1b2440;
