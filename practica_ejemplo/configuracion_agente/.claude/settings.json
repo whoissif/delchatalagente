@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "defaultMode": "default",
+    "disableAutoMode": "disable",
+    "allow": [
+      "Read(./**)",
+      "Edit(./informes/**)",
+      "Edit(./analisis/**)",
+      "Edit(./AGENTS.md)",
+      "Edit(./INDICE.md)",
+      "Edit(./registro_practicas.md)",
+      "Bash(python .claude/skills/*)",
+      "Bash(python analisis/*)"
+    ],
+    "ask": [
+      "Edit(./.claude/**)",
+      "Edit(./.dsh/**)",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Edit(./*.csv)",
+      "Edit(./informes/informe_*.txt)",
+      "Edit(./acta_constitucion.md)",
+      "Edit(./notas_reunion.txt)",
+      "Edit(./configuracion_ejemplo.json)",
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(del *)",
+      "Bash(Remove-Item *)",
+      "Bash(mv *)",
+      "Bash(git push *)",
+      "Bash(curl *)",
+      "Bash(npx *)",
+      "Bash(npm install *)",
+      "Bash(pip install *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/solo_en_carpeta.py\"",
+            "timeout": 10,
+            "onFailure": "block",
+            "statusMessage": "Comprobando que la escritura queda dentro de la carpeta"
+          }
+        ]
+      }
+    ]
+  }
+}

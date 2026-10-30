@@ -23,6 +23,7 @@ Las prácticas se basan en tareas con documentos y datos, transferibles a gesti�
 | [Mapa mental interactivo](mapa-mental.html) | Vista general de los conceptos, prácticas y controles del curso |
 | [Laboratorio](03_laboratorio.md) | Cinco prácticas guiadas y una avanzada de datos y modelos |
 | [Datos de práctica](practica_ejemplo/LEEME.md) | Archivos ficticios para experimentar con seguridad |
+| [Configuración de ejemplo](practica_ejemplo/configuracion_agente/LEEME.md) | Permisos, hook y skills listos para copiar después de las prácticas |
 | [Diapositivas (PDF)](slides/diapositivas.pdf) | Síntesis visual del curso |
 | [Apuntes](02_apuntes_alumno.md) · [Glosario](05_glosario_chuleta.md) | Consulta del alumno |
 | [Paquete PDF](pdf/completo.pdf) | Material completo para imprimir |

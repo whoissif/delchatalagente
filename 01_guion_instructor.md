@@ -252,6 +252,8 @@ Aquí aparecen dos comportamientos que hay que desactivar ya:
 
 **Regla de oro, y que la copien:** **si no entiendes qué te está pidiendo, no lo apruebes. Pídele que te lo explique con palabras, o que te diga qué va a tocar antes de tocarlo.**
 
+**Si alguien usa Claude Code u otro agente con aprobación automática** (por ejemplo, el **modo Auto**), no verá ningún aviso: el archivo se creará solo. Aprovéchalo delante de todos: **sin aviso, la decisión la ha tomado otra IA, no la persona.** Que cambie a modo manual (`Shift+Tab` en Claude Code) y repita.
+
 ### Parte 3 — Práctica 3: Cambiar de política (8 min)
 
 La misma tarea que antes, pero hecha dentro de la carpeta de trabajo. Todos la repiten y observan: **ya no pregunta nada.**

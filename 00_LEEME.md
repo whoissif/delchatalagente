@@ -33,8 +33,9 @@ El paquete tiene **tres capas**: los documentos fuente, los formatos para usarlo
 | **Página de entrada** | `index.html` | Punto de partida: enlaza el curso, las diapositivas, los PDF y la carpeta de práctica. Se abre con doble clic. |
 | **Curso interactivo** | `curso/index.html` | Los documentos organizados en 4 módulos y 31 lecciones, con búsqueda, progreso guardado en el navegador y los dos cuestionarios corregidos al momento. Sin servidor y sin conexión. |
 | **Diapositivas** | `slides/diapositivas.html` y `slides/diapositivas.pdf` | 63 diapositivas para proyectar, con **notas del presentador** en todas ellas (tecla `N`). El PDF imprime una diapositiva por página. |
-| **PDF imprimibles** | `pdf/` | Un PDF por documento, más `completo.pdf` con los ocho en un volumen de 77 páginas. |
+| **PDF imprimibles** | `pdf/` | Un PDF por documento, más `completo.pdf` con los ocho en un volumen de 78 páginas. |
 | **Entorno de práctica** | `practica_ejemplo/LEEME.html` | Expediente ficticio de una empresa de ejemplo; descarga el ZIP y usa una copia como espacio de trabajo. |
+| **Configuración de ejemplo** | `practica_ejemplo/configuracion_agente/` y su ZIP | Permisos en modo manual, un hook que bloquea escrituras fuera de la carpeta y cuatro skills con scripts, para Claude Code y DeepSeek Harness. Se usa después de las prácticas. |
 | **Fuente Marp** | `slides/slides.md` | La presentación en Markdown de Marp, por si prefieres editarla en VS Code con la extensión Marp o exportarla con `marp-cli`. |
 
 ### 3. Las herramientas (`build/`)

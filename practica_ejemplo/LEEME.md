@@ -51,3 +51,15 @@ Después puedes probar:
 - **Síntesis:** compara informes y actas, identifica discrepancias y guarda un borrador nuevo en `informes`.
 
 En todos los casos pide que cite el nombre del archivo y la sección o dato utilizado. Comprueba los cálculos y el resultado antes de compartirlo o tomar decisiones.
+
+## Después de las prácticas: la configuración de ejemplo
+
+**[Descargar la configuración de ejemplo (ZIP)](configuracion_agente.zip)** · [ver su LEEME](configuracion_agente/LEEME.md)
+
+Cuando hayas terminado las prácticas 1 a 5, puedes copiar en tu `practica_agente` una configuración ya montada para Claude Code (con copia de las skills para DeepSeek Harness):
+
+- **Permisos en modo manual**, sin modo Auto, con los archivos originales protegidos contra edición y sin borrados ni instalaciones.
+- **Un hook** que bloquea cualquier escritura fuera de la carpeta.
+- **Cuatro skills** (`resumen-informes`, `analisis-energia-mensual`, `propuesta-reposicion` y `verificar-entrega`) que hacen los cálculos con scripts.
+
+No la copies antes de la Práctica 4: allí tienes que escribir tú las notas y la primera skill.

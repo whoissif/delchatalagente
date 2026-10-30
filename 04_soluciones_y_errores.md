@@ -113,6 +113,7 @@ Qué haría el agente:
 | Lo que se ve | Qué está pasando | Qué hacer |
 |---|---|---|
 | El agente crea el archivo sin preguntar nada | La carpeta de destino está dentro del espacio de trabajo, o la política es más permisiva de lo previsto | Elegir una ruta claramente externa (escritorio, carpeta personal) y revisar la política de permisos |
+| No aparece ningún aviso y el archivo se crea igualmente | El agente aprueba solo: por ejemplo, Claude Code en **modo Auto**, donde un clasificador decide en lugar del alumno | Convertirlo en la lección: sin aviso no hay «leer antes de aprobar». Cambiar a modo manual (`Shift+Tab`) y repetir |
 | No aparece ningún aviso y el agente dice "no puedo" | La política de permisos deniega directamente en vez de preguntar | Es un resultado válido: hay modos de sandbox y política de aprobaciones; en ese modo no se pregunta, se niega |
 | El alumno aprueba a ciegas sin leer el aviso | No ha entendido la práctica | Parar y leer el aviso en voz alta: qué operación, qué ruta, qué riesgo |
 | Aparecen varios avisos seguidos y el alumno se agobia | El encargo toca varias cosas de golpe | Recordar que **"Permitir una vez" es solo esa vez**; simplificar la petición a una sola acción |
@@ -224,6 +225,7 @@ Qué haría el agente:
 | El alumno cree que el agente "recuerda" la conversación anterior | Cada sesión es independiente; lo permanente vive en el AGENTS.md o en la skill | Explicar la diferencia entre memoria permanente y contexto de la conversación |
 | Instrucciones contradictorias y resultado raro | Hay reglas viejas que chocan con las nuevas | Leer el archivo y limpiar: menos reglas y más claras |
 | La skill no se usa nunca | Ruta o nombre incorrectos: debe estar en `.dsh/skills/<nombre>/SKILL.md` dentro del proyecto | Comparar con el ejemplo ya existente `.dsh/skills/precios-gasolineras/SKILL.md` |
+| El agente responde en el chat y no guarda nada en `informes`, aunque la nota lo pida | La nota era ambigua: «cuando crees un informe» no dice si un resumen en el chat cuenta | Reescribir la nota diciendo cuándo se aplica: «si creas un archivo de informe, guárdalo en `informes`; si solo respondes en el chat, no crees archivos» |
 | El agente guarda las notas en un sitio raro | No se le indicó la ruta y eligió una carpeta del espacio de trabajo | Indicar explícitamente la carpeta de configuración del usuario o la raíz del proyecto |
 
 **Plan B si no sale**
