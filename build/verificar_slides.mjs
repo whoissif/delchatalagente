@@ -37,7 +37,7 @@ await new Promise((r) => setTimeout(r, 200));
 
 console.log('\n1. Estructura');
 const diapos = () => Array.from(doc.querySelectorAll('.diapo'));
-comprobar('Hay 63 diapositivas', diapos().length === 63, `hay ${diapos().length}`);
+comprobar('Hay 64 diapositivas', diapos().length === 64, `hay ${diapos().length}`);
 comprobar('Solo una está visible al empezar', diapos().filter((d) => d.classList.contains('visible')).length === 1);
 comprobar('La primera es la portada', diapos()[0].classList.contains('portada'));
 comprobar('La portada es de tipo lead', diapos()[0].classList.contains('lead'));
@@ -46,7 +46,7 @@ comprobar('Hay diapositivas de sección (lead)', diapos().filter((d) => d.classL
 
 console.log('\n2. Notas del presentador');
 const conNotas = diapos().filter((d) => (d.getAttribute('data-notas') || '').length > 20);
-comprobar('Todas las diapositivas llevan notas', conNotas.length === 63, `llevan ${conNotas.length}`);
+comprobar('Todas las diapositivas llevan notas', conNotas.length === 64, `llevan ${conNotas.length}`);
 comprobar('Las notas citan el tiempo asignado', diapos().some((d) => /min/i.test(d.getAttribute('data-notas') || '')));
 
 console.log('\n3. Contenido');
@@ -54,9 +54,10 @@ const texto = doc.body.textContent;
 comprobar('Aparece el título del seminario', texto.includes('Del chat al agente'));
 comprobar('Aparecen las analogías canónicas', texto.includes('becario') && texto.includes('motor'));
 comprobar('Se explica «Permitir una vez»', texto.includes('Permitir una vez'));
-comprobar('Aparecen los datos de arranque verificados', texto.includes('npx @deepseek-ai/dsh web'));
-comprobar('Aparece la dirección de la interfaz', texto.includes('127.0.0.1:3080'));
+comprobar('Aparecen los datos de arranque verificados', texto.includes('opencode web'));
+comprobar('Aparece la dirección de la interfaz', texto.includes('127.0.0.1:4096'));
 comprobar('Aparecen las prácticas 2 y 3', texto.includes('Provocar una aprobación') && texto.includes('Cambiar de política'));
+comprobar('No queda rastro de dsh ni DeepSeek Harness', !/\bdsh\b|DeepSeek Harness/i.test(texto));
 comprobar('No hay tablas vacías', doc.querySelectorAll('.diapo table').length >= 4,
   `hay ${doc.querySelectorAll('.diapo table').length} tablas`);
 
@@ -69,8 +70,8 @@ comprobar('La flecha derecha avanza', visibles() === 1, `está en ${visibles() +
 irA('ArrowLeft');
 comprobar('La flecha izquierda retrocede', visibles() === 0);
 irA('End');
-comprobar('Fin va a la última', visibles() === 62, `está en ${visibles() + 1}`);
-comprobar('El contador refleja la posición', doc.getElementById('contador').textContent.trim() === '63 / 63',
+comprobar('Fin va a la última', visibles() === 63, `está en ${visibles() + 1}`);
+comprobar('El contador refleja la posición', doc.getElementById('contador').textContent.trim() === '64 / 64',
   doc.getElementById('contador').textContent);
 irA('Home');
 comprobar('Inicio vuelve a la primera', visibles() === 0);

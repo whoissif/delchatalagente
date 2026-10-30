@@ -60,14 +60,14 @@ Reparte el inicial en papel (o compártelo antes de empezar) y guarda el final j
 
 | Patrón en las respuestas | Qué indica | Qué hacer en la sesión |
 |---|---|---|
-| Confunde el modelo con el producto («DeepSeek es la aplicación») | No tiene separados el motor y el coche | Reforzar la analogía **motor / coche completo** al presentar el harness |
+| Confunde el modelo con el producto («opencode es la inteligencia») | No tiene separados el motor y el coche | Reforzar la analogía **motor / coche completo** al presentar el harness |
 | Elige I2-D («ya sabe lo que hay en mi ordenador») | Confunde memoria del modelo con leer archivos | Insistir: el agente solo ve lo que lee con herramientas y con permisos |
 | Cree que aprobar una vez vale para siempre | No ha visto el coste real de las aprobaciones | Dar tiempo a la **práctica 2** y a la **práctica 3** |
 | Cree que el harness deshace los errores (I4-A) | Falsa red de seguridad | Hablar de copias de seguridad y de **mínimo privilegio** antes de la práctica 5 |
 | Miedo difuso a «que toque todo» (I6) | Buen punto de partida, sin vocabulario | Responder con el sandbox y la política de aprobaciones, en concreto |
 | En I5 no se le ocurre ninguna tarea | Todavía no ha pensado en tareas delegables | Dar ejemplos genéricos de tareas repetitivas de oficina y pedir uno propio |
 | Acierta I1–I4 con soltura | Puede ayudar a otros sin aburrirse | Proponerle hacer de apoyo durante las prácticas |
-| Respuestas muy largas en I5 e I6 | Expectativas altas o miedo alto | Aterrizar el alcance real y recordar los límites del developer preview |
+| Respuestas muy largas en I5 e I6 | Expectativas altas o miedo alto | Aterrizar el alcance real y recordar los límites de opencode: cambia muy rápido, no tiene sandbox y gratis no es privado |
 
 **Respuestas esperadas en el inicial (referencia, no se puntúa):** I1-B, I2-B, I3-A, I4-B.
 
@@ -162,12 +162,12 @@ Reparte el inicial en papel (o compártelo antes de empezar) y guarda el final j
 - **C)** Que ejecute código con los mismos permisos que el agente y llegue a tus datos o a tus credenciales.
 - **D)** Que solo funcione con la versión de pago del modelo.
 
-**F12.** El proyecto está en «developer preview». ¿Qué significa para ti?
+**F12.** Vas a usar uno de los modelos gratuitos de opencode. ¿Qué es lo más prudente?
 
-- **A)** Que es una versión en desarrollo: cambia rápido, puede romper compatibilidad y no hay auditoría de seguridad.
-- **B)** Que es gratis, pero con publicidad.
-- **C)** Que solo pueden usarlo programadores profesionales.
-- **D)** Que ya está terminado y estable, solo le faltan detalles estéticos.
+- **A)** Usarlo con tus documentos de trabajo: si es gratis, no guarda nada.
+- **B)** Da igual cuál elijas: todos los modelos tratan tus datos de la misma forma.
+- **C)** Usarlo solo si no hay datos de clientes en las primeras páginas.
+- **D)** Usarlo con datos de práctica y mirar la política de privacidad del modelo: algunos gratuitos usan lo que envías para mejorar.
 
 **F13.** El agente está resumiendo una página web de un proveedor y, de repente, propone enviar por correo el contenido de tu carpeta de trabajo «porque la página lo indica». ¿Qué está pasando?
 
@@ -216,7 +216,7 @@ Reparte el inicial en papel (o compártelo antes de empezar) y guarda el final j
 | **F9.** Qué es MCP | **B** | MCP es un enchufe estándar, tipo USB, para conectar herramientas que ya existen sin escribir nada nuevo. La A lo confunde con un modelo y la D con un formato de archivo. |
 | **F10.** Qué hacer cuando el agente se equivoca y empeora | **B** | Parar, revisar lo hecho y replantear la tarea en trozos pequeños suele resolverlo. La C es tentadora porque parece que más permisos dan más capacidad, pero normalmente agrandan el problema; la A solo repite el error. |
 | **F11.** Riesgo de un plugin de terceros | **C** | Un plugin corre con los permisos del agente, así que puede llegar a lo mismo que él. La A es tentadora porque es el riesgo fácil de imaginar, pero el daño real no es el espacio en disco. |
-| **F12.** Qué significa developer preview | **A** | Es una versión en desarrollo: iteración rápida, cambios que rompen compatibilidad y sin auditoría de seguridad. La D es tentadora porque la herramienta funciona bien en la demo, pero «funciona» no es «estable». |
+| **F12.** Qué es prudente con un modelo gratuito | **D** | Gratis no quiere decir privado: lo que el agente lee se envía al proveedor, y algunos modelos gratuitos usan esos datos para mejorar. La opción A es tentadora porque «gratis» suena a «sin compromiso», pero el precio puede ser tus datos. |
 | **F13.** Una web que pide enviar tus archivos | **B** | Es el patrón típico de inyección de instrucciones: lo que el agente lee de fuera puede traer órdenes de otra persona. La A es tentadora porque enviar resultados es algo que los agentes hacen, pero nadie se lo ha pedido. Regla: si no lo pediste tú, para y pregunta. |
 | **F14.** Cómo comprobar un análisis de datos | **C** | El agente no da un número: da un programa que calcula el número, y hay que revisar el programa y cuadrar totales con la fuente. La B es tentadora, pero repetir un cálculo equivocado da el mismo error; y la D delega la verificación en otra IA en lugar de hacerla tú. |
 
@@ -242,7 +242,7 @@ No hay una única respuesta válida: valora si aparecen las ideas clave.
 
 **F16. Un aviso de aprobación visto en las prácticas**
 
-- **Debe aparecer:** una acción concreta (por ejemplo, escribir o ejecutar un comando fuera del espacio de trabajo), el motivo de que apareciera y qué eligió.
+- **Debe aparecer:** una acción concreta (por ejemplo, escribir o ejecutar un comando fuera de la carpeta de trabajo), el motivo de que apareciera y qué eligió.
 - **Buena:** «Intentó crear un archivo en mi Escritorio, fuera de la carpeta de trabajo, y salió el aviso. Elegí "Permitir una vez" porque era justo lo que quería; si me lo pidiera cada vez, movería el trabajo dentro de la carpeta del proyecto».
 - **Regular:** «Salió un aviso y le di a permitir». Identifica el aviso, pero no explica por qué apareció.
 - **Floja:** «No vi ninguno» o confundir el aviso con un error de la aplicación.
@@ -292,7 +292,7 @@ Marca de 1 a 5, donde **1 = nada / muy en desacuerdo** y **5 = mucho / muy de ac
 | Nº | Pregunta | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|---|
 | 1 | El seminario me ha ayudado a entender qué es un harness y en qué se diferencia de un chat | ☐ | ☐ | ☐ | ☐ | ☐ |
-| 2 | Me siento capaz de arrancar el harness y dejarlo listo (modelo y espacio de trabajo) por mi cuenta | ☐ | ☐ | ☐ | ☐ | ☐ |
+| 2 | Me siento capaz de arrancar el harness y dejarlo listo (proyecto y modelo) por mi cuenta | ☐ | ☐ | ☐ | ☐ | ☐ |
 | 3 | He entendido para qué sirven los permisos y las aprobaciones | ☐ | ☐ | ☐ | ☐ | ☐ |
 | 4 | El ritmo de la sesión ha sido el adecuado para mí | ☐ | ☐ | ☐ | ☐ | ☐ |
 | 5 | Recomendaría este seminario a un compañero | ☐ | ☐ | ☐ | ☐ | ☐ |
@@ -302,7 +302,7 @@ Marca de 1 a 5, donde **1 = nada / muy en desacuerdo** y **5 = mucho / muy de ac
 | Bloque | Se hizo largo | Estuvo bien | Se hizo corto |
 |---|---|---|---|
 | Conceptos: qué es un harness y qué es un agente | ☐ | ☐ | ☐ |
-| Configuración: modelo y espacio de trabajo | ☐ | ☐ | ☐ |
+| Configuración: proyecto y modelo | ☐ | ☐ | ☐ |
 | Práctica 1 — Primer arranque y primer encargo | ☐ | ☐ | ☐ |
 | Práctica 2 — Provocar una aprobación | ☐ | ☐ | ☐ |
 | Práctica 3 — Cambiar de política | ☐ | ☐ | ☐ |

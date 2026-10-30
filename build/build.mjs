@@ -171,7 +171,7 @@ function documentoPdf(d, { conCabeza = true } = {}) {
     ? `<header class="doc-cabeza">
       <div class="serie">Seminario «Del chat al agente» · Documento ${escapar(d.id)}</div>
       <h1>${escapar(d.titulo)}</h1>
-      <div class="meta">Para: <b>${d.publico === 'alumno' ? 'alumnos' : 'instructor'}</b> · Herramienta: <b>DeepSeek Harness</b> (<code>dsh</code>) · Generado el ${escapar(HOY)}</div>
+      <div class="meta">Para: <b>${d.publico === 'alumno' ? 'alumnos' : 'instructor'}</b> · Herramienta: <b>opencode</b> (modelos gratuitos) · Generado el ${escapar(HOY)}</div>
     </header>`
     : '';
   return `<div class="doc" id="doc-${escapar(d.id)}">
@@ -457,7 +457,7 @@ for (const d of docs.values()) {
       <header class="doc-cabeza">
         <div class="serie">Paquete completo · 8 documentos</div>
         <h1>Seminario «Del chat al agente: qué es un harness y cómo se usa»</h1>
-        <div class="meta">Audiencia: <b>usuarios corrientes de chat/bot</b> · Duración: <b>150 minutos</b> · Herramienta: <b>DeepSeek Harness</b> (<code>dsh</code>) · Generado el ${escapar(HOY)}</div>
+        <div class="meta">Audiencia: <b>usuarios corrientes de chat/bot</b> · Duración: <b>150 minutos</b> · Herramienta: <b>opencode</b> (modelos gratuitos) · Generado el ${escapar(HOY)}</div>
       </header>
       <div class="doc-nota">Este volumen reúne los ocho documentos del paquete: guía, guion del instructor, apuntes, laboratorio, soluciones, glosario, evaluación y preparación previa. Para imprimir solo una parte, usa los PDF individuales.</div>
     </div>
