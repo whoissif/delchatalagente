@@ -83,7 +83,7 @@ Reparte el inicial en papel (o compártelo antes de empezar) y guarda el final j
 |---|---|---|
 |  |  |  |
 
-### Parte A — Opción múltiple (12 preguntas)
+### Parte A — Opción múltiple (14 preguntas)
 
 **F1.** ¿Qué aporta el harness frente al modelo por sí solo?
 
@@ -169,17 +169,31 @@ Reparte el inicial en papel (o compártelo antes de empezar) y guarda el final j
 - **C)** Que solo pueden usarlo programadores profesionales.
 - **D)** Que ya está terminado y estable, solo le faltan detalles estéticos.
 
+**F13.** El agente está resumiendo una página web de un proveedor y, de repente, propone enviar por correo el contenido de tu carpeta de trabajo «porque la página lo indica». ¿Qué está pasando?
+
+- **A)** Es un paso normal: los agentes envían los resultados por correo al terminar.
+- **B)** Probablemente una inyección de instrucciones: la página contiene órdenes escritas por otra persona. Deniegas y preguntas.
+- **C)** El agente ha perdido el contexto y hay que darle acceso total para que termine.
+- **D)** Es un error del proveedor del modelo y no tiene nada que ver con la seguridad.
+
+**F14.** Le pides al agente el consumo eléctrico total del mes a partir de un CSV y te entrega un número y un gráfico impecables. ¿Cuál es la mejor comprobación?
+
+- **A)** Si el gráfico es coherente, el número está bien.
+- **B)** Pedirle que lo repita: si sale el mismo número, es correcto.
+- **C)** Mirar el script que ha usado (qué filas descarta o corrige, qué unidades asume) y comprobar el total contra una fuente independiente.
+- **D)** Usar un modelo más potente para que revise el resultado.
+
 ### Parte B — Preguntas abiertas (3)
 
-**F13.** Explica con tus palabras la diferencia entre un chat y un agente.
+**F15.** Explica con tus palabras la diferencia entre un chat y un agente.
 
 > Respuesta (3-5 líneas):
 
-**F14.** Describe un aviso de aprobación que hayas visto durante las prácticas y por qué apareció.
+**F16.** Describe un aviso de aprobación que hayas visto durante las prácticas y por qué apareció.
 
 > Respuesta (2-4 líneas):
 
-**F15.** Propón una tarea de tu trabajo que le encargarías al agente y explica cómo comprobarías que el resultado es correcto.
+**F17.** Propón una tarea de tu trabajo que le encargarías al agente y explica cómo comprobarías que el resultado es correcto.
 
 > Respuesta (3-5 líneas):
 
@@ -203,6 +217,8 @@ Reparte el inicial en papel (o compártelo antes de empezar) y guarda el final j
 | **F10.** Qué hacer cuando el agente se equivoca y empeora | **B** | Parar, revisar lo hecho y replantear la tarea en trozos pequeños suele resolverlo. La C es tentadora porque parece que más permisos dan más capacidad, pero normalmente agrandan el problema; la A solo repite el error. |
 | **F11.** Riesgo de un plugin de terceros | **C** | Un plugin corre con los permisos del agente, así que puede llegar a lo mismo que él. La A es tentadora porque es el riesgo fácil de imaginar, pero el daño real no es el espacio en disco. |
 | **F12.** Qué significa developer preview | **A** | Es una versión en desarrollo: iteración rápida, cambios que rompen compatibilidad y sin auditoría de seguridad. La D es tentadora porque la herramienta funciona bien en la demo, pero «funciona» no es «estable». |
+| **F13.** Una web que pide enviar tus archivos | **B** | Es el patrón típico de inyección de instrucciones: lo que el agente lee de fuera puede traer órdenes de otra persona. La A es tentadora porque enviar resultados es algo que los agentes hacen, pero nadie se lo ha pedido. Regla: si no lo pediste tú, para y pregunta. |
+| **F14.** Cómo comprobar un análisis de datos | **C** | El agente no da un número: da un programa que calcula el número, y hay que revisar el programa y cuadrar totales con la fuente. La B es tentadora, pero repetir un cálculo equivocado da el mismo error; y la D delega la verificación en otra IA en lugar de hacerla tú. |
 
 ### Clave del cuestionario inicial (solo para el instructor, no se puntúa)
 
@@ -213,25 +229,25 @@ Reparte el inicial en papel (o compártelo antes de empezar) y guarda el final j
 | I3 | **A** | Entiende la aprobación como control de salida de la zona delimitada. |
 | I4 | **B** | Asume que los errores tienen consecuencias reales. |
 
-### Criterios de corrección de las preguntas abiertas (F13, F14, F15)
+### Criterios de corrección de las preguntas abiertas (F15, F16, F17)
 
 No hay una única respuesta válida: valora si aparecen las ideas clave.
 
-**F13. Diferencia entre un chat y un agente**
+**F15. Diferencia entre un chat y un agente**
 
 - **Debe aparecer:** que el chat solo conversa y te dice qué hacer, mientras que el agente actúa sobre tu ordenador y tú revisas; mención de herramientas, permisos o revisión del resultado.
 - **Buena:** «El chat es como un consultor por teléfono: te explica qué hacer y lo haces tú. El agente es como un becario con acceso a mi ordenador: lo hace él, con las herramientas y permisos que le doy, y yo reviso lo que ha hecho».
 - **Regular:** «El agente es un chat más avanzado que puede hacer cosas». Recoge la idea de acción, pero sin herramientas, permisos ni revisión.
 - **Floja:** «Son lo mismo, pero el agente responde mejor» o «el agente es el de pago».
 
-**F14. Un aviso de aprobación visto en las prácticas**
+**F16. Un aviso de aprobación visto en las prácticas**
 
 - **Debe aparecer:** una acción concreta (por ejemplo, escribir o ejecutar un comando fuera del espacio de trabajo), el motivo de que apareciera y qué eligió.
 - **Buena:** «Intentó crear un archivo en mi Escritorio, fuera de la carpeta de trabajo, y salió el aviso. Elegí "Permitir una vez" porque era justo lo que quería; si me lo pidiera cada vez, movería el trabajo dentro de la carpeta del proyecto».
 - **Regular:** «Salió un aviso y le di a permitir». Identifica el aviso, pero no explica por qué apareció.
 - **Floja:** «No vi ninguno» o confundir el aviso con un error de la aplicación.
 
-**F15. Tarea propia y cómo comprobar el resultado**
+**F17. Tarea propia y cómo comprobar el resultado**
 
 - **Debe aparecer:** una tarea concreta y verificable, y un criterio de comprobación realista (leer el resultado, compararlo con el original, revisar los cambios antes de aceptarlos, pedir una lista de lo que ha tocado).
 - **Buena:** «Le pediría renombrar y clasificar las facturas de un trimestre en carpetas por mes. Lo comprobaría abriendo la carpeta, contando que están todas y revisando que ningún nombre se ha quedado raro».
@@ -244,16 +260,16 @@ No hay una única respuesta válida: valora si aparecen las ideas clave.
 
 ## 5. Interpretación de resultados
 
-Cuenta los aciertos de las 12 preguntas de la Parte A y lee la banda correspondiente. Las abiertas y la encuesta se leen aparte, en positivo.
+Cuenta los aciertos de las 14 preguntas de la Parte A y lee la banda correspondiente. Las abiertas y la encuesta se leen aparte, en positivo.
 
 | Aciertos | Lectura | Qué hacer |
 |---|---|---|
-| **10-12** | Conceptos sólidos, incluidos permisos y límites | Recomendar profundizar en MCP y skills, y probar un encargo real en su trabajo esta semana |
-| **7-9** | Base correcta, con algún punto flojo | Repasar los fallos concretos: suele ser F5 (permitir una vez), F6 (sandbox) o F10 (qué hacer cuando empeora) |
-| **4-6** | Se han captado las ideas generales, no los detalles | Repetir las prácticas 2 y 3 con más calma y volver a explicar la analogía motor/coche |
+| **12-14** | Conceptos sólidos, incluidos permisos y límites | Recomendar profundizar en MCP y skills, y probar un encargo real en su trabajo esta semana |
+| **8-11** | Base correcta, con algún punto flojo | Repasar los fallos concretos: suele ser F5 (permitir una vez), F6 (sandbox), F10 (qué hacer cuando empeora) o F13 (instrucciones escondidas) |
+| **4-7** | Se han captado las ideas generales, no los detalles | Repetir las prácticas 2 y 3 con más calma y volver a explicar la analogía motor/coche |
 | **0-3** | La sesión no ha llegado a asentarse | Sugerir repetir el seminario o empezar por un caso muy pequeño y guiado, sin culpar a nadie: el ritmo, no la persona, es lo que hay que ajustar |
 
-**Advertencia importante:** 12 preguntas **no miden dominio**, solo orientan. Una persona puede fallar dos y usar el agente con criterio, y otra acertar once y no saber qué hacer el lunes. Usa el resultado como pista para seguir acompañando, nunca como nota ni como etiqueta.
+**Advertencia importante:** 14 preguntas **no miden dominio**, solo orientan. Una persona puede fallar dos y usar el agente con criterio, y otra acertar trece y no saber qué hacer el lunes. Usa el resultado como pista para seguir acompañando, nunca como nota ni como etiqueta.
 
 Si comparas el inicial con el final, fíjate sobre todo en **I3 frente a F5** y en **I4 frente a F6**: ahí está el cambio de mentalidad que buscamos (los permisos y los límites importan).
 

@@ -9,9 +9,9 @@ Abre el **[curso interactivo](curso/index.html)** o la [portada visual](index.ht
 ## Ruta de aprendizaje
 
 1. **Entender:** del chat al agente y qué cambia cuando la IA puede actuar.
-2. **Explorar:** herramientas, archivos, contexto, memoria y MCP.
+2. **Explorar:** herramientas, archivos, contexto, memoria y MCP, y cómo se traducen a Claude Code, Cowork, Codex y ChatGPT Work.
 3. **Controlar:** permisos, sandbox y aprobaciones.
-4. **Revisar:** comprobar el trabajo del agente antes de usarlo.
+4. **Revisar:** comprobar el trabajo del agente antes de usarlo, con especial atención al análisis de datos, los modelos y los cálculos de ingeniería.
 
 Las prácticas se basan en tareas con documentos y datos, transferibles a gestión, análisis y administración. El conjunto de datos del laboratorio es ficticio.
 
@@ -21,7 +21,7 @@ Las prácticas se basan en tareas con documentos y datos, transferibles a gesti�
 |---|---|
 | [Curso interactivo](curso/index.html) | Lecciones, diagramas, cuestionarios y progreso local |
 | [Mapa mental interactivo](mapa-mental.html) | Vista general de los conceptos, prácticas y controles del curso |
-| [Laboratorio](03_laboratorio.md) | Cinco prácticas guiadas |
+| [Laboratorio](03_laboratorio.md) | Cinco prácticas guiadas y una avanzada de datos y modelos |
 | [Datos de práctica](practica_ejemplo/LEEME.md) | Archivos ficticios para experimentar con seguridad |
 | [Diapositivas (PDF)](slides/diapositivas.pdf) | Síntesis visual del curso |
 | [Apuntes](02_apuntes_alumno.md) · [Glosario](05_glosario_chuleta.md) | Consulta del alumno |

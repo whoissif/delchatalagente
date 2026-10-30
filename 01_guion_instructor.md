@@ -29,7 +29,7 @@
 
 Orden de recorte, de menos a más doloroso:
 
-1. Bloque 5: deja MCP para una diapositiva y una frase, sin demo.
+1. Bloque 5: deja MCP para una diapositiva y una frase, sin demo, y resume las partes 6 y 7 (ecosistema y datos) con la diapositiva «Mismas piezas, otras marcas» y la frase «revisa el programa, no solo el número».
 2. Bloque 6: reduce a un encargo guiado hecho por todos a la vez con el instructor.
 3. Bloque 2: acorta la demo del instructor a 3 minutos mostrando solo el panel de pasos.
 4. Nunca recortes: bloque 4 completo, la Práctica 1 y el cierre.
@@ -38,10 +38,11 @@ Orden de recorte, de menos a más doloroso:
 
 Orden de ampliación:
 
-1. Bloque 6: de 13 a 25 minutos, con puesta en común de tres voluntarios.
-2. Bloque 5: MCP con una demo real de conexión.
-3. Bloque 1: añade dos ejemplos más de tareas que el grupo reconozca.
-4. Añade 5-10 minutos de preguntas al final.
+1. Práctica 6 — Datos y modelo (20 min, opcional): análisis de un CSV de energía y un modelo lineal, con dos errores de registro puestos a propósito. Ideal para grupos técnicos (análisis de datos, ingeniería).
+2. Bloque 6: de 13 a 25 minutos, con puesta en común de tres voluntarios.
+3. Bloque 5: MCP con una demo real de conexión, o enseña el mismo encargo en Claude Code o Codex si tienes licencia.
+4. Bloque 1: añade dos ejemplos más de tareas que el grupo reconozca.
+5. Añade 5-10 minutos de preguntas al final.
 
 ---
 
@@ -267,6 +268,8 @@ Tres ideas para que se queden:
 - **La aprobación es tuya, no del sistema.** El aviso no decide: te informa. La responsabilidad es de quien pulsa.
 - **Copia de seguridad antes de empezar.** La regla es aburrida y por eso se salta: **si no tienes copia de algo, no lo pongas en la carpeta de trabajo.**
 
+Y una cuarta, en un minuto, con la diapositiva «El riesgo que no se ve»: **lo que el agente lee de fuera puede traer órdenes escondidas** (inyección de instrucciones). Afecta a todos los agentes, también a Claude y a ChatGPT. Regla práctica: **nunca juntes datos privados, contenido de fuera y salida a internet; quita al menos una.**
+
 ### Señales de que ha funcionado
 
 Sabrán decirte, sin mirar, la diferencia entre sandbox y aprobación, y por qué «permitir una vez» no vale para siempre.
@@ -313,6 +316,20 @@ Que cada alumno deje una instrucción permanente (una nota o una skill sencilla)
 Solo el concepto, sin tecnicismos: **MCP es un enchufe estándar, como el USB.** Existen muchísimos programas que ya saben hacer cosas — GitHub, bases de datos, gestores de incidencias, servicios de memoria — y gracias a ese enchufe común se pueden conectar al agente y aparecen como herramientas nuevas. **Cuándo merece la pena: cuando la información que necesitas no está en archivos, sino en otro programa.**
 
 Aviso de seguridad, obligatorio: **cada enchufe es una conexión nueva a tus cosas. Instalar un plugin o conectar un servidor es una decisión de confianza, igual que instalar un programa.** Si vas a conectar algo que toca datos reales de la empresa, consúltalo antes.
+
+> **Las partes 6 y 7 no caben en los 22 minutos del bloque.** Salen del margen de ampliación (hasta 180 minutos). En la sesión de 150, aplica el recorte nº 1: una diapositiva y una frase para cada una.
+
+### Parte 6 — Más allá de `dsh`: Anthropic y OpenAI (3 min, del margen)
+
+La pregunta va a salir seguro: «¿y esto sirve para Claude o para ChatGPT?». Respuesta: **sí, mismas piezas, otro salpicadero.** Enseña la tabla «Mismas piezas, otras marcas»: Claude Code y Codex son el agente con código (terminal, escritorio, web, IDE); Claude Cowork y ChatGPT Work son el agente de oficina sin terminal; el análisis de datos dentro del chat es el paso intermedio, que no toca tu ordenador.
+
+Después, la tabla de los frenos: `CLAUDE.md` o `AGENTS.md` son las notas; los modos *Plan*, manual, *Auto* y el sandbox son la sala del becario con otros nombres. **Los modos automáticos reducen avisos, no riesgos.** Y un dato que sorprende: en Claude Code el sandbox viene desactivado por defecto.
+
+Datos a 30 de octubre de 2026. Antes de cada edición, repasa la documentación oficial: los nombres cambian cada pocos meses.
+
+### Parte 7 — Datos, modelos e ingeniería (3 min, del margen)
+
+**El agente no te da un número: te da un programa que calcula el número. Revisa el programa, no solo el número.** Tres ideas: que describa los datos antes de calcular (filas, unidades, huecos); que separe datos de ajuste y de comprobación y diga el rango de validez del modelo; y que el cálculo de ingeniería lo firma una persona, con la norma vigente delante. Si hay tiempo, enlaza con la Práctica 6.
 
 ---
 

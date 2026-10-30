@@ -178,7 +178,7 @@ ${cabeza}
 
 const MODULOS = {
   modulo1: { icono: 'concepto', titulo: 'Del chat al agente', detalle: 'Qué cambia respecto a un chat y las piezas del harness.' },
-  modulo2: { icono: 'practicas', titulo: 'Manos a la obra', detalle: 'Cinco prácticas con un agente de verdad, en tu portátil.' },
+  modulo2: { icono: 'practicas', titulo: 'Manos a la obra', detalle: 'Cinco prácticas con un agente de verdad, y una sexta de datos y modelos.' },
   modulo3: { icono: 'avanzado', titulo: 'Trabajar sin sustos', detalle: 'Pedir bien, verificar y conocer los límites.' },
   modulo4: { icono: 'documento', titulo: 'Antes de venir', detalle: 'Instalación y preparación previa, paso a paso.' },
   evaluacion: { icono: 'evaluacion', titulo: 'Evaluación', detalle: 'Diagnóstico y evaluación final con corrección al momento.' },
@@ -256,6 +256,8 @@ const GUION_CURSO = [
       { doc: '02', sec: 'Permisos: la parte que de verdad importa' },
       { doc: '02', sec: 'Contexto y memoria' },
       { doc: '02', sec: 'Conectar herramientas que ya existen' },
+      { doc: '02', sec: 'Más allá de' },
+      { doc: '02', sec: 'Datos, modelos e ingeniería' },
     ],
   },
   {
@@ -268,6 +270,7 @@ const GUION_CURSO = [
       { doc: '03', sec: 'Práctica 3' },
       { doc: '03', sec: 'Práctica 4' },
       { doc: '03', sec: 'Práctica 5' },
+      { doc: '03', sec: 'Práctica 6' },
       { doc: '03', sec: 'Hoja de registro' },
     ],
   },

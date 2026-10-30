@@ -18,7 +18,7 @@ El paquete tiene **tres capas**: los documentos fuente, los formatos para usarlo
 |---|---|---|
 | `01_guion_instructor.md` | Instructor | El guion de la sesión, minuto a minuto: qué decir, qué demostrar, qué recortar si vas con retraso y qué hacer si algo falla en directo. |
 | `02_apuntes_alumno.md` | Alumno | Los apuntes que se lleva. Escritos para entenderse **sin** el instructor delante. |
-| `03_laboratorio.md` | Alumno | El cuaderno de prácticas: cinco prácticas paso a paso, con comprobaciones y una hoja de registro. |
+| `03_laboratorio.md` | Alumno | El cuaderno de prácticas: cinco prácticas paso a paso y una sexta, opcional, de análisis de datos y modelos, con comprobaciones y una hoja de registro. |
 | `04_soluciones_y_errores.md` | Instructor | Qué debería pasar en cada práctica, errores frecuentes con su solución, problemas técnicos de sala y frases de rescate. |
 | `05_glosario_chuleta.md` | Alumno | Glosario de unos 30 términos en lenguaje llano y una chuleta de una página para imprimir. |
 | `06_evaluacion.md` | Instructor | Cuestionario inicial de diagnóstico, cuestionario final con clave, rúbrica y encuesta de satisfacción. |
@@ -31,9 +31,9 @@ El paquete tiene **tres capas**: los documentos fuente, los formatos para usarlo
 | Formato | Dónde | Para qué |
 |---|---|---|
 | **Página de entrada** | `index.html` | Punto de partida: enlaza el curso, las diapositivas, los PDF y la carpeta de práctica. Se abre con doble clic. |
-| **Curso interactivo** | `curso/index.html` | Los documentos organizados en 4 módulos y 27 lecciones, con búsqueda, progreso guardado en el navegador y los dos cuestionarios corregidos al momento. Sin servidor y sin conexión. |
-| **Diapositivas** | `slides/diapositivas.html` y `slides/diapositivas.pdf` | 59 diapositivas para proyectar, con **notas del presentador** en todas ellas (tecla `N`). El PDF imprime una diapositiva por página. |
-| **PDF imprimibles** | `pdf/` | Un PDF por documento, más `completo.pdf` con los ocho en un volumen de 62 páginas. |
+| **Curso interactivo** | `curso/index.html` | Los documentos organizados en 4 módulos y 31 lecciones, con búsqueda, progreso guardado en el navegador y los dos cuestionarios corregidos al momento. Sin servidor y sin conexión. |
+| **Diapositivas** | `slides/diapositivas.html` y `slides/diapositivas.pdf` | 63 diapositivas para proyectar, con **notas del presentador** en todas ellas (tecla `N`). El PDF imprime una diapositiva por página. |
+| **PDF imprimibles** | `pdf/` | Un PDF por documento, más `completo.pdf` con los ocho en un volumen de 77 páginas. |
 | **Entorno de práctica** | `practica_ejemplo/LEEME.html` | Expediente ficticio de una empresa de ejemplo; descarga el ZIP y usa una copia como espacio de trabajo. |
 | **Fuente Marp** | `slides/slides.md` | La presentación en Markdown de Marp, por si prefieres editarla en VS Code con la extensión Marp o exportarla con `marp-cli`. |
 
@@ -97,17 +97,18 @@ Todo el material usa **las mismas ocho comparaciones** a propósito. Un alumno q
 
 ---
 
-## Las cinco prácticas
+## Las prácticas
 
-El laboratorio gira alrededor de cinco prácticas, siempre con el mismo nombre en todos los documentos:
+El laboratorio gira alrededor de cinco prácticas, más una sexta opcional, siempre con el mismo nombre en todos los documentos:
 
 | # | Práctica | Qué demuestra |
 |---|---|---|
 | 1 | Primer arranque y primer encargo | Que funciona y que produce efectos reales. |
-| 2 | Provocar una aprobación | Que hay un freno, y que decídelo tú. |
+| 2 | Provocar una aprobación | Que hay un freno, y que lo decides tú. |
 | 3 | Cambiar de política | Que tú eliges el tamaño de la sala. |
 | 4 | Enseñarle un procedimiento | Que la memoria permanente existe y se prueba en conversación nueva. |
 | 5 | Encargo integrador | Que el trabajo no acaba cuando el agente dice «hecho». |
+| 6 | Datos y modelo (opcional) | Que en análisis de datos se revisa el programa, no solo el número, y que un modelo señala anomalías pero no explica causas. |
 
 **La práctica 2 y la 3 son el corazón del seminario**, y su pareja es deliberada: la primera provoca el aviso, la segunda lo elimina cambiando **dónde** trabaja el agente. Esa comparación es la que se llevan a casa.
 

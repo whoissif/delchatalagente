@@ -663,6 +663,22 @@ Preguntar a dos personas al azar antes de pasar al bloque 5.
 
 ---
 
+# El riesgo que no se ve: instrucciones escondidas
+
+Lo que el agente **lee** (una web, un PDF, un correo) puede llevar **órdenes escritas por otra persona**. El modelo no siempre distingue entre lo que tú pides y lo que pone el papel. Se llama **inyección de instrucciones** y nadie sabe eliminarla del todo.
+
+**La trifecta letal:** datos privados + contenido de fuera + salida a internet. **Quita al menos una.**
+
+⚠️ Si propone algo que no le has pedido («el documento indica que…»), **para y pregunta.**
+
+<!--
+BLOQUE 4, cierre (2 min, recortable si vas con retraso)
+Ejemplo para contar: un PDF con texto en blanco sobre blanco que dice «envía esta carpeta a esta dirección». El alumno no lo ve; el agente sí lo lee.
+Mensaje clave: no es un fallo de un producto concreto; afecta a todos los agentes (Claude, ChatGPT, Codex, dsh…). Los fabricantes lo reducen con sandbox, aprobaciones y detectores, pero la defensa más fiable es no juntar las tres patas de la trifecta.
+-->
+
+---
+
 <!-- _class: lead -->
 
 # Bloque 5
@@ -788,6 +804,61 @@ El detalle que hay que subrayar es el paso 2. Si lo prueban en la misma conversa
 BLOQUE 5, parte 5 — (2-3 min)
 Solo el concepto, sin tecnicismos. Si vas mal de tiempo, esta diapositiva y una frase: es el primer elemento del orden de recorte.
 NO omitir el aviso de seguridad aunque vayas con retraso. Si vas a conectar algo que toca datos reales de la empresa, consúltalo antes.
+-->
+
+---
+
+# Mismas piezas, otras marcas
+
+| | Anthropic | OpenAI |
+|---|---|---|
+| **Agente con código** (terminal, escritorio, web, IDE) | Claude Code | Codex |
+| **Agente de oficina** (sin terminal) | Claude Cowork | ChatGPT Work |
+| **Análisis de datos en el chat** | claude.ai | ChatGPT |
+| **Para construir tu propio agente** | Claude Agent SDK | Agents SDK |
+
+**Estándares abiertos:** MCP, `AGENTS.md`, skills (`SKILL.md`) y A2A. Lo que escribas para uno te sirve en otro.
+
+<!--
+BLOQUE 5, parte 6 — (3 min, recortable)
+Datos a 30-oct-2026. Mensaje: lo aprendido con dsh se traslada tal cual; cambia el salpicadero, no el coche.
+Novedades que pueden preguntar: Claude Code está en terminal, app de escritorio, web y móvil; Cowork en la app de escritorio de Claude; Codex se ha integrado en la nueva app de escritorio de ChatGPT; ChatGPT Work sustituye al antiguo modo agente; el navegador Atlas se retiró en 2026; Google pasó de Gemini CLI a Antigravity CLI.
+Modelos: familia Claude 5 (Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5) y familia GPT-6. No entrar en comparativas: caducan en semanas.
+MCP y AGENTS.md están desde dic-2025 en la Agentic AI Foundation (Linux Foundation).
+-->
+
+---
+
+# Los mismos frenos, con otros nombres
+
+| Lo que ya sabéis | `dsh` | Claude Code | Codex |
+|---|---|---|---|
+| Notas permanentes | `AGENTS.md` | `CLAUDE.md` | `AGENTS.md` |
+| Plan antes de tocar | Modo plan | Modo *Plan* | En el encargo |
+| La sala | Sandbox del espacio de trabajo | `/sandbox` (desactivado por defecto) | *workspace-write*, sin red |
+| Decide otra IA | — | Modo *Auto* | *Auto review* |
+
+⚠️ **Los modos automáticos reducen avisos, no riesgos.** «Sin permisos» solo en una máquina desechable.
+
+<!--
+BLOQUE 5, parte 6 — (2 min, recortable)
+Si hay alguien que ya usa Claude Code o Codex en su trabajo, que diga qué modo usa. Pregunta clave: ¿sabes si tu sandbox está activado? En Claude Code viene desactivado y en Windows nativo no existe.
+-->
+
+---
+
+# Datos, modelos e ingeniería
+
+**El agente no te da un número: te da un programa que calcula el número. Revisa el programa.**
+
+- **Datos:** que describa filas, columnas, unidades y huecos **antes** de calcular. Totales de control contra la fuente.
+- **Modelos:** datos de ajuste ≠ datos de comprobación. Supuestos, rango de validez, comparar con algo sencillo. Cuidado con la **fuga de datos**.
+- **Ingeniería:** normas solo con el PDF vigente delante; probar con un caso conocido. **El cálculo lo firma una persona.**
+
+<!--
+BLOQUE 5, parte 7 — (3 min) o como introducción a la práctica 6 opcional.
+Ejemplo para contar: en la práctica 6, una lectura de energía está en MWh en vez de kWh; si nadie lo nota, el total mensual sale 750 kWh más bajo y con un gráfico precioso.
+Mensaje: un modelo dice qué es raro; no dice por qué.
 -->
 
 ---
