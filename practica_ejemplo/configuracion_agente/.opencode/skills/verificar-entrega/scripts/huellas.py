@@ -1,9 +1,9 @@
 """Skill verificar-entrega: huellas SHA-256 para demostrar qué se ha tocado.
 
-  python .dsh/skills/verificar-entrega/scripts/huellas.py foto      # antes de empezar
-  python .dsh/skills/verificar-entrega/scripts/huellas.py comprobar # al terminar
+  python .opencode/skills/verificar-entrega/scripts/huellas.py foto      # antes de empezar
+  python .opencode/skills/verificar-entrega/scripts/huellas.py comprobar # al terminar
 
-Guarda la foto en .claude/huellas.json. Ignora .claude/ y .dsh/ (configuración).
+Guarda la foto en .opencode/huellas.json. Ignora .claude/ y .opencode/ (configuración).
 """
 import hashlib
 import json
@@ -12,8 +12,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
 RAIZ = Path.cwd()
-FOTO = RAIZ / ".claude" / "huellas.json"
-IGNORAR = {".claude", ".dsh", "__pycache__"}
+FOTO = RAIZ / ".opencode" / "huellas.json"
+IGNORAR = {".claude", ".opencode", "__pycache__"}
 
 
 def huellas():

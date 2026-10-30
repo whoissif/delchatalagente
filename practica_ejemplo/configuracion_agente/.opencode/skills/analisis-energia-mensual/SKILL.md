@@ -8,7 +8,7 @@ description: Analiza el consumo eléctrico diario frente a la producción (CSV d
 1. **Antes de calcular**, di cuántas filas y columnas tiene el CSV, en qué unidades está cada columna y qué valores vacíos o raros ves.
 2. Busca en el informe de energía del mes el consumo total (kWh) y las unidades producidas, para el total de control.
 3. Ejecuta el script (no reescribas el cálculo a mano):
-   `python .dsh/skills/analisis-energia-mensual/scripts/energia.py --datos <csv> --total <kWh del informe> --unidades <unidades del informe> --salida analisis`
+   `python .opencode/skills/analisis-energia-mensual/scripts/energia.py --datos <csv> --total <kWh del informe> --unidades <unidades del informe> --salida analisis`
 4. Si el script dice **NO CUADRA**, para y explícalo antes de sacar conclusiones.
 5. Informa en este orden:
    - correcciones que ha hecho el script y por qué;

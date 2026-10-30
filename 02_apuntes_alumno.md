@@ -27,7 +27,7 @@ Con un chat normal: preguntas, te responde, y después tú copias, pegas, abres 
 > **Un chat es un consultor por teléfono: te dice qué hacer y lo haces tú.**
 > **Un agente es un becario con acceso a tu ordenador: lo hace y tú revisas.**
 
-Si al final del seminario recuerdas una sola frase, que sea esta.
+Si al final del curso recuerdas una sola frase, que sea esta.
 
 ### 2.3 Las tres diferencias, y solo tres
 
@@ -285,9 +285,9 @@ Existen muchísimos programas que ya saben hacer cosas: GitHub, bases de datos, 
 
 ---
 
-## 7. Más allá de dsh: los agentes de Anthropic y OpenAI
+## 7. Más allá de opencode: los agentes de Anthropic y OpenAI
 
-En este curso usamos DeepSeek Harness porque es abierto y se ve bien por dentro. Pero **las mismas piezas** (modelo, herramientas, bucle, contexto, permisos, interfaz) están en todos los agentes que vas a encontrarte en el trabajo. Lo que aprendes aquí vale para todos: cambia el salpicadero, no el coche.
+En este curso usamos opencode porque es abierto, se ve bien por dentro y trae modelos gratuitos para practicar sin cuenta. Pero **las mismas piezas** (modelo, herramientas, bucle, contexto, permisos, interfaz) están en todos los agentes que vas a encontrarte en el trabajo. Lo que aprendes aquí vale para todos: cambia el salpicadero, no el coche.
 
 > **Datos a 30 de octubre de 2026.** Los nombres y las funciones cambian cada pocos meses: en 2026 OpenAI retiró su navegador Atlas y convirtió su modo agente en ChatGPT Work, y Google sustituyó Gemini CLI por Antigravity CLI. Antes de decidir nada, mira la documentación oficial del día.
 
@@ -307,13 +307,13 @@ En este curso usamos DeepSeek Harness porque es abierto y se ve bien por dentro.
 
 ### 7.2 Los mismos frenos con otros nombres
 
-| Lo que has aprendido | En `dsh` | En Claude Code | En Codex |
+| Lo que has aprendido | En opencode | En Claude Code | En Codex |
 |---|---|---|---|
 | Notas permanentes | `AGENTS.md` | `CLAUDE.md` (también lee `AGENTS.md`) | `AGENTS.md` |
-| Recetas guardadas | Skills (`SKILL.md`) | Skills (`SKILL.md`) | Skills (`SKILL.md`) |
-| Pedir el plan antes de tocar nada | Modo plan | Modo *Plan* | Pídeselo en el encargo |
-| Preguntar antes de cada cambio | Política por defecto | Modo manual (por defecto) | Aprobación *on-request* |
-| La sala del becario | Sandbox de escritura en el espacio de trabajo | Sandbox opcional (`/sandbox`; **viene desactivado** y no existe en Windows nativo) | Sandbox *workspace-write* (por defecto, sin red) |
+| Recetas guardadas | Skills (`SKILL.md` en `.opencode/skills/`) | Skills (`SKILL.md`) | Skills (`SKILL.md`) |
+| Pedir el plan antes de tocar nada | Agente *Plan* (cambia con la tecla Tab) | Modo *Plan* | Pídeselo en el encargo |
+| Preguntar antes de cada cambio | `opencode.json` con `"edit": "ask"` (de serie no pregunta dentro de la carpeta) | Modo manual (por defecto) | Aprobación *on-request* |
+| La sala del becario | La carpeta del proyecto: pide permiso para salir de ella, pero **no hay sandbox** | Sandbox opcional (`/sandbox`; **viene desactivado** y no existe en Windows nativo) | Sandbox *workspace-write* (por defecto, sin red) |
 | Que otra IA decida qué es peligroso | — | Modo *Auto*: un clasificador bloquea lo arriesgado | Revisión automática (*auto review*) |
 
 > ⚠️ **Los modos automáticos reducen avisos, no riesgos.** Los propios fabricantes lo dicen: un clasificador también se equivoca. Los modos «sin permisos» (*bypass*, *full access*) son solo para máquinas virtuales o contenedores desechables.
@@ -331,10 +331,10 @@ En este curso usamos DeepSeek Harness porque es abierto y se ve bien por dentro.
 
 ### 7.4 Una sala lista para copiar
 
-En el entorno de práctica tienes una **configuración de ejemplo** para Claude Code (`configuracion_agente`, con copia de las skills para `dsh`). Es lo que hemos visto en el curso, ya montado:
+En el entorno de práctica tienes una **configuración de ejemplo** para opencode y para Claude Code (`configuracion_agente`). Es lo que hemos visto en el curso, ya montado:
 
-- **Permisos:** modo manual y modo *Auto* desactivado; lectura libre dentro de la carpeta; escritura solo donde toca; prohibido editar los originales, borrar o instalar.
-- **Un hook** que bloquea cualquier escritura fuera de la carpeta, aunque un permiso la dejara pasar.
+- **Permisos:** en opencode, `opencode.json` pide permiso antes de cada cambio u orden y prohíbe salir de la carpeta; en Claude Code, modo manual, modo *Auto* desactivado, escritura solo donde toca y prohibido editar los originales, borrar o instalar.
+- **Un hook** (solo Claude Code) que bloquea cualquier escritura fuera de la carpeta, aunque un permiso la dejara pasar.
 - **Cuatro skills** que hacen los cálculos con scripts: el número lo da el programa, no el modelo.
 
 Úsala después de las prácticas y **revísala antes de adaptarla** a tus datos: es un ejemplo, no una política de empresa.
@@ -457,9 +457,10 @@ Y ojo con esto, porque es una trampa real: el resultado llega **bien escrito, bi
 
 Esto no es para asustarte: es para que no te lleves un susto.
 
-- **`dsh` es software experimental.** Está en fase de vista previa para desarrolladores (*developer preview*), cambia rápido y habrá novedades que rompan lo anterior. No construyas nada crítico encima sin un plan B.
-- **No ha pasado una auditoría de seguridad.** No está diseñado para ser seguro de fábrica. Los productos comerciales (Claude Code, Codex, Cowork, ChatGPT Work) están más maduros, pero sus fabricantes repiten la misma advertencia: **ningún agente es inmune a la inyección de instrucciones.**
-- **El sandbox y las aprobaciones reducen el riesgo, pero no garantizan aislamiento**, y no deberían ser tu único control de seguridad. Si el trabajo es delicado, lo recomendable es usar una máquina virtual o un entorno dedicado y desechable.
+- **opencode cambia muy rápido.** Saca versiones casi cada semana y los modelos gratuitos van y vienen («gratis por tiempo limitado»). Lo que ves hoy puede cambiar mañana: no construyas nada crítico encima sin un plan B.
+- **Los modelos gratuitos tienen letra pequeña.** Algunos usan lo que les envías para mejorar el modelo. Para trabajo real, usa un proveedor con contrato y política de datos que tu organización haya aprobado.
+- **De serie confía mucho.** Dentro de la carpeta lee, escribe y ejecuta órdenes sin preguntar, y no tiene sandbox. Los productos comerciales (Claude Code, Codex, Cowork, ChatGPT Work) están más maduros, pero sus fabricantes repiten la misma advertencia: **ningún agente es inmune a la inyección de instrucciones.**
+- **La carpeta, el sandbox y las aprobaciones reducen el riesgo, pero no garantizan aislamiento**, y no deberían ser tu único control de seguridad. Si el trabajo es delicado, lo recomendable es usar una máquina virtual o un entorno dedicado y desechable.
 - **La responsabilidad de revisar es tuya.** Es la contrapartida de la comodidad.
 
 **Lo que sí está en tu mano:**

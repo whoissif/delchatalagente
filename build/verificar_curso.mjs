@@ -63,8 +63,8 @@ await new Promise((r) => setTimeout(r, 250));
 console.log('\n1. Carga y estructura');
 const datos = window.__CURSO__;
 comprobar('El curso expone sus datos', !!datos);
-comprobar('Hay 31 lecciones', datos && datos.lecciones.length === 31, datos ? `son ${datos.lecciones.length}` : '');
-comprobar('Hay 9 grupos', datos && datos.grupos.length === 9, datos ? `son ${datos.grupos.length}` : '');
+comprobar('Hay 28 lecciones', datos && datos.lecciones.length === 28, datos ? `son ${datos.lecciones.length}` : '');
+comprobar('Hay 8 grupos', datos && datos.grupos.length === 8, datos ? `son ${datos.grupos.length}` : '');
 comprobar('El cuestionario final tiene 14 preguntas', datos && datos.final.length === 14);
 comprobar('El diagnóstico tiene 4 preguntas', datos && datos.diagnostico.length === 4);
 comprobar(
@@ -74,8 +74,8 @@ comprobar(
 
 console.log('\n2. Menú lateral');
 const botones = () => Array.from(doc.querySelectorAll('#nav button'));
-comprobar('Se pintan los 31 botones de lección', botones().length === 31, `hay ${botones().length}`);
-comprobar('El menú muestra los títulos de grupo', doc.querySelectorAll('#nav .grupo-titulo').length === 9);
+comprobar('Se pintan los 28 botones de lección', botones().length === 28, `hay ${botones().length}`);
+comprobar('El menú muestra los títulos de grupo', doc.querySelectorAll('#nav .grupo-titulo').length === 8);
 
 console.log('\n3. Portada');
 const hoja = doc.getElementById('hoja');
@@ -111,7 +111,7 @@ if (chk) {
 }
 comprobar('El porcentaje sube al marcarla', doc.getElementById('pct').textContent !== pctAntes,
   `${pctAntes} -> ${doc.getElementById('pct').textContent}`);
-comprobar('La cuenta de completadas se actualiza', doc.getElementById('cuenta').textContent.includes('1 de 31'),
+comprobar('La cuenta de completadas se actualiza', doc.getElementById('cuenta').textContent.includes('1 de 28'),
   doc.getElementById('cuenta').textContent);
 
 console.log('\n6. Búsqueda');
@@ -119,13 +119,13 @@ const buscar = doc.getElementById('buscar');
 buscar.value = 'sandbox';
 buscar.dispatchEvent(new window.Event('input', { bubbles: true }));
 const tras = botones().length;
-comprobar('Buscar "sandbox" filtra el menú', tras > 0 && tras < 27, `quedan ${tras}`);
+comprobar('Buscar "sandbox" filtra el menú', tras > 0 && tras < 28, `quedan ${tras}`);
 buscar.value = 'zzzznoexiste';
 buscar.dispatchEvent(new window.Event('input', { bubbles: true }));
 comprobar('Una búsqueda sin resultados muestra aviso', !!doc.querySelector('#nav .vacio'));
 buscar.value = '';
 buscar.dispatchEvent(new window.Event('input', { bubbles: true }));
-comprobar('Al vaciar la búsqueda vuelven las 31', botones().length === 31, `hay ${botones().length}`);
+comprobar('Al vaciar la búsqueda vuelven las 28', botones().length === 28, `hay ${botones().length}`);
 
 console.log('\n7. Cuestionario final');
 irA('quiz-final');
@@ -200,8 +200,24 @@ if (botonP1) {
   botonP1.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
   const textoP1 = doc.getElementById('hoja').textContent;
   comprobar('La Práctica 1 menciona Node.js', textoP1.includes('Node.js'));
-  comprobar('La Práctica 1 enseña a comprobar con node -v', textoP1.includes('node -v'));
+  comprobar('La Práctica 1 enseña a comprobar opencode', textoP1.includes('opencode --version'));
 }
+
+console.log('\n12. Regresión: curso para el alumno online');
+const titulos = datos.lecciones.map((l) => l.titulo);
+const todoElTexto = datos.lecciones.map((l) => l.html).join('\n');
+comprobar('Ningún enlace apunta a #undefined', !todoElTexto.includes('#undefined'));
+comprobar('El diagnóstico va justo después de la presentación', titulos[1] === 'Diagnóstico inicial');
+comprobar('La preparación va antes del Módulo 1',
+  titulos.indexOf('Prepara tu ordenador') > 0 && titulos.indexOf('Prepara tu ordenador') < titulos.indexOf('Del chat al agente'));
+comprobar('No hay material del instructor en el curso',
+  !titulos.some((t) => /instructor|Soluciones|Guía del paquete/.test(t)) && !todoElTexto.includes('Clave de respuestas'));
+comprobar('No quedan frases de seminario presencial',
+  !/correo de preparación|Seminario:|\[día\]|\[lugar\]|Documento 0\d/.test(todoElTexto));
+comprobar('La portada no anuncia módulos vacíos', !/· 0 lecciones|1 lecciones/.test(todoElTexto));
+comprobar('Las prácticas usan opencode, sin clave de API de pago', /opencode web/.test(todoElTexto) && !/dsh|DeepSeek Harness|platform\.deepseek|127\.0\.0\.1:3080/.test(todoElTexto));
+comprobar('«Elige tu carril» va justo después de la preparación, con carril gratuito y de suscripción',
+  titulos.indexOf('Elige tu carril') === titulos.indexOf('Prepara tu ordenador') + 1 && /Claude Code/.test(todoElTexto) && /Codex/.test(todoElTexto) && /Min. con agente/.test(todoElTexto));
 
 console.log(`\n${pruebas - fallos} de ${pruebas} comprobaciones correctas.`);
 if (avisosIgnorados.length) {

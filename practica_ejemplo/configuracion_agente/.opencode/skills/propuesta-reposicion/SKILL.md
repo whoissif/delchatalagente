@@ -6,7 +6,7 @@ description: Prepara un borrador de propuesta de reposición de material cruzand
 # Propuesta de reposición (borrador)
 
 1. Ejecuta el cálculo (no lo hagas a mano):
-   `python .dsh/skills/propuesta-reposicion/scripts/bajo_minimo.py --inventario inventario_material.csv --proveedores contactos_proveedores.csv`
+   `python .opencode/skills/propuesta-reposicion/scripts/bajo_minimo.py --inventario inventario_material.csv --proveedores contactos_proveedores.csv`
 2. Lee `informes/informe_05_pedidos_*.txt` y `informes/informe_03_mantenimiento_*.txt` y busca menciones de los códigos que salgan. Cita el archivo de cada mención.
 3. Guarda `informes/propuesta_reposicion.md` con:
    - la salida del script (tablas tal cual);

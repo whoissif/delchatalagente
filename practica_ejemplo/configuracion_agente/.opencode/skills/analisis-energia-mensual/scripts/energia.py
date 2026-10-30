@@ -1,7 +1,7 @@
 """Skill analisis-energia-mensual: consumo eléctrico diario frente a producción.
 
 Lee el CSV SIN modificarlo; las correcciones se hacen en memoria y se listan.
-Uso: python .dsh/skills/analisis-energia-mensual/scripts/energia.py         --datos lecturas_energia_diarias.csv --total 32400 --unidades 17820 --salida analisis
+Uso: python .opencode/skills/analisis-energia-mensual/scripts/energia.py         --datos lecturas_energia_diarias.csv --total 32400 --unidades 17820 --salida analisis
 """
 import argparse
 import csv

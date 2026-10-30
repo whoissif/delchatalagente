@@ -56,10 +56,10 @@ En todos los casos pide que cite el nombre del archivo y la sección o dato util
 
 **[Descargar la configuración de ejemplo (ZIP)](configuracion_agente.zip)** · [ver su LEEME](configuracion_agente/LEEME.md)
 
-Cuando hayas terminado las prácticas 1 a 5, puedes copiar en tu `practica_agente` una configuración ya montada para Claude Code (con copia de las skills para DeepSeek Harness):
+Cuando hayas terminado las prácticas 1 a 5, puedes copiar en tu `practica_agente` una configuración ya montada para opencode (y también para Claude Code):
 
-- **Permisos en modo manual**, sin modo Auto, con los archivos originales protegidos contra edición y sin borrados ni instalaciones.
-- **Un hook** que bloquea cualquier escritura fuera de la carpeta.
+- **Permisos de opencode** (`opencode.json`): pregunta antes de cada edición y de cada orden, y prohíbe salir de la carpeta.
+- **Para Claude Code:** modo manual sin modo Auto, originales protegidos contra edición, sin borrados ni instalaciones, y un hook que bloquea cualquier escritura fuera de la carpeta.
 - **Cuatro skills** (`resumen-informes`, `analisis-energia-mensual`, `propuesta-reposicion` y `verificar-entrega`) que hacen los cálculos con scripts.
 
 No la copies antes de la Práctica 4: allí tienes que escribir tú las notas y la primera skill.

@@ -214,7 +214,7 @@
       '<div class="nota">' + acertadas + ' / ' + DATOS.final.length + '</div>' +
       '<div class="titulo">' + banda.titulo + '</div>' +
       '<div class="texto">' + banda.texto + '</div>' +
-      '<div class="texto" style="margin-top:12px">Doce preguntas no miden dominio: solo orientan. ' +
+      '<div class="texto" style="margin-top:12px">Unas pocas preguntas no miden dominio: solo orientan. ' +
       'Lo que de verdad importa es que sepas qué aprobar y qué revisar.</div>';
 
     if (estado.notaFinal !== acertadas) {

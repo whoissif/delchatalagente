@@ -124,6 +124,13 @@ for (const d of DOCUMENTOS) {
   });
 }
 
+// Preparación para el alumno que hace el curso online (solo se usa en el curso interactivo).
+const LECCIONES_MD = {};
+for (const [id, archivo] of [['preparacion', 'preparacion_alumno.md'], ['carriles', 'carriles_alumno.md']]) {
+  const ruta = path.join(RAIZ, archivo);
+  LECCIONES_MD[id] = fs.existsSync(ruta) ? await aHtml(fs.readFileSync(ruta, 'utf8')) : '';
+}
+
 // ---------------------------------------------------------------- plantilla HTML
 
 function pagina({ titulo, cuerpo, claseBody, extraCss, scripts }) {
@@ -180,19 +187,20 @@ const MODULOS = {
   modulo1: { icono: 'concepto', titulo: 'Del chat al agente', detalle: 'Qué cambia respecto a un chat y las piezas del harness.' },
   modulo2: { icono: 'practicas', titulo: 'Manos a la obra', detalle: 'Cinco prácticas con un agente de verdad, y una sexta de datos y modelos.' },
   modulo3: { icono: 'avanzado', titulo: 'Trabajar sin sustos', detalle: 'Pedir bien, verificar y conocer los límites.' },
-  modulo4: { icono: 'documento', titulo: 'Antes de venir', detalle: 'Instalación y preparación previa, paso a paso.' },
-  evaluacion: { icono: 'evaluacion', titulo: 'Evaluación', detalle: 'Diagnóstico y evaluación final con corrección al momento.' },
+  preparacion: { icono: 'documento', titulo: 'Antes de empezar', detalle: 'Instala lo necesario, gratis, y elige tu carril.' },
+  evaluacion: { icono: 'evaluacion', titulo: 'Evaluación final', detalle: 'Comprueba qué se ha quedado, con corrección al momento.' },
   recursos: { icono: 'recursos', titulo: 'Recursos oficiales', detalle: 'Documentación, seguridad y comunidad del proyecto.' },
 };
 
-const ORDEN_MODULOS_PORTA = ['modulo1', 'modulo2', 'modulo3', 'modulo4', 'evaluacion', 'recursos'];
+const ORDEN_MODULOS_PORTA = ['preparacion', 'modulo1', 'modulo2', 'modulo3', 'evaluacion', 'recursos'];
 
 /** Portada del curso, con hero, cifras y tarjetas de módulos enlazadas. */
 function cursoPortada(primeroPorGrupo) {
   const tarjetas = ORDEN_MODULOS_PORTA.map((m) => {
     const meta = MODULOS[m];
     const enlace = primeroPorGrupo[m];
-    const n = (primeroPorGrupo[`${m}__n`] != null ? ` · ${primeroPorGrupo[`${m}__n`]} lecciones` : '');
+    const cuenta = primeroPorGrupo[`${m}__n`];
+    const n = cuenta ? ` · ${cuenta} ${cuenta === 1 ? 'lección' : 'lecciones'}` : '';
     return `<a class="modulo" href="#${enlace}">
       <span class="modulo-icono">${ICONOS[meta.icono]}</span>
       <h3>${meta.titulo}</h3>
@@ -209,7 +217,7 @@ function cursoPortada(primeroPorGrupo) {
       <p class="hero-sub">Qué es un <b style="color:#fff">harness</b>, cómo se usa un agente de IA y, sobre todo,
       <b style="color:#fff">qué permisos le das y por qué</b>. Pensado para quien ya usa un chat de IA y nunca ha programado.</p>
       <div class="hero-cta">
-        <a class="boton-cta" href="#${primeroPorGrupo.modulo1}">Empezar el curso ${ICONOS.flecha}</a>
+        <a class="boton-cta" href="#${primeroPorGrupo.inicio}">Empezar el curso ${ICONOS.flecha}</a>
         <a class="boton-cta secundario" href="#${primeroPorGrupo.recursos}">Ver recursos</a>
       </div>
     </div>
@@ -217,9 +225,9 @@ function cursoPortada(primeroPorGrupo) {
   </div>
 
   <div class="rejilla">
-    <div class="tarjeta"><div class="cifra">4</div><div class="titulo">Módulos</div><div class="detalle">De los conceptos a un encargo real.</div></div>
-    <div class="tarjeta"><div class="cifra">5</div><div class="titulo">Prácticas guiadas</div><div class="detalle">Con un agente de verdad, en tu portátil.</div></div>
-    <div class="tarjeta"><div class="cifra">16</div><div class="titulo">Preguntas con clave</div><div class="detalle">Diagnóstico y evaluación comentados.</div></div>
+    <div class="tarjeta"><div class="cifra">3</div><div class="titulo">Módulos</div><div class="detalle">De los conceptos a un encargo real, más una preparación previa.</div></div>
+    <div class="tarjeta"><div class="cifra">5 + 1</div><div class="titulo">Prácticas guiadas</div><div class="detalle">Con un agente de verdad, en tu portátil; la sexta es avanzada y opcional.</div></div>
+    <div class="tarjeta"><div class="cifra">${diagnostico.length + quizFinal.length}</div><div class="titulo">Preguntas con clave</div><div class="detalle">Diagnóstico y evaluación comentados.</div></div>
     <div class="tarjeta"><div class="cifra">Offline</div><div class="titulo">Sin conexión</div><div class="detalle">Un solo archivo; puedes publicarlo donde quieras.</div></div>
   </div>
 
@@ -245,7 +253,22 @@ function minutosDeLectura(html) {
 
 /** Orden del curso: cada entrada es un documento completo o una sección concreta. */
 const GUION_CURSO = [
-  { id: 'inicio', titulo: 'Empezar', lecciones: [{ especial: 'portada', titulo: 'Presentación del curso' }] },
+  {
+    id: 'inicio',
+    titulo: 'Empezar',
+    lecciones: [
+      { especial: 'portada', titulo: 'Presentación del curso' },
+      { especial: 'quiz', quiz: 'diagnostico', titulo: 'Diagnóstico inicial' },
+    ],
+  },
+  {
+    id: 'preparacion',
+    titulo: 'Antes de empezar',
+    lecciones: [
+      { especial: 'md', id: 'preparacion', titulo: 'Prepara tu ordenador' },
+      { especial: 'md', id: 'carriles', titulo: 'Elige tu carril' },
+    ],
+  },
   {
     id: 'modulo1',
     titulo: 'Módulo 1 · Del chat al agente',
@@ -286,17 +309,9 @@ const GUION_CURSO = [
     ],
   },
   {
-    id: 'modulo4',
-    titulo: 'Módulo 4 · Antes de venir',
-    lecciones: [{ doc: '07', completo: true }],
-  },
-  {
     id: 'evaluacion',
     titulo: 'Evaluación',
-    lecciones: [
-      { especial: 'quiz', quiz: 'diagnostico', titulo: 'Diagnóstico inicial' },
-      { especial: 'quiz', quiz: 'final', titulo: 'Evaluación final' },
-    ],
+    lecciones: [{ especial: 'quiz', quiz: 'final', titulo: 'Evaluación final' }],
   },
   {
     id: 'recursos',
@@ -306,26 +321,14 @@ const GUION_CURSO = [
   {
     id: 'consulta',
     titulo: 'Material de consulta',
-    lecciones: [
-      { doc: '05', completo: true },
-      { doc: '00', completo: true },
-    ],
-  },
-  {
-    id: 'instructor',
-    titulo: 'Para el instructor',
-    lecciones: [
-      { doc: '01', completo: true },
-      { doc: '04', completo: true },
-      { doc: '06', completo: true },
-    ],
+    lecciones: [{ doc: '05', completo: true }],
   },
 ];
 
 function leccionRecursosHtml() {
   return `<h1>Recursos y enlaces oficiales</h1>
 <p>Para profundizar, estas son las fuentes del propio proyecto. El resto del curso es material de elaboración propia,
-pero aquí está siempre la verdad de referencia, sobre todo porque la herramienta está en <strong>developer preview</strong> y cambia rápido.</p>
+pero aquí está siempre la verdad de referencia, sobre todo porque la herramienta y sus modelos gratuitos <strong>cambian muy rápido</strong>.</p>
 ${tarjetasRecursos()}
 <p class="pista">Todos los enlaces se abren en una pestaña nueva. Si algo del curso ya no coincide con lo que ves en la herramienta,
 mira primero aquí: la documentación oficial manda.</p>`;
@@ -347,13 +350,23 @@ function construirLecciones() {
         lecciones.push({ id: 'portada', grupo: g.id, titulo: it.titulo, tipo: 'doc', html: '', texto: '' });
         continue;
       }
+      let especial = null;
       if (it.especial === 'quiz') {
-        lecciones.push({ id: `quiz-${it.quiz}`, grupo: g.id, titulo: it.titulo, tipo: 'quiz', quiz: it.quiz, html: '', texto: it.titulo });
-        continue;
-      }
-      if (it.especial === 'recursos') {
+        especial = { id: `quiz-${it.quiz}`, grupo: g.id, titulo: it.titulo, tipo: 'quiz', quiz: it.quiz, html: '', texto: it.titulo };
+      } else if (it.especial === 'recursos') {
         const html = leccionRecursosHtml();
-        lecciones.push({ id: 'recursos', grupo: g.id, titulo: it.titulo, tipo: 'doc', html, texto: sinMarcas(html) });
+        especial = { id: 'recursos', grupo: g.id, titulo: it.titulo, tipo: 'doc', html, texto: sinMarcas(html) };
+      } else if (it.especial === 'md') {
+        const cuerpo = LECCIONES_MD[it.id];
+        if (!cuerpo) { fallos.push(`falta la lección ${it.id}`); continue; }
+        const html = `<div class="leccion-meta"><span class="chip modulo">${ICONOS[MODULOS.preparacion.icono]} ${MODULOS.preparacion.titulo}</span>
+        <span class="chip">${ICONOS.reloj} ${minutosDeLectura(cuerpo)} min de lectura</span></div>${cuerpo}`;
+        especial = { id: it.id, grupo: g.id, titulo: it.titulo, tipo: 'doc', html, texto: sinMarcas(html) };
+      }
+      if (especial) {
+        lecciones.push(especial);
+        cuentaPorGrupo[g.id] = (cuentaPorGrupo[g.id] || 0) + 1;
+        if (!primeroPorGrupo[g.id]) primeroPorGrupo[g.id] = especial.id;
         continue;
       }
 
@@ -371,13 +384,11 @@ function construirLecciones() {
           (s, i) => !usadas.has(`${d.id}#${i}`) && s.limpio.toLowerCase().indexOf(tituloBuscado) === 0
         );
         if (k < 0) { fallos.push(`en ${d.archivo} no se encontró la sección «${it.sec}»`); continue; }
-        const esPrimera = ![...usadas].some((u) => u.startsWith(`${d.id}#`));
         usadas.add(`${d.id}#${k}`);
         const sec = d.secciones[k];
-        const previo = esPrimera && d.entradillaHtml ? d.entradillaHtml : '';
         id = `${d.id}-${aId(sec.limpio)}`;
         titulo = sec.limpio;
-        html = `${previo}${sec.html}`;
+        html = sec.html;
       }
 
       // Ilustración para determinadas lecciones
@@ -390,7 +401,6 @@ function construirLecciones() {
       const metaBar = `<div class="leccion-meta">
         ${modulo ? `<span class="chip modulo">${ICONOS[modulo.icono]} ${modulo.titulo}</span>` : ''}
         <span class="chip">${ICONOS.reloj} ${minutos} min de lectura</span>
-        <span class="chip">${ICONOS.documento} Documento ${d.id}</span>
       </div>`;
       html = `${metaBar}${html}`;
 
