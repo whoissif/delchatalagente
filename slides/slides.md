@@ -542,6 +542,7 @@ Que lo hagan todos a la vez, con las instrucciones exactas del laboratorio.
 BLOQUE 4, parte 2 — (10 min) PRÁCTICA DESTACADA
 Cuando aparezca el aviso, para la clase entera y léelo tú en voz alta, antes de que nadie pulse nada.
 No dejes que nadie apruebe por curiosidad mientras explicas: primero se entiende, después se decide.
+Si alguien usa Claude Code en modo Auto (u otro agente con aprobación automática), no verá el aviso: el archivo se crea solo. Es la lección: sin aviso, decide otra IA. Que cambie a modo manual (Shift+Tab) y repita.
 -->
 
 ---

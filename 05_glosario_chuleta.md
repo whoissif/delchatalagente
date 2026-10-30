@@ -105,6 +105,9 @@ Términos en orden alfabético, explicados en lenguaje llano y con un ejemplo co
 **Memoria** — Lo que el agente conserva entre sesiones, normalmente porque está escrito en un archivo que vuelve a leer al empezar.
 *En la práctica:* lo que pongas en AGENTS.md sigue ahí mañana; lo hablado en el chat, no (ver **Contexto**).
 
+**Modo Auto** — Modo de algunos agentes (por ejemplo, Claude Code) en el que no te pregunta antes de cada acción: un clasificador, otra IA, decide qué es arriesgado y lo bloquea; el resto lo hace sin avisar.
+*En la práctica:* reduce avisos, no riesgos. En formación y con datos delicados, usa el modo manual.
+
 **Modo plan (plan)** — Forma de trabajar en la que el agente primero te cuenta qué piensa hacer y no toca nada hasta que le das el visto bueno.
 *En la práctica:* imprescindible antes de dejarle modificar 200 archivos.
 

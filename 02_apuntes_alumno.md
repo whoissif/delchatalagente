@@ -329,6 +329,16 @@ En este curso usamos DeepSeek Harness porque es abierto y se ve bien por dentro.
 
 **Los estándares abiertos que lo unen todo.** MCP (el enchufe USB de la sección 6) y `AGENTS.md` pertenecen desde diciembre de 2025 a la Agentic AI Foundation, dentro de la Linux Foundation, así que no dependen de un solo fabricante. Las skills (`SKILL.md`) se publicaron como formato abierto (agentskills.io) y las entienden Claude, Codex y muchos otros. Y **A2A** es el estándar para que agentes de distintos fabricantes hablen entre sí. Consecuencia práctica: **una skill o unas notas bien escritas te siguen sirviendo aunque cambies de herramienta.**
 
+### 7.4 Una sala lista para copiar
+
+En el entorno de práctica tienes una **configuración de ejemplo** para Claude Code (`configuracion_agente`, con copia de las skills para `dsh`). Es lo que hemos visto en el curso, ya montado:
+
+- **Permisos:** modo manual y modo *Auto* desactivado; lectura libre dentro de la carpeta; escritura solo donde toca; prohibido editar los originales, borrar o instalar.
+- **Un hook** que bloquea cualquier escritura fuera de la carpeta, aunque un permiso la dejara pasar.
+- **Cuatro skills** que hacen los cálculos con scripts: el número lo da el programa, no el modelo.
+
+Úsala después de las prácticas y **revísala antes de adaptarla** a tus datos: es un ejemplo, no una política de empresa.
+
 ---
 
 ## 8. Datos, modelos e ingeniería con un agente
@@ -398,6 +408,33 @@ Un buen encargo tiene cuatro partes. Cópialas, funcionan:
 
 **El cuarto punto es el que todo el mundo se salta y es el más útil.** Si tú no sabes cómo vas a comprobar que el resultado está bien, el agente tampoco.
 
+### 9.1 Una plantilla para tu chat o bot
+
+Si usas a menudo un chat para el mismo tipo de trabajo, no repitas las reglas en cada conversación: ponlas en las **instrucciones permanentes** (un *Proyecto* en Claude, un GPT personalizado o un proyecto en ChatGPT). Es el `AGENTS.md` del chat. Un ejemplo para análisis técnico, listo para adaptar:
+
+```text
+Eres un analista técnico de planta. Respondes en español.
+Antes de calcular: describe filas, columnas, unidades y valores raros.
+Separa siempre HECHOS (con archivo y dato de origen) de HIPÓTESIS.
+No extrapoles fuera del rango de los datos; dilo si te lo piden.
+Para cualquier cálculo, muestra la fórmula y un total de control.
+No redactes correos ni pedidos a terceros salvo que te lo pida explícitamente.
+Termina con: qué has usado y qué no has podido comprobar.
+```
+
+### 9.2 Ahorrar tokens (y dinero)
+
+Cada palabra que el agente lee o escribe cuesta *tokens*, y con ellos tiempo y dinero. Lo que más ahorra:
+
+| Hábito | Por qué ahorra |
+|---|---|
+| **Leer lo justo.** «Mira solo las cabeceras», «busca la palabra X» en lugar de «lee todo». | Para hacer un índice bastan cuatro líneas por archivo. |
+| **Scripts antes que pegar datos.** Que el agente escriba un programa que calcule, en vez de leerse la tabla entera. | El modelo lee el resultado, no las miles de filas. Y el cálculo se puede repetir. |
+| **Agrupar tareas parecidas en la misma conversación**, y abrir una nueva solo al cambiar de tema. | Cada conversación nueva tiene una carga fija de arranque (instrucciones y herramientas). En las pruebas de este curso, dos conversaciones nuevas para tareas pequeñas consumieron unos 60.000 tokens cada una, casi todo de esa carga. |
+| **El modelo más barato que haga bien la tarea.** El más capaz, para razonar; uno pequeño, para lo mecánico. | Un modelo pequeño cuesta varias veces menos y para un resumen sencillo basta. |
+| **Skills en lugar de explicaciones repetidas.** | El agente solo lee el nombre y la descripción hasta que la receta hace falta. |
+| **Notas cortas.** `AGENTS.md` y las instrucciones permanentes se leen en cada mensaje. | Diez líneas claras rinden más que dos páginas. |
+
 ---
 
 ## 10. Verificar: tu trabajo no acaba cuando el agente termina
@@ -464,6 +501,7 @@ Esto no es para asustarte: es para que no te lleves un susto.
 - Verifica siempre. El agente no firma su trabajo.
 - Si repites una explicación por tercera vez, escríbela (`AGENTS.md` o una skill).
 - Si la conversación se degrada, abre una nueva y resume lo hecho.
+- Ahorra tokens: lee lo justo, calcula con scripts y usa el modelo más barato que haga bien la tarea.
 
 **Seguridad**
 - Lo que el agente lee de fuera puede traer órdenes escondidas (inyección de instrucciones).

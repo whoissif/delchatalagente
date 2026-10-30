@@ -140,6 +140,8 @@ Esta es la práctica más importante del seminario. Léela entera antes de empez
 
 **No apruebes nada todavía.** Va a aparecer un **aviso de aprobación**. Lee el aviso entero, despacio, antes de tocar nada.
 
+> ⚠️ **¿Y si no aparece ningún aviso y el archivo se crea solo?** Pasa en agentes con aprobación automática, como Claude Code en **modo Auto**: otra IA (un clasificador) decide por ti si la acción es arriesgada, y escribir un archivo inofensivo en el escritorio suele dejarlo pasar. No es un fallo de la práctica: es su lección más importante. **Sin aviso, el freno de «leer antes de aprobar» desaparece.** Para hacer la práctica tal como está pensada, cambia al modo manual (en Claude Code, `Shift+Tab` hasta salir de *Auto*) y repite.
+
 ### Paso 3 — Hazte las tres preguntas
 
 Antes de decidir, contesta por escrito:
@@ -230,6 +232,8 @@ Por eso, cuando una tarea te obligue a aprobar cien avisos, **la solución no es
 
 > **El sandbox reduce el riesgo, no lo elimina.** Todo lo que está **dentro** de la carpeta autorizada, el agente lo puede tocar sin preguntar. Si dentro hay algo que no debería tocarse, el problema es lo que hay en la carpeta.
 
+> **Si usas Claude Code en Windows:** no tiene sandbox, así que la «sala» no la marca la carpeta por sí sola. Hay que construirla con reglas de permisos y un hook. En el entorno de práctica tienes una **configuración de ejemplo** ya montada (`configuracion_agente`); úsala cuando acabes las prácticas.
+
 ---
 
 ## Práctica 4 — Enseñarle un procedimiento
@@ -249,7 +253,7 @@ Lo más fácil es pedírselo al propio agente:
 
 > Crea en la raíz de esta carpeta de trabajo un archivo `AGENTS.md` con estas instrucciones para ti:
 > - Responde siempre en español.
-> - Cuando crees un informe, guárdalo siempre en la carpeta `informes`.
+> - Si creas un archivo de informe, guárdalo en la carpeta `informes`. Si solo respondes en el chat, no crees archivos.
 > - Nunca modifiques ni borres los archivos originales: si necesitas cambiarlos, crea una copia.
 > - Al terminar cualquier tarea, dime qué archivos has tocado.
 

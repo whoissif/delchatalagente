@@ -11,3 +11,4 @@ Thumbs.db
 tmp/
 # Generated standalone slide deck (PDF and editable source are included).
 slides/diapositivas.html
+.vercel
