@@ -1,6 +1,7 @@
 #!/bin/bash
 # Arranca opencode en esta carpeta (curso «Del chat al agente»)
 cd "$(dirname "$0")"
+export PATH="$HOME/.npm-global/bin:$PATH"
 if ! command -v opencode >/dev/null 2>&1; then
   echo " [FALTA] opencode no está instalado. Haz doble clic antes en 1_instalar_opencode.command."
   read -r -p " Pulsa Intro para cerrar. " _

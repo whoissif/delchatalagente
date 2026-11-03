@@ -22,10 +22,11 @@ if errorlevel 1 (
 )
 for /f "delims=" %%v in ('opencode --version') do echo  [OK] opencode %%v
 echo.
-python -c "import sys" >nul 2>nul
+python -c "import sys; sys.exit(sys.version_info < (3, 10))" >nul 2>nul
 if errorlevel 1 (
-  echo  [FALTA] Python no está instalado ^(o falta marcar "Add python.exe to PATH"^).
-  echo  Instálalo desde https://www.python.org/downloads/ y vuelve a hacer doble clic aquí.
+  echo  [FALTA] Python 3.10 o superior no está instalado ^(o falta marcar "Add python.exe to PATH"^).
+  echo  Instálalo con el instalador clásico ^("standalone installer", no el "install manager"^)
+  echo  desde https://www.python.org/downloads/windows/ y vuelve a hacer doble clic aquí.
   goto fin
 )
 for /f "delims=" %%v in ('python --version') do echo  [OK] %%v

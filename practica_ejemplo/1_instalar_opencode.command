@@ -14,6 +14,13 @@ fi
 echo " [OK] Node.js $(node -v)"
 echo
 echo " Instalando opencode 1.19.5. Puede tardar un par de minutos..."
+# Con el instalador .pkg de Node.js, la carpeta global es del sistema y npm daría EACCES:
+# en ese caso se instala en la carpeta del usuario, sin sudo.
+if [ ! -w "$(npm root -g)" ]; then
+  echo " No se puede instalar para todos los usuarios: lo instalo en tu carpeta personal (~/.npm-global)."
+  npm config set prefix "$HOME/.npm-global"
+fi
+export PATH="$HOME/.npm-global/bin:$PATH"
 if ! npm install -g opencode-ai@1.19.5; then
   echo
   echo " [ERROR] No se ha podido instalar opencode. Copia el texto de arriba y pide ayuda."
@@ -21,8 +28,12 @@ if ! npm install -g opencode-ai@1.19.5; then
 fi
 echo " [OK] opencode $(opencode --version)"
 echo
-if ! command -v python3 >/dev/null 2>&1; then
-  echo " [FALTA] Python no está instalado. Instálalo desde https://www.python.org/downloads/ y vuelve a hacer doble clic aquí."
+# /usr/bin/python3 sin las herramientas de Xcode no es Python: abre un diálogo para instalarlas.
+if ! command -v python3 >/dev/null 2>&1 \
+  || { [ "$(command -v python3)" = /usr/bin/python3 ] && ! xcode-select -p >/dev/null 2>&1; } \
+  || ! python3 -c 'import sys; sys.exit(sys.version_info < (3, 10))' 2>/dev/null; then
+  echo " [FALTA] Python 3.10 o superior no está instalado."
+  echo " Instálalo desde https://www.python.org/downloads/ (botón amarillo, archivo .pkg) y vuelve a hacer doble clic aquí."
   fin 1
 fi
 echo " [OK] $(python3 --version)"

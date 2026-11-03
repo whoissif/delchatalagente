@@ -33,12 +33,13 @@ Te pedimos que llegues con la preparación hecha, porque son unos 15 minutos y a
 
 **Node.js** es el programa con el que se instala la herramienta:
 
-1. Entra en la web oficial, [nodejs.org](https://nodejs.org/), y descarga la versión marcada como **LTS** (la estable; evita la «Current»).
-2. Abre el archivo descargado y ve dándole a **Siguiente** con las opciones por defecto.
+1. Entra en [nodejs.org/en/download](https://nodejs.org/en/download) y comprueba que en la versión pone **LTS** (la estable; evita la «Current»).
+2. Ignora el bloque de órdenes de terminal de arriba: baja hasta «Or get a prebuilt Node.js® for…» y pulsa **Windows Installer (.msi)** (en macOS, **macOS Installer (.pkg)**).
+3. Abre el archivo descargado y ve dándole a **Siguiente** con las opciones por defecto.
 
 **Python** es el lenguaje en el que el agente escribirá sus programas de cálculo (Práctica 6):
 
-1. Entra en [python.org/downloads](https://www.python.org/downloads/) y pulsa **Download Python**.
+1. **Windows:** descarga el instalador clásico, [python-3.15.2-amd64.exe](https://www.python.org/ftp/python/3.15.2/python-3.15.2-amd64.exe). **No uses el botón amarillo de python.org**: en Windows descarga ahora el «Python install manager», que no tiene la casilla del paso 2. **macOS:** en [python.org/downloads](https://www.python.org/downloads/), botón amarillo **Download Python**.
 2. Abre el archivo descargado. **En Windows, marca la casilla «Add python.exe to PATH»** antes de pulsar **Install Now**. En macOS, opciones por defecto.
 
 Si ya los tenías (Node.js 22 o superior, Python 3.10 o superior), no hace falta repetirlo.
@@ -80,7 +81,7 @@ Hazlo tú solo antes de venir, para que no sea la primera vez delante del grupo.
 ### Si algo no funciona
 
 - **Respira: es lo más normal del mundo.** Un mensaje de error casi nunca significa que hayas roto nada; significa que falta un paso. Lee la línea **[FALTA]** o **[ERROR]** de la ventana: dice qué hacer.
-- **[FALTA] Node.js o Python aunque los hayas instalado:** cierra la ventana, reinicia el ordenador y vuelve a hacer doble clic. En Windows, si Python sigue sin salir, faltó marcar *Add python.exe to PATH*: ejecuta otra vez su instalador y elige **Modify**.
+- **[FALTA] Node.js o Python aunque los hayas instalado:** cierra la ventana, reinicia el ordenador y vuelve a hacer doble clic. En Windows, si Python sigue sin salir, faltó marcar *Add python.exe to PATH* (ejecuta otra vez su instalador y elige **Modify**) o descargaste el «install manager» en vez del instalador clásico.
 - **La página no carga:** comprueba que la ventana negra sigue abierta y copia exactamente la dirección que aparece en ella.
 - **No te quedes atascado en silencio.** Escríbeme antes del seminario con lo que ves en pantalla (una foto o el texto del error vale) y lo miramos entre los dos. Es mucho mejor resolverlo por correo que perder la primera media hora del taller.
 
@@ -138,13 +139,13 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
 2. Debe aparecer un número de versión (algo como `v24.` seguido de más números; sirve cualquier versión 22 o superior). **Si aparece el número, Node.js está listo.**
 3. Si en su lugar sale un mensaje diciendo que el comando no se reconoce o no se encuentra, Node.js **no está instalado** o la terminal es antigua:
    - Cierra la terminal.
-   - Instala Node.js desde [nodejs.org](https://nodejs.org/) eligiendo la versión **LTS**.
+   - Instala Node.js desde [nodejs.org/en/download](https://nodejs.org/en/download) eligiendo la versión **LTS** y el botón del instalador (**.msi** en Windows, **.pkg** en macOS).
    - Vuelve a abrir la terminal y repite `node -v`.
 
 ### Comprobar que Python está instalado
 
 1. Escribe `python --version` (en macOS, `python3 --version`) y pulsa **Intro**.
-2. Debe aparecer una versión 3.10 o superior. Si no, instala Python desde [python.org/downloads](https://www.python.org/downloads/) (en Windows, marcando **Add python.exe to PATH**).
+2. Debe aparecer una versión 3.10 o superior. Si no, instala Python desde [python.org/downloads](https://www.python.org/downloads/) (en Windows, con el instalador clásico, *standalone installer*, marcando **Add python.exe to PATH**).
 3. Para las librerías de la Práctica 6: `python -m pip install pandas matplotlib` (en macOS, `python3 -m pip install pandas matplotlib`).
 
 ## Paso 3. Instalar opencode

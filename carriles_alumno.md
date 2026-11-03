@@ -30,9 +30,10 @@ Puedes usar el agente que incluye tu plan, **desde su aplicación de escritorio,
 | | Claude Code | Codex |
 |---|---|---|
 | Plan que lo incluye | Claude Pro o Max | ChatGPT Plus o Pro (y planes de empresa o educación) |
-| Sin terminal (recomendado) | Aplicación de escritorio de **Claude** (Windows y macOS), pestaña **Code** | Aplicación de escritorio de **ChatGPT** (Windows y macOS), modo **Codex** |
-| Arranque | Pestaña Code → **Local** → selecciona la carpeta `practica_agente`, e inicias sesión con tu cuenta | Abre la carpeta `practica_agente` desde la app, e inicias sesión con tu cuenta de ChatGPT |
-| Requisito extra | En Windows, **Git for Windows** (la app te lo pide la primera vez) | — |
+| Sin terminal (recomendado) | Aplicación de escritorio de **Claude** (Windows y macOS), pestaña **Code** | Aplicación de escritorio **Codex** de OpenAI (Windows y macOS) |
+| Descarga | [claude.com/download](https://claude.com/download) | [openai.com/codex](https://openai.com/codex/) (en Windows, también en la Microsoft Store) |
+| Arranque | Pestaña Code → **Local** → selecciona la carpeta `practica_agente`, e inicias sesión con tu cuenta | Abre la carpeta `practica_agente` desde la app Codex, e inicias sesión con tu cuenta de ChatGPT |
+| Requisito extra | En Windows, **Git for Windows** (la app te lo pide la primera vez; descárgalo de [git-scm.com](https://git-scm.com/downloads/win)) | — |
 | Con terminal (alternativa) | `claude` dentro de tu carpeta | `npm install -g @openai/codex` y `codex` dentro de tu carpeta |
 | Notas permanentes | `CLAUDE.md` (puede apuntar a tu `AGENTS.md`) | `AGENTS.md` |
 | Procedimientos (skills) | `.claude/skills/<nombre>/SKILL.md` | `.agents/skills/<nombre>/SKILL.md` |
