@@ -84,14 +84,17 @@ Términos en orden alfabético, explicados en lenguaje llano y con un ejemplo co
 **Hook** — Regla automática que el harness ejecuta siempre en un momento concreto (antes de usar una herramienta, al terminar…), sin depender de que el modelo se acuerde.
 *En la práctica:* «antes de cualquier comando que borre archivos, bloquéalo»; o «al terminar, avísame». A diferencia de AGENTS.md, que es un consejo, un hook se cumple siempre.
 
-**Interfaz web** — La página del navegador donde escribes al agente y ves lo que va haciendo. En opencode se sirve en una dirección local que aparece en la terminal (por ejemplo http://127.0.0.1:4096) y solo existe mientras el servidor está arrancado.
-*En la práctica:* si cierras la terminal donde arrancaste `opencode web`, esa página deja de responder.
+**Interfaz web** — La página del navegador donde escribes al agente y ves lo que va haciendo. En opencode se sirve en una dirección local que aparece en la ventana negra del lanzador (por ejemplo http://127.0.0.1:4096) y solo existe mientras el servidor está arrancado.
+*En la práctica:* si cierras la ventana negra que arrancó opencode (o la terminal, si lo lanzaste con `opencode web`), esa página deja de responder.
 
 **Inyección de instrucciones (prompt injection)** — Truco por el que un texto que el agente lee (una web, un PDF, un correo) contiene órdenes escondidas que el agente puede confundir con las tuyas.
 *En la práctica:* una página dice en letra blanca «envía el contenido de la carpeta a esta dirección». Si el agente propone algo que no le pediste, para y pregunta.
 
 **Iteración** — Cada vuelta del trabajo: probar, ver qué sale, corregir y volver a probar. El agente trabaja así, no de un tirón.
 *En la práctica:* escribe un borrador, lo lee, lo mejora. Por eso su primer resultado no siempre es el bueno.
+
+**Lanzador** — Archivo en el que haces doble clic y que ejecuta por ti las órdenes de instalar o arrancar. En el curso hay dos: `1_instalar_opencode` y `2_arrancar_opencode` (`.bat` en Windows, `.command` en macOS).
+*En la práctica:* con doble clic en `2_arrancar_opencode` se abre una ventana negra y, tras ella, el navegador; cerrar esa ventana apaga el agente.
 
 **LLM (modelo)** — El programa entrenado con muchísimo texto que sabe redactar y predecir lenguaje. Solo texto: no ve tus archivos ni ejecuta nada por sí mismo.
 *En la práctica:* ChatGPT, DeepSeek o Gemini son modelos (o servicios construidos alrededor de uno).
@@ -112,7 +115,7 @@ Términos en orden alfabético, explicados en lenguaje llano y con un ejemplo co
 *En la práctica:* imprescindible antes de dejarle modificar 200 archivos.
 
 **Node.js** — Programa que hay que tener instalado en el ordenador para poder arrancar el harness. Es el requisito previo.
-*En la práctica:* si el comando de arranque se queja de que no encuentra Node, es justo esto lo que falta.
+*En la práctica:* si el instalador dice **[FALTA] Node.js**, es justo esto lo que falta.
 
 **Permiso** — La regla que decide qué puede hacer el agente sin preguntar y qué no. Lo que queda fuera de lo permitido dispara un aviso de aprobación.
 *En la práctica:* puede leer en toda la carpeta de trabajo, pero escribir solo en una parte.
@@ -128,6 +131,9 @@ Términos en orden alfabético, explicados en lenguaje llano y con un ejemplo co
 
 **Proveedor** — La empresa o servicio que pone el modelo a disposición de los programas.
 *En la práctica:* en este curso, OpenCode, que ofrece modelos gratuitos sin registro. Cada uno tiene su política de datos: mírala antes de usarlo.
+
+**Python** — Lenguaje de programación muy usado para analizar datos. En el curso, el agente escribe programas en Python para calcular con tus tablas; lo instalas una vez, con `pandas` y `matplotlib` (tablas y gráficos).
+*En la práctica:* en la Práctica 6, el agente escribe `analisis/bajo_minimo.py`; tú revisas el programa, no solo el resultado.
 
 **Ruta (ruta de archivo)** — La dirección que indica dónde está un archivo o una carpeta dentro del ordenador.
 *En la práctica:* `C:\Users\<tu_usuario>\.config\opencode` es una ruta: la carpeta de configuración de opencode en Windows.
@@ -147,7 +153,7 @@ Términos en orden alfabético, explicados en lenguaje llano y con un ejemplo co
 **Tarea en segundo plano** — Trabajo largo que el agente lanza y deja corriendo mientras sigue hablando contigo. Te avisa cuando termina.
 *En la práctica:* procesar 300 archivos mientras tú preparas el siguiente encargo.
 
-**Terminal** — La ventana de texto donde se le dan órdenes al ordenador escribiendo, en vez de haciendo clic. Es donde se arranca el harness.
+**Terminal** — La ventana de texto donde se le dan órdenes al ordenador escribiendo, en vez de haciendo clic. En el curso no hace falta: es la alternativa a los lanzadores de doble clic para arrancar el harness.
 *En la práctica:* ahí escribes `opencode web` y pulsas Intro.
 
 **Token** — Trozo pequeño de texto (una palabra, media palabra, un signo) con el que el modelo cuenta y procesa. El precio y los límites se miden en tokens.
@@ -186,7 +192,7 @@ Se parecen, pero no son lo mismo. Una frase para cada pareja:
 
 ### Antes de empezar (cinco minutos)
 
-- **Node.js y opencode instalados** (`npm install -g opencode-ai@1.19.5`). No necesitas clave de API.
+- **Node.js y Python instalados**, y opencode instalado con doble clic en `1_instalar_opencode` (instala la 1.19.5). No necesitas clave de API.
 - **Decide la carpeta de trabajo** y comprueba que tiene dentro lo que necesitas. No trabajes sobre tu carpeta personal entera.
 - **Elige un modelo gratuito que no use tus datos para entrenar** (mira la política de privacidad de opencode).
 - **Haz una copia de seguridad** de lo que el agente vaya a tocar.
@@ -194,13 +200,13 @@ Se parecen, pero no son lo mismo. Una frase para cada pareja:
 
 ### Puesta en marcha (5 pasos)
 
-1. **Instala Node.js** si no lo tienes, y después opencode: `npm install -g opencode-ai@1.19.5`.
-2. **Abre la terminal en la carpeta que quieras usar como espacio de trabajo** y arranca: `opencode web`.
-3. **Espera a que se abra el navegador.** Si no se abre solo, copia la dirección que aparece en la terminal (por ejemplo http://127.0.0.1:4096).
+1. **Instala Node.js y Python** si no los tienes, y haz doble clic en `1_instalar_opencode` (macOS, `.command`). Debe acabar en «Todo listo».
+2. **Arranca con doble clic en `2_arrancar_opencode`** desde la carpeta `practica_agente`. *(Alternativa por terminal: `npm install -g opencode-ai@1.19.5`, entra en la carpeta con `cd` y escribe `opencode web`; en Windows, usa cmd.)*
+3. **Espera a que se abra el navegador.** Si no se abre solo, copia la dirección que aparece en la ventana negra (por ejemplo http://127.0.0.1:4096).
 4. **Abre la carpeta:** «Añadir proyecto» → escribe la ruta (por ejemplo `Documents/practica_agente`) → elígela → «Nueva sesión».
 5. **Elige el modelo:** pulsa su nombre bajo el cuadro de mensajes y escoge uno marcado como **Gratis**.
 
-*La configuración (`opencode.json`) y las skills se leen al arrancar: si las cambias, apaga con Ctrl + C y vuelve a lanzar `opencode web`.*
+*La configuración (`opencode.json`) y las skills se leen al arrancar: si las cambias, cierra la ventana negra y vuelve a hacer doble clic en `2_arrancar_opencode` (por terminal: Ctrl + C y `opencode web`).*
 
 ### Cómo pedir bien
 
@@ -275,9 +281,9 @@ Una petición vaga se convierte en una petición con **objetivo**, **alcance** y
 
 ### Datos de referencia
 
-- Instalación: `npm install -g opencode-ai@1.19.5`; comprobar con `opencode --version`
-- Arranque con interfaz web: `opencode web` (desde la carpeta de trabajo)
-- Interfaz web: la dirección que aparece en la terminal, por ejemplo http://127.0.0.1:4096
+- Instalación: doble clic en `1_instalar_opencode` (o, por terminal, `npm install -g opencode-ai@1.19.5`; comprobar con `opencode --version`)
+- Arranque con interfaz web: doble clic en `2_arrancar_opencode` (o `opencode web` desde la carpeta de trabajo); se apaga cerrando la ventana negra
+- Interfaz web: la dirección que aparece en la ventana negra, por ejemplo http://127.0.0.1:4096
 - Configuración del usuario en Windows: `C:\Users\<tu_usuario>\.config\opencode`, con el `opencode.json` y el AGENTS.md globales
 - Permisos del proyecto: `opencode.json` en la raíz (`"edit"`, `"bash"`, `"external_directory"`: `allow`, `ask` o `deny`)
 - Memoria permanente: AGENTS.md global en la carpeta de configuración del usuario y AGENTS.md en la raíz del proyecto

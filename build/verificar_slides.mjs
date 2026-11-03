@@ -54,7 +54,7 @@ const texto = doc.body.textContent;
 comprobar('Aparece el título del seminario', texto.includes('Del chat al agente'));
 comprobar('Aparecen las analogías canónicas', texto.includes('becario') && texto.includes('motor'));
 comprobar('Se explica «Permitir una vez»', texto.includes('Permitir una vez'));
-comprobar('Aparecen los datos de arranque verificados', texto.includes('opencode web'));
+comprobar('Aparecen los datos de arranque verificados', texto.includes('2_arrancar_opencode') && texto.includes('1.19.5'));
 comprobar('Aparece la dirección de la interfaz', texto.includes('127.0.0.1:4096'));
 comprobar('Aparecen las prácticas 2 y 3', texto.includes('Provocar una aprobación') && texto.includes('Cambiar de política'));
 comprobar('No queda rastro de dsh ni DeepSeek Harness', !/\bdsh\b|DeepSeek Harness/i.test(texto));

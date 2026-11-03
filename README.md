@@ -4,7 +4,7 @@ Curso online en español para **profesionales que ya utilizan chats o bots de IA
 
 ## Empieza aquí
 
-Abre el **[curso interactivo](curso/index.html)** o la [portada visual](index.html). El recorrido dura unos 150 minutos y funciona en el navegador, sin instalación ni servicios externos. La búsqueda, los cuestionarios y el progreso se ejecutan localmente.
+Abre el **[curso interactivo](curso/index.html)** o la [portada visual](index.html). El recorrido dura unos 170 minutos y funciona en el navegador, sin instalación ni servicios externos. La búsqueda, los cuestionarios y el progreso se ejecutan localmente.
 
 ## Ruta de aprendizaje
 

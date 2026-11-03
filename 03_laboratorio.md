@@ -2,7 +2,7 @@
 
 **Seminario:** Del chat al agente: qué es un harness y cómo se usa.
 **Qué es esto:** tu cuaderno de prácticas. Lo vas a usar con el portátil delante, escribiendo de verdad.
-**Cuánto dura:** unas dos horas repartidas en cinco prácticas, más una sexta práctica avanzada y opcional de análisis de datos y modelos.
+**Cuánto dura:** unas dos horas y media repartidas en seis prácticas. La sexta es de análisis de datos con Python.
 
 > **Regla de la sala:** si te atascas más de tres minutos, levanta la mano. No hay nada que haga perder más tiempo que diez personas atascadas en silencio.
 
@@ -15,13 +15,13 @@ Vas a trabajar **siempre dentro de una copia de la carpeta de práctica**. Eso n
 1. Descarga `descarga_entorno.zip` desde la página **Entorno de práctica** del curso y descomprímelo en un lugar fácil de encontrar, como Documentos.
 2. Cambia el nombre de la carpeta extraída a `practica_agente`.
 3. Conserva aparte el ZIP original como copia limpia para empezar de nuevo si hace falta.
-4. Comprueba que dentro de `practica_agente` hay una carpeta `informes`, tres archivos CSV y los documentos de configuración y reunión.
+4. Comprueba que dentro de `practica_agente` hay una carpeta `informes`, tres archivos CSV, los documentos de configuración y reunión, y los archivos para arrancar opencode (`1_instalar_opencode` y `2_arrancar_opencode`).
 5. **Trabaja siempre en la copia `practica_agente`**, nunca en el ZIP ni en otra carpeta con tus archivos. El agente puede modificar lo que haya dentro.
 
 > ⚠️ **Por qué insistimos con la copia de seguridad:** el agente va a poder leer y modificar los archivos de esta carpeta, y va a ejecutar acciones de verdad. No es una simulación. Si prefieres practicar con algo que no te importe perder, mejor.
 
 **Qué necesitas tener a mano:**
-- opencode instalado (lo hiciste en la preparación previa). No necesitas clave de API: usaremos sus modelos gratuitos.
+- opencode y Python instalados (lo hiciste en la preparación previa). No necesitas clave de API: usaremos sus modelos gratuitos.
 - El portátil con el cargador enchufado.
 
 > **Si te atascas más de tres minutos**, no sigas peleándote en silencio: mira la tabla **«Si algo falla»** de la práctica y, si estás en clase, levanta la mano.
@@ -33,44 +33,21 @@ Vas a trabajar **siempre dentro de una copia de la carpeta de práctica**. Eso n
 **Tiempo:** unos 20 minutos.
 **Objetivo:** tener el harness funcionando y haber completado un encargo de principio a fin.
 
-### Paso 1 — Abre una terminal
+### Paso 1 — Arranca opencode con doble clic
 
-- **Windows:** menú Inicio → escribe `PowerShell` o `Terminal` → ábrelo.
-- **macOS:** `Cmd + Espacio` → escribe `Terminal` → Enter.
+Abre la carpeta `practica_agente` y haz doble clic en **`2_arrancar_opencode.bat`** (en macOS, `2_arrancar_opencode.command`). No hace falta escribir nada.
 
-Es una ventana negra o azul donde se escriben órdenes. Abrirla no cambia nada por sí solo: lo que cambia cosas son las órdenes que escribes. En este curso, escribe solo las que se indican, y el agente trabajará únicamente en la carpeta ficticia de práctica.
+Se abre una **ventana negra** que muestra la carpeta de trabajo y la versión de opencode, y después se abre **sola** una página en tu navegador con la interfaz de opencode, en español. Si no se abre, copia la dirección que aparece en la ventana (algo como `http://127.0.0.1:4096`) y pégala en el navegador.
 
-### Paso 2 — Comprueba que tienes opencode
+- **Si la versión es `1.19.5`**, todo bien. Es la versión probada en este curso.
+- **Si es otro número**, cierra la ventana y haz doble clic en `1_instalar_opencode`: instala la del curso para que las prácticas de permisos funcionen como se describen.
+- **Si dice [FALTA] opencode**, vuelve a la preparación previa: falta Node.js o falta ejecutar el instalador.
 
-El harness que vamos a usar se llama **opencode**. Lo dejaste instalado en la preparación previa; compruébalo escribiendo esto y pulsando Enter:
+**No cierres la ventana negra.** Si la cierras, se apaga el agente. Cerrarla y volver a hacer doble clic es también la forma de **reiniciarlo**.
 
-```
-opencode --version
-```
+> **¿Con terminal?** Es lo mismo: `opencode --version` para ver la versión y, dentro de la carpeta (`cd Documents\practica_agente`; en macOS, `cd ~/Documents/practica_agente`), `opencode web` para arrancar. Para apagarlo, **Ctrl + C**.
 
-- **Si aparece `1.19.5`**, todo bien: pasa al siguiente paso. Es la versión probada en este curso.
-- **Si aparece otro número**, instala la del curso para que las prácticas de permisos funcionen como se describen: `npm install -g opencode-ai@1.19.5`.
-- **Si dice que `opencode` no se reconoce**, vuelve a la preparación previa (pasos 2 y 3): falta Node.js o falta instalar opencode.
-
-### Paso 3 — Arranca el harness dentro de tu carpeta
-
-Primero entra en tu carpeta de práctica. Si la dejaste en Documentos:
-
-```
-cd Documents\practica_agente
-```
-
-(En macOS: `cd ~/Documents/practica_agente`.) Después arranca la interfaz web:
-
-```
-opencode web
-```
-
-Se abrirá **sola** una página en tu navegador con la interfaz de opencode, en español. Si no se abre, copia la dirección que aparece en la terminal (algo como `http://127.0.0.1:4096`) y pégala en el navegador.
-
-**No cierres la ventana de la terminal.** Si la cierras, se apaga el agente.
-
-### Paso 4 — Abre tu carpeta como proyecto
+### Paso 2 — Abre tu carpeta como proyecto
 
 1. Si no ves tu carpeta en la lista de **Proyectos**, pulsa **Añadir proyecto**.
 2. En el buscador, escribe `Documents/practica_agente` y elige tu carpeta. **Cuidado:** un clic sobre una carpeta puede añadirla directamente como proyecto. Comprueba que la que aparece en **Proyectos** es exactamente `practica_agente` y no una carpeta más amplia como `Documents`. Si te equivocas, cierra ese proyecto y vuelve a empezar: una carpeta matriz como sala da al agente acceso a todo lo que contiene.
@@ -78,7 +55,7 @@ Se abrirá **sola** una página en tu navegador con la interfaz de opencode, en 
 
 Esa carpeta es la **sala** del agente: lo que hay dentro lo puede tocar; para salir de ella te pedirá permiso. Ojo: la sala es una **regla de permisos, no un muro**. opencode no aísla el programa del resto del ordenador (no tiene *sandbox*); lo verás en la Práctica 3.
 
-### Paso 5 — Comprueba el modelo
+### Paso 3 — Comprueba el modelo
 
 Debajo del cuadro de mensajes verás el nombre del modelo, por ejemplo **Big Pickle**. Es uno de los **modelos gratuitos** de opencode: no necesitas cuenta ni clave de API.
 
@@ -86,9 +63,9 @@ Pulsa sobre el nombre: se abre **Seleccionar modelo**, con los gratuitos marcado
 
 > Gratis no quiere decir privado. **No pongas en esta carpeta datos reales ni confidenciales**: lo que el agente lee se envía al proveedor del modelo.
 
-> **Si usas Claude Code o Codex** (carril B): en vez de los pasos 2 a 5, entra en la carpeta con `cd` y escribe `claude` o `codex`. La primera vez te pedirá iniciar sesión con tu cuenta y confirmar que confías en la carpeta. El modelo ya viene incluido en tu plan; no hay que elegir uno gratuito. Con Claude, también puedes usar la pestaña **Code** de la aplicación de escritorio y elegir ahí la carpeta. Los datos que envías siguen la política de tu cuenta: revísala igual.
+> **Si usas Claude Code o Codex** (carril B): en vez de los pasos 1 a 3, usa la aplicación de escritorio, sin terminal. **Claude:** abre la app, ve a la pestaña **Code**, elige **Local** y selecciona la carpeta `practica_agente` (en Windows, la primera vez te pedirá instalar **Git for Windows**). **ChatGPT:** abre la app, cambia a **Codex** y abre la carpeta `practica_agente`. La primera vez te pedirá iniciar sesión con tu cuenta y confirmar que confías en la carpeta. El modelo ya viene incluido en tu plan; no hay que elegir uno gratuito. Los datos que envías siguen la política de tu cuenta: revísala igual. *(Si prefieres la terminal: `claude` o `codex` dentro de la carpeta.)*
 
-### Paso 6 — Tu primer encargo
+### Paso 4 — Tu primer encargo
 
 Escribe esto tal cual, cambiando lo que haga falta para que encaje con tu carpeta:
 
@@ -111,8 +88,8 @@ Escribe esto tal cual, cambiando lo que haga falta para que encaje con tu carpet
 
 | Lo que ves | Qué hacer |
 |---|---|
-| «`opencode` no se reconoce como una orden» | Cierra la terminal y ábrela otra vez. Si sigue, repite la instalación de la preparación previa. |
-| La página no carga | Comprueba que la terminal sigue abierta y copia exactamente la dirección que aparece en ella. |
+| La ventana negra dice **[FALTA] opencode** o se cierra al momento | Haz doble clic en `1_instalar_opencode` y lee qué línea no dice **[OK]**. Si sigue, repite la preparación previa. |
+| La página no carga | Comprueba que la ventana negra sigue abierta y copia exactamente la dirección que aparece en ella. |
 | No encuentras tu carpeta en **Añadir proyecto** | Escribe la ruta desde tu usuario, por ejemplo `Documents/practica_agente`. Las carpetas ocultas o temporales no salen. |
 | El modelo responde con un error o dice que está saturado | Los gratuitos a veces se saturan. Pulsa el nombre del modelo, elige otro marcado como **Gratis** y repite. |
 | El agente tarda mucho | Está trabajando. Mira los pasos: si avanzan, déjalo. |
@@ -226,8 +203,8 @@ Lo que dice: antes de **editar** cualquier archivo (`edit`) o **ejecutar** cualq
 
 **La política se lee al arrancar.** Si pruebas ahora, seguirá sin preguntar. Así que:
 
-1. Ve a la terminal y pulsa **Ctrl + C** para apagar opencode.
-2. Vuelve a arrancarlo con `opencode web`.
+1. Cierra la ventana negra de opencode para apagarlo.
+2. Vuelve a arrancarlo con doble clic en `2_arrancar_opencode`.
 3. Abre una **Nueva sesión** en tu proyecto.
 
 ### Paso 5 — Repite la prueba
@@ -242,7 +219,7 @@ Comprueba también que la puerta sigue cerrada:
 
 Tiene que salir el aviso *Acceder a archivos fuera del directorio del proyecto*. Pulsa **Denegar**.
 
-> **Si no pregunta en alguno de los dos casos**, para: no sigas creyendo que tienes una protección que no has visto funcionar. Comprueba que reiniciaste opencode y que `opencode --version` dice 1.19.5. Si la interfaz o los avisos no se parecen a lo que describe este cuaderno, avisa al instructor.
+> **Si no pregunta en alguno de los dos casos**, para: no sigas creyendo que tienes una protección que no has visto funcionar. Comprueba que reiniciaste opencode y que la ventana negra muestra la versión 1.19.5. Si la interfaz o los avisos no se parecen a lo que describe este cuaderno, avisa al instructor.
 
 ### Paso 6 — Saca la conclusión
 
@@ -256,7 +233,7 @@ Hay dos palancas, y las dos son tuyas:
 
 ### Paso 7 — Déjalo como estaba
 
-Borra la carpeta `prueba_permisos` del escritorio. Para las prácticas siguientes, **borra `opencode.json`** y reinicia opencode (Ctrl + C y `opencode web`). Si prefieres seguir aprobando cada cambio, déjalo: solo tendrás más avisos.
+Borra la carpeta `prueba_permisos` del escritorio. Para las prácticas siguientes, **borra `opencode.json`** y reinicia opencode (cierra la ventana negra de opencode y vuelve a hacer doble clic en `2_arrancar_opencode`). Si prefieres seguir aprobando cada cambio, déjalo: solo tendrás más avisos.
 
 > **Si usas Claude Code o Codex** (carril B): la prueba es la misma, pero la política de serie es distinta, así que puede que los resultados sean los contrarios.
 > - **Claude Code** pregunta de serie antes de editar un archivo, también dentro de la carpeta. Pulsa **Mayús + Tab** hasta ver *accept edits* (aceptar ediciones) y repite: verás que deja de preguntar. Vuelve al modo normal con Mayús + Tab. La política fija se guarda en `.claude/settings.json`.
@@ -337,7 +314,7 @@ Pídele al agente que te cree una:
 
 Fíjate en que la ruta de salida, `informes/resumen_general.md`, es la misma que dicen tus notas de `AGENTS.md`. **Las notas y la skill no deben competir:** si una dice una carpeta y la otra otra, no sabrás cuál seguirá el agente.
 
-opencode la guarda en `.opencode/skills/resumen-informes/SKILL.md`. **Las skills se cargan al arrancar**: apaga opencode (Ctrl + C), vuelve a arrancarlo con `opencode web` y, en una sesión nueva, pídele «hazme el resumen de informes». Comprueba que sigue la receta: debe crear `informes/resumen_general.md` (no en la raíz) con una fila por informe y sin una fila para el propio resumen. Si no reinicias, responderá en el chat sin usarla.
+opencode la guarda en `.opencode/skills/resumen-informes/SKILL.md`. **Las skills se cargan al arrancar**: cierra la ventana negra de opencode y vuelve a hacer doble clic en `2_arrancar_opencode` y, en una sesión nueva, pídele «hazme el resumen de informes». Comprueba que sigue la receta: debe crear `informes/resumen_general.md` (no en la raíz) con una fila por informe y sin una fila para el propio resumen. Si no reinicias, responderá en el chat sin usarla.
 
 > **Si usas Claude Code o Codex** (carril B):
 > - **Codex** lee `AGENTS.md` directamente. Guarda las skills en `.agents/skills/<nombre>/SKILL.md`.
@@ -410,22 +387,38 @@ Cuando diga «hecho», **no está hecho: está propuesto.**
 
 ---
 
-## Práctica 6 — Datos y modelo (avanzada, opcional)
+## Práctica 6 — Python: comprobar y modelar datos
 
-**Tiempo:** unos 20 minutos. Hazla si vas sobrado, o en casa.
-**Objetivo:** encargar un análisis de datos y un modelo sencillo, y **revisar el programa, no solo el número**.
+**Tiempo:** unos 25 minutos (si en clase no da tiempo, termina la parte B en casa).
+**Objetivo:** que el agente **escriba y ejecute programas en Python** sobre tus datos, y aprender a **revisar el programa, no solo el número**.
+
+Hasta ahora, el agente leía y escribía textos. Con datos, lo que de verdad cambia las cosas es que **escribe un programa, lo ejecuta y te da el resultado**. El cálculo queda escrito: lo puedes revisar, repetir con los datos del mes que viene y enseñárselo a otra persona. Un chat que «lee» tu tabla no te deja nada de eso.
+
+> Usamos **Python**, el lenguaje más extendido para análisis de datos e ingeniería. Lo instalaste en la preparación previa, junto con `pandas` (tablas) y `matplotlib` (gráficos). No necesitas saber programar: necesitas saber **qué buscar** en el programa.
+
+### Parte A — Comprobar con un programa (10 minutos)
+
+En la Práctica 5 comprobaste a ojo las filas de una tabla. Ahora haz que lo compruebe un programa.
+
+**Paso 1 — El encargo.** Copia esto tal cual:
+
+> «Escribe un script en Python, `analisis/bajo_minimo.py`, que lea `inventario_material.csv` y `contactos_proveedores.csv`, liste los artículos con **existencias por debajo del stock mínimo** y, para cada uno, el nombre del proveedor y su plazo de suministro. Ejecútalo y enséñame la salida tal cual. **No modifiques los CSV.**»
+
+**Paso 2 — Mira el programa.** Ábrelo (está en `analisis/`). Busca la línea que decide si un artículo está bajo mínimo. Tiene que comparar **existencias < mínimo**, no otra cosa (por ejemplo, «cerca del mínimo»).
+
+**Paso 3 — Contrasta con los datos.** Abre `inventario_material.csv` y comprueba **tú** dos filas: una que salga en la lista y otra que no salga. ¿Cuadran?
+
+**Paso 4 — Repítelo.** Pídele «ejecuta otra vez el script» o cambia a mano una cifra en una **copia** del CSV y pídele que lo ejecute sobre la copia. El mismo programa da siempre la misma respuesta: esa es la diferencia con preguntarle otra vez al chat.
+
+### Parte B — Datos y modelo (15 minutos)
 
 En la carpeta está `lecturas_energia_diarias.csv`: el consumo eléctrico diario de la planta ficticia durante las cuatro semanas del informe `informe_04_energia_mayo.txt`, con las unidades producidas y las horas de operación. El informe dice que la semana 3 consumió más y sospecha del compresor por la noche. Vamos a comprobarlo.
 
-> **No necesitas instalar nada más.** El agente puede escribir el script en Python, si lo tienes, o en JavaScript con el Node.js que ya instalaste. Si tienes Python pero le faltan librerías (pandas, matplotlib), el agente te propondrá instalarlas: piénsalo antes de aceptar, o pídele que lo haga sin ellas.
-
-### Paso 1 — El encargo
-
-Copia este encargo tal cual (tiene las cuatro partes):
+**Paso 1 — El encargo.** Copia este encargo tal cual (tiene las cuatro partes):
 
 > «En `practica_agente` está `lecturas_energia_diarias.csv`. Quiero:
 > 1. Antes de calcular nada, dime cuántas filas hay, qué columnas, en qué unidades crees que está cada una y si ves valores vacíos o raros.
-> 2. Escribe un script en `analisis/energia.py` (o `.js`) que calcule el consumo total y por semana, y que ajuste un modelo lineal sencillo: kWh diarios en función de las unidades terminadas.
+> 2. Escribe un script en Python, `analisis/energia.py`, que calcule el consumo total y por semana, y que ajuste un modelo lineal sencillo: kWh diarios en función de las unidades terminadas.
 > 3. Usa el modelo para decir qué semana consume más de lo que le corresponde por su producción, y guarda un gráfico en `analisis/`.
 > **No modifiques el CSV original.** Si corriges algún dato, hazlo en el script y dime cuál y por qué.
 > Al terminar, dime el consumo total y compáralo con los 32.400 kWh del informe de energía.»
@@ -435,33 +428,37 @@ Copia este encargo tal cual (tiene las cuatro partes):
 > 2. Calcula el total **con y sin** la lectura sospechosa, y no edites el CSV original.
 > 3. Compara el exceso con el modelo ajustado con todos los datos y con la semana 3 fuera del ajuste. Trata los dos resultados como **señales**, no como prueba de la causa.
 
-### Paso 2 — Mira antes de que calcule
+> **Si el agente quiere instalar algo** (otra librería, otra versión de Python), te pedirá permiso. Piénsalo antes de aceptar: con `pandas` y `matplotlib` basta, y también se puede hacer sin ellas.
 
-Fíjate en la respuesta al punto 1. Hay **dos trampas** puestas a propósito en los datos. ¿Las ha encontrado el agente antes de calcular? Si no, pregúntale: «¿Todas las lecturas de `kwh_total` están en las mismas unidades?».
+**Paso 2 — Mira antes de que calcule.** Fíjate en la respuesta al punto 1. Hay **dos trampas** puestas a propósito en los datos. ¿Las ha encontrado el agente antes de calcular? Si no, pregúntale: «¿Todas las lecturas de `kwh_total` están en las mismas unidades?».
 
-### Paso 3 — Revisa el programa, no solo el número
+**Paso 3 — Revisa el programa, no solo el número.**
 
 - Abre el script. No hace falta entenderlo todo: busca **dónde lee el archivo**, **qué filas descarta o corrige** y **qué fórmula ajusta**.
 - **Obligatorio:** pregúntale «¿Has usado los mismos datos para ajustar el modelo y para evaluarlo?» y pídele una segunda estimación: «Ajusta el modelo sin la semana 3 y calcula otra vez su exceso». Si la semana rara entra en el ajuste, tira de la recta hacia ella y su exceso parece menor. Apunta los dos números.
 - Pregúntale: «¿Para qué rango de producción vale este modelo?».
+- Abre el gráfico que ha guardado en `analisis/`. ¿Se ve la semana que se sale?
 
-### Paso 4 — Totales de control
-
-Comprueba **tú** dos números contra el informe original:
+**Paso 4 — Totales de control.** Comprueba **tú** dos números contra el informe original:
 - [ ] El consumo total sale **32.400 kWh** si la lectura `0.751` se interpreta como 0,751 MWh (751 kWh), y unos 31.650 sin corregirla. Pide los dos escenarios. Que cuadre con el informe hace muy probable la conversión, pero sigue siendo un **supuesto**: sin una fuente que confirme las unidades, preséntalo así y anota la justificación.
 - [ ] Las unidades terminadas suman **17.820**.
 
 ### ✅ Comprobación
 
+- [ ] **Parte A:** el script `analisis/bajo_minimo.py` existe, compara existencias < mínimo y he contrastado dos filas con el CSV.
 - [ ] El agente ha descrito los datos **antes** de calcular.
 - [ ] Ha detectado (solo o con tu pregunta) la lectura en otras unidades y el valor vacío.
-- [ ] El CSV original está intacto y el script está guardado para repetirlo.
+- [ ] Los CSV originales están intactos y los scripts están guardados para repetirlos.
 - [ ] El total cuadra con el informe.
 - [ ] Tengo el exceso de esa semana con los dos ajustes (con todos los datos y sin la semana 3) y sé por qué difieren.
 - [ ] Sé decir qué semana se sale del modelo y **qué dato lo confirma** (pista: hay una columna que no está en el informe).
 - [ ] He revisado las **unidades** de lo que me dice: ¿kWh al día o en toda la semana? Los modelos a veces aciertan el número y se equivocan en la unidad.
 
 > ⚠️ **La lección:** un modelo dice qué es raro; no dice por qué. Que el compresor sea la causa es una hipótesis para comprobar en la planta, no una conclusión del agente.
+
+### Para llevártelo: procedimientos que ejecutan Python
+
+Si un cálculo lo repites cada mes, guárdalo como **skill con su script**: la receta le dice al agente que **ejecute siempre el mismo programa** en vez de improvisar uno nuevo. En la página **Entorno de práctica** tienes una configuración de ejemplo con cuatro skills así; por ejemplo, `propuesta-reposicion` ejecuta `bajo_minimo.py` (como el de la parte A) y `analisis-energia-mensual` ejecuta `energia.py` (como el de la parte B). El agente redacta; el cálculo lo hace un programa que ya has revisado.
 
 ---
 
@@ -478,7 +475,7 @@ En las dos últimas columnas, apunta cuántos minutos calculas que te costaría 
 | 3 — Cambiar de política | | | | | |
 | 4 — Enseñarle un procedimiento | | | | | |
 | 5 — Encargo integrador | | | | | |
-| 6 — Datos y modelo (opcional) | | | | | |
+| 6 — Python: comprobar y modelar datos | | | | | |
 
 **Carril que he usado** (opencode, Claude Code, Codex u otro):
 ________________________________________________________________
