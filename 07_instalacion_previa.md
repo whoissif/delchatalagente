@@ -3,7 +3,7 @@
 Este documento tiene **tres partes** y cada una es para un público distinto:
 
 - **Parte A** — Mensaje listo para copiar y enviar a los alumnos 3-5 días antes.
-- **Parte B** — Guía de instalación paso a paso, para tener a mano durante el seminario.
+- **Parte B** — Guía alternativa por terminal, para quien prefiera escribir órdenes o cuando los lanzadores de doble clic fallen.
 - **Parte C** — Lista de comprobación del instructor (día anterior y día del seminario).
 
 La herramienta del seminario es **opencode**, un agente de código abierto con interfaz web en español. Funciona con **modelos gratuitos incluidos**: no hace falta cuenta ni clave de API.
@@ -24,61 +24,50 @@ Hola:
 
 El **[día]** hacemos el seminario **«Del chat al agente: qué es un harness y cómo se usa»**, de 2-3 horas, en **[lugar]**.
 Vamos a pasar de usar la IA como un chat que solo responde texto a usarla como un **agente** que trabaja dentro de una carpeta de tu ordenador: lee archivos, los modifica y ejecuta comandos.
-No hace falta saber programar: todo se hace desde una interfaz web, como una página del navegador.
+No hace falta saber programar ni usar una terminal: todo se hace con doble clic y desde una interfaz web, como una página del navegador.
 Te pedimos que llegues con la preparación hecha, porque son unos 15 minutos y así los dedicamos a practicar en vez de a instalar cosas.
 
-### 1. Requisitos previos (hazlo antes de venir)
+### 1. Instala dos programas (Node.js y Python)
 
-Vas a necesitar **Node.js** instalado. Es el programa con el que se instala la herramienta.
-**No necesitas cuenta ni clave de API**: los modelos gratuitos vienen incluidos.
+**No necesitas cuenta ni clave de API**: los modelos gratuitos vienen incluidos. **Tampoco tendrás que escribir órdenes en una terminal**: después de instalar dos programas, todo se hace con doble clic.
 
-**En Windows:**
+**Node.js** es el programa con el que se instala la herramienta:
 
-1. Entra en la web oficial de Node.js, [nodejs.org](https://nodejs.org/), y descarga el instalador para Windows.
-2. Elige la versión marcada como **LTS** (es la versión estable y recomendada; evita la que pone «Current»).
-3. Ejecuta el instalador y ve dándole a **Siguiente** con las opciones que vienen por defecto.
-4. Abre el **menú Inicio**, escribe `PowerShell` o `Terminal` y ábrelo.
-5. Escribe `node -v` y pulsa **Intro**. Si aparece un número de versión, está bien instalado.
+1. Entra en la web oficial, [nodejs.org](https://nodejs.org/), y descarga la versión marcada como **LTS** (la estable; evita la «Current»).
+2. Abre el archivo descargado y ve dándole a **Siguiente** con las opciones por defecto.
 
-**En macOS:**
+**Python** es el lenguaje en el que el agente escribirá sus programas de cálculo (Práctica 6):
 
-1. Entra en la web oficial de Node.js y descarga el instalador para macOS.
-2. Elige la versión marcada como **LTS** (la estable; no la «Current»).
-3. Abre el archivo descargado y completa el instalador con las opciones por defecto.
-4. Pulsa **Cmd + Espacio**, escribe `Terminal` y ábrelo.
-5. Escribe `node -v` y pulsa **Intro**. Si aparece un número de versión, está bien instalado.
+1. Entra en [python.org/downloads](https://www.python.org/downloads/) y pulsa **Download Python**.
+2. Abre el archivo descargado. **En Windows, marca la casilla «Add python.exe to PATH»** antes de pulsar **Install Now**. En macOS, opciones por defecto.
 
-**Si el paso 5 no muestra ninguna versión**, cierra la terminal, ábrela otra vez y repite. Si sigue sin funcionar, escríbeme antes del seminario.
+Si ya los tenías (Node.js 22 o superior, Python 3.10 o superior), no hace falta repetirlo.
 
-### 2. Instala opencode
+### 2. Descarga la carpeta de práctica
 
-1. En la terminal, escribe este comando y pulsa **Intro**:
+1. Descarga `descarga_entorno.zip` desde la página **Entorno de práctica** del curso (https://delchatalagente.vercel.app/practica_ejemplo/LEEME.html).
+2. Descomprímelo en **Documentos** y llama a la carpeta `practica_agente`.
+3. Guarda el ZIP aparte: es tu copia limpia.
 
-   ```
-   npm install -g opencode-ai@1.19.5
-   ```
+### 3. Doble clic en el instalador
 
-2. Espera a que termine (unos segundos o un par de minutos).
-3. Cierra la terminal, ábrela otra vez y escribe `opencode --version`. Debe aparecer un número de versión.
-4. **Si en Windows sale un error rojo** sobre la ejecución de scripts, usa el **Símbolo del sistema** (`cmd`), la terminal clásica de Windows. En un ordenador personal, PowerShell trae bloqueados de serie scripts como el que instala opencode, y `cmd` no los necesita. **Si es un equipo gestionado por tu empresa o universidad** y te impide instalar o ejecutar programas, no intentes saltarte esa restricción: consulta con soporte informático, usa un equipo personal o sigue las prácticas en pareja.
+En la carpeta `practica_agente`, haz doble clic en **`1_instalar_opencode.bat`** (en macOS, `1_instalar_opencode.command`). Se abre una ventana que comprueba Node.js, instala opencode 1.19.5, comprueba Python e instala `pandas` y `matplotlib`. Cada línea buena empieza por **[OK]**; si alguna dice **[FALTA]**, te indica qué instalar. Al final debe poner **«Todo listo»**.
+
+**La primera vez, tu sistema te avisará** porque el archivo viene de internet. Es normal: es un archivo de texto que puedes abrir con el Bloc de notas.
+
+- **Windows:** si aparece *«Windows protegió su PC»*, pulsa **Más información** y **Ejecutar de todas formas**.
+- **macOS:** si dice que no se puede abrir, ve a **Ajustes del Sistema → Privacidad y seguridad** y pulsa **Abrir igualmente**.
+- **Si es un equipo gestionado por tu empresa o universidad** y no te deja ejecutarlo, no intentes saltarte esa restricción: consulta con soporte informático, usa un equipo personal o sigue las prácticas en pareja.
 
 > Los modelos gratuitos **no son privados**: lo que el agente lee de tu carpeta se envía al proveedor del modelo, y algunos usan esos datos para mejorar. Por eso solo trabajaremos con archivos de práctica, nunca con datos reales.
 
-### 3. Comprobación final: arranca opencode y ciérralo
+### 4. Comprobación final: arranca opencode y ciérralo
 
-Hazlo tú solo antes de venir. Sirve para confirmar que todo está en su sitio y para que no sea la primera vez delante del grupo.
+Hazlo tú solo antes de venir, para que no sea la primera vez delante del grupo.
 
-1. Abre la terminal (los pasos de arriba).
-2. Escribe este comando y pulsa **Intro**:
-
-   ```
-   opencode web
-   ```
-
-3. **La interfaz se abre sola en tu navegador.**
-4. Si no se abre sola, copia en el navegador la dirección que aparece en la terminal (algo como **http://127.0.0.1:4096**) y pulsa Intro.
-5. **Para apagarlo**, pulsa **Ctrl + C** en la terminal. Si cierras la ventana de la terminal, el agente también se apaga.
-   Si cierras solo la pestaña del navegador, opencode **sigue funcionando** en segundo plano.
+1. Haz doble clic en **`2_arrancar_opencode.bat`** (en macOS, `2_arrancar_opencode.command`).
+2. Se abre una ventana negra con la carpeta y la versión, y **la interfaz se abre sola en tu navegador**. Si no, copia en el navegador la dirección que aparece en la ventana (algo como **http://127.0.0.1:4096**).
+3. **Para apagarlo, cierra la ventana negra.** Si cierras solo la pestaña del navegador, opencode **sigue funcionando** en segundo plano.
 
 ### Qué traer
 
@@ -90,9 +79,9 @@ Hazlo tú solo antes de venir. Sirve para confirmar que todo está en su sitio y
 
 ### Si algo no funciona
 
-- **Respira: es lo más normal del mundo.** Un mensaje de error en la terminal casi nunca significa que hayas roto nada; significa que falta un paso o que hay que repetirlo.
-- **Casi todo se arregla cerrando la terminal y volviendo a abrirla.** Si `node`, `npm` u `opencode` no se reconocen, suele ser que no quedaron bien instalados o que la terminal es la de antes de instalarlos.
-- **La página no carga:** comprueba que la terminal sigue abierta y copia exactamente la dirección que aparece en ella.
+- **Respira: es lo más normal del mundo.** Un mensaje de error casi nunca significa que hayas roto nada; significa que falta un paso. Lee la línea **[FALTA]** o **[ERROR]** de la ventana: dice qué hacer.
+- **[FALTA] Node.js o Python aunque los hayas instalado:** cierra la ventana, reinicia el ordenador y vuelve a hacer doble clic. En Windows, si Python sigue sin salir, faltó marcar *Add python.exe to PATH*: ejecuta otra vez su instalador y elige **Modify**.
+- **La página no carga:** comprueba que la ventana negra sigue abierta y copia exactamente la dirección que aparece en ella.
 - **No te quedes atascado en silencio.** Escríbeme antes del seminario con lo que ves en pantalla (una foto o el texto del error vale) y lo miramos entre los dos. Es mucho mejor resolverlo por correo que perder la primera media hora del taller.
 
 ### Aviso importante sobre seguridad (léelo, en serio)
@@ -115,7 +104,7 @@ Un saludo,
 
 # Parte B — Guía de instalación paso a paso
 
-Para usar durante el seminario. Sigue los pasos en orden. Si algo falla, no pasa nada: repite el paso y, si sigue fallando, avisa.
+**Es la vía alternativa.** La ruta normal es la del mensaje de la Parte A (doble clic en `1_instalar_opencode` y `2_arrancar_opencode`). Usa esta guía si prefieres la terminal o si un lanzador no funciona. Sigue los pasos en orden. Si algo falla, no pasa nada: repite el paso y, si sigue fallando, avisa.
 
 ## Paso 0. Qué es «la terminal» (en una frase)
 
@@ -151,6 +140,12 @@ La **terminal** es una ventana donde escribes órdenes en texto en lugar de hace
    - Cierra la terminal.
    - Instala Node.js desde [nodejs.org](https://nodejs.org/) eligiendo la versión **LTS**.
    - Vuelve a abrir la terminal y repite `node -v`.
+
+### Comprobar que Python está instalado
+
+1. Escribe `python --version` (en macOS, `python3 --version`) y pulsa **Intro**.
+2. Debe aparecer una versión 3.10 o superior. Si no, instala Python desde [python.org/downloads](https://www.python.org/downloads/) (en Windows, marcando **Add python.exe to PATH**).
+3. Para las librerías de la Práctica 6: `python -m pip install pandas matplotlib` (en macOS, `python3 -m pip install pandas matplotlib`).
 
 ## Paso 3. Instalar opencode
 
@@ -209,11 +204,13 @@ Este es el punto donde conviene ir con calma.
 ## Paso 8. Apagar opencode
 
 - **Opción 1:** haz clic en la terminal y pulsa **Ctrl + C**.
-- **Opción 2:** cierra la ventana de la terminal (el agente se apaga).
+- **Opción 2:** cierra la ventana de la terminal (el agente se apaga). Si lo arrancaste con `2_arrancar_opencode`, cierra su ventana negra.
 
 Cerrar solo la pestaña del navegador **no** lo apaga.
 
 ## Paso 9. Volver a arrancarlo si se cerró
+
+Reiniciar es apagarlo y volver a arrancarlo: cierra la ventana y haz doble clic en `2_arrancar_opencode`, o por terminal:
 
 1. Abre la terminal y entra en la carpeta de práctica.
 2. Escribe de nuevo `opencode web` y pulsa **Intro**.
@@ -258,13 +255,14 @@ Para quitar opencode más adelante: `npm uninstall -g opencode-ai`.
 Confirma estos puntos antes de continuar con la práctica:
 
 - [ ] **Node.js presente**: `node -v` muestra un número de versión.
+- [ ] **Python presente**: `python --version` (en macOS, `python3 --version`) muestra 3.10 o superior.
 - [ ] **opencode instalado**: `opencode --version` muestra un número de versión.
 - [ ] **Servidor arrancado**: `opencode web` ha abierto la interfaz en el navegador y la terminal está ocupada.
 - [ ] **Proyecto añadido**: `Documents/practica_agente` aparece en «Añadir proyecto» y tienes una sesión nueva.
 - [ ] **Modelo gratuito elegido**: uno marcado «Gratis», de preferencia GLM-5.3-Flash o DeepSeek V4.1 Flash.
 - [ ] **El agente responde** a un primer mensaje.
 
-Si los seis están marcados, estás listo. Si falla el cuarto, vuelve al Paso 5.
+Si los siete están marcados, estás listo. Si falla el quinto, vuelve al Paso 5.
 
 ---
 
@@ -279,7 +277,8 @@ Si los seis están marcados, estás listo. Si falla el cuarto, vuelve al Paso 5.
 | Preparar una carpeta de práctica de ejemplo, con archivos de prueba y sin datos sensibles | ☐ | Textos, notas y algún documento sin información real. |
 | Hacer una copia de seguridad de esa carpeta | ☐ | Es la red de seguridad si el agente modifica algo en la demo. |
 | Comprobar la red de la sala y si hay proxy o cortafuegos corporativo | ☐ | Un proxy puede impedir `npm install` y la conexión con los modelos. |
-| Probar `opencode web` en el equipo del instructor y anotar la dirección que muestra | ☐ | Si el arranque falla, reinicia o revisa la dirección que aparece en la terminal. |
+| Probar `opencode web` en el equipo del instructor y anotar la dirección que muestra | ☐ | Si el arranque falla, reinicia o revisa la dirección que aparece en la ventana. |
+| Comprobar que `1_instalar_opencode` y `2_arrancar_opencode` funcionan (Windows y macOS) y que Python está instalado | ☐ | Debe acabar en «Todo listo» y abrir la interfaz. Prueba también el aviso de SmartScreen o de macOS. |
 | Comprobar que los modelos gratuitos recomendados siguen disponibles | ☐ | Son «por tiempo limitado» y cambian: la lista puede haber variado desde que se escribió el material. |
 | Preparar el plan B sin conexión: capturas de pantalla o un vídeo corto | ☐ | Cubre el caso de que la red de la sala falle. |
 | Preparar la encuesta de satisfacción (enlace o papel) | ☐ | Mejor tenerla lista que improvisarla al final. |

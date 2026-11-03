@@ -18,11 +18,12 @@ Fuente de verdad de lo que ocurre en cada práctica: el cuaderno del alumno `03_
 
 **Recordatorio de arranque**
 
-- Instalación (una sola vez): `npm install -g opencode-ai@1.19.5`. Se comprueba con `opencode --version`.
-- Arranque: entrar en la carpeta de práctica con `cd` y escribir `opencode web`.
-- Se abre el navegador solo; si no, copiar la dirección que aparece en la terminal (por ejemplo, **http://127.0.0.1:4096**). El puerto puede variar; se fija con `--port`.
-- **Ctrl + C** apaga opencode; cerrar la terminal también lo apaga.
-- No hay clave de API que configurar. Si PowerShell bloquea la ejecución de scripts en un equipo personal, usar **cmd**; en un equipo gestionado, no esquivar la política: soporte informático o práctica en pareja. Versión probada del curso: **1.19.5**; si el alumno tiene otra, que instale esta.
+- Instalación (una sola vez): el alumno instala Node.js y Python y hace doble clic en `1_instalar_opencode.bat` (macOS, `.command`). Debe acabar en «Todo listo». Instala opencode **1.19.5** y `pandas` y `matplotlib`.
+- Arranque: doble clic en `2_arrancar_opencode.bat` (macOS, `.command`). Se abre una ventana negra con la carpeta y la versión, y el navegador se abre solo; si no, copiar la dirección que aparece en la ventana (por ejemplo, **http://127.0.0.1:4096**). El puerto puede variar.
+- Apagar: **cerrar la ventana negra**. Reiniciar: cerrarla y doble clic otra vez.
+- No hay clave de API que configurar. Aviso de SmartScreen la primera vez: **Más información → Ejecutar de todas formas** (macOS: **Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente**). En un equipo gestionado, no esquivar la política: soporte informático o práctica en pareja. Versión probada del curso: **1.19.5**; si el alumno tiene otra, que haga doble clic en el instalador.
+- Alternativa por terminal: `npm install -g opencode-ai@1.19.5`, `cd` a la carpeta y `opencode web`; **Ctrl + C** apaga. En Windows, usar **cmd**, no PowerShell.
+- **opencode Desktop no se usa** (ver la fila de errores de la Práctica 1).
 
 ---
 
@@ -32,7 +33,7 @@ Fuente de verdad de lo que ocurre en cada práctica: el cuaderno del alumno `03_
 
 **Qué debería pasar**
 
-- El alumno comprueba `opencode --version`, entra en `practica_agente` y lanza `opencode web`; se abre la interfaz web en el navegador, en español.
+- El alumno hace doble clic en `2_arrancar_opencode`, ve en la ventana negra la carpeta y la versión (**1.19.5**) y se abre la interfaz web en el navegador, en español.
 - Añade su carpeta con **Añadir proyecto** (escribiendo `Documents/practica_agente`) y pulsa **Nueva sesión**.
 - Debajo del cuadro de mensajes ve el modelo (por ejemplo, Big Pickle) y, en **Seleccionar modelo**, elige uno marcado como **Gratis**: GLM-5.3-Flash o DeepSeek V4.1 Flash.
 - Escribe el primer encargo y el agente lee archivos reales de `informes` y crea `INDICE.md`.
@@ -59,16 +60,19 @@ Qué haría el agente:
 4. Dice dónde ha dejado el archivo nuevo y confirma que no ha tocado los originales.
 5. Si algo queda fuera de la carpeta del proyecto, pide permiso antes de acceder.
 
-> **Carril B (Claude Code o Codex):** se arranca con `claude` o `codex` desde la carpeta, tras iniciar sesión con la cuenta del alumno; no hay que elegir modelo gratuito. Claude Code pregunta antes de editar de serie, así que verá avisos que con opencode no aparecen.
+> **Carril B (Claude Code o Codex):** se usa la aplicación de escritorio de Claude (pestaña **Code** → **Local** → carpeta; en Windows requiere Git for Windows) o la de ChatGPT en modo Codex (abrir la carpeta); con terminal, `claude` o `codex` desde la carpeta. En los dos casos se inicia sesión con la cuenta del alumno; no hay que elegir modelo gratuito. Claude Code pregunta antes de editar de serie, así que verá avisos que con opencode no aparecen.
 
 **Errores frecuentes**
 
 | Lo que se ve | Qué está pasando | Qué hacer |
 |---|---|---|
-| «`opencode` no se reconoce como una orden» | Terminal abierta antes de instalar, o instalación incompleta (falta Node.js u opencode) | Cerrar y abrir la terminal; si sigue, repetir la instalación de la preparación previa |
-| PowerShell se niega a ejecutar `opencode` (scripts bloqueados) | La política de ejecución de scripts de PowerShell | En un equipo personal, usar **cmd**. En un equipo gestionado, no esquivarla: práctica en pareja |
-| La página no carga | La terminal se ha cerrado, o la dirección es otra | Comprobar que la terminal sigue abierta y copiar exactamente la dirección que muestra (el puerto puede no ser el 4096) |
-| El alumno escribe en la terminal y no pasa nada | La terminal solo arranca el servidor; el trabajo se hace en el navegador | Explicar que la terminal es el motor encendido y el navegador es el volante |
+| La ventana negra dice **[FALTA] opencode** o **[FALTA] Node.js** | No se ha ejecutado el instalador, o falta Node.js (o se instaló y hay que reiniciar el ordenador) | Instalar Node.js LTS, reiniciar si acaba de instalarse y hacer doble clic en `1_instalar_opencode` |
+| El instalador dice **[FALTA] Python** | Python no está instalado o, en Windows, no se marcó *Add python.exe to PATH* | Instalar Python (python.org); en Windows, ejecutar otra vez su instalador, **Modify** y marcar PATH; después, doble clic en `1_instalar_opencode` |
+| Windows dice «Windows protegió su PC» o macOS no deja abrir el archivo | Aviso por archivo descargado de internet | **Más información → Ejecutar de todas formas**; macOS: **Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente**. En equipo gestionado, soporte o pareja |
+| Un alumno trae **opencode Desktop** instalado | La app de escritorio trae el motor 2.x (beta), se actualiza sola y con su configuración de serie escribió fuera de la carpeta sin preguntar | No usarla en el curso: que arranque con `2_arrancar_opencode`, que usa la **1.19.5**. Si ya la ha usado, que no mezcle proyectos entre las dos |
+| Con la vía terminal, PowerShell se niega a ejecutar `opencode` (scripts bloqueados) | La política de ejecución de scripts de PowerShell | Usar **cmd**, o los lanzadores de doble clic. En un equipo gestionado, no esquivarla: práctica en pareja |
+| La página no carga | La ventana negra se ha cerrado, o la dirección es otra | Comprobar que la ventana negra sigue abierta y copiar exactamente la dirección que muestra (el puerto puede no ser el 4096) |
+| El alumno escribe en la ventana negra y no pasa nada | La ventana solo arranca el servidor; el trabajo se hace en el navegador | Explicar que la ventana negra es el motor encendido y el navegador es el volante |
 | No encuentra su carpeta en **Añadir proyecto** | El buscador no muestra carpetas ocultas o temporales | Escribir la ruta desde el usuario: `Documents/practica_agente` |
 | El agente ha trabajado en una carpeta distinta de la esperada | Se abrió otro proyecto, o se lanzó `opencode web` desde otra carpeta | Comprobar el proyecto de la sesión y abrir la carpeta correcta antes de pedir nada |
 | Error del modelo, respuesta vacía o «saturado» | Los modelos gratuitos a veces se saturan | Pulsar el nombre del modelo, elegir otro marcado como **Gratis** y repetir |
@@ -78,7 +82,7 @@ Qué haría el agente:
 
 **Plan B si no sale**
 
-- Si no arranca nada, comprueba Node.js y vuelve a lanzar el comando en una terminal nueva (o en cmd).
+- Si no arranca nada, lee la línea **[FALTA]** o **[ERROR]** de la ventana negra, corrige y repite el doble clic. Como último recurso, la vía terminal en cmd.
 - Si no consigue instalar opencode, pásale a un compañero que ya lo tenga funcionando y siga la práctica por parejas.
 - Si todos los gratuitos están saturados, que espere un minuto y pruebe otro modelo.
 - Mientras se arregla, pídele que escriba en papel qué carpeta quiere resumir y qué le va a pedir al agente.
@@ -162,7 +166,7 @@ Respuestas esperadas a las tres preguntas: (1) escribir un archivo nuevo en `pru
 
 - El alumno pide crear `prueba_dentro.txt` **dentro** de la carpeta de trabajo: el agente lo hace **sin aviso** (política de serie: dentro lee, escribe y ejecuta órdenes sin preguntar; solo pregunta al salir).
 - Le pide al agente crear `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`.
-- La política se lee al arrancar: el alumno **reinicia** (Ctrl + C, `opencode web`, **Nueva sesión**).
+- La política se lee al arrancar: el alumno **reinicia** (cierra la ventana negra, doble clic en `2_arrancar_opencode`, **Nueva sesión**).
 - Al pedir `prueba_dentro2.txt`, ahora **sí** pregunta: *Modificar archivos mediante ediciones, escrituras y parches*. El alumno pulsa **Permitir una vez**.
 - Al final borra `opencode.json` y reinicia, o lo deja si prefiere seguir aprobando.
 
@@ -198,9 +202,9 @@ La conclusión a sacar: **el agente no es más listo ni más tonto; se han cambi
 
 | Lo que se ve | Qué está pasando | Qué hacer |
 |---|---|---|
-| Tras crear `opencode.json`, sigue sin preguntar | **No se ha reiniciado**: la configuración se lee al arrancar. Es el error típico | Ctrl + C en la terminal, `opencode web` de nuevo y **Nueva sesión** |
+| Tras crear `opencode.json`, sigue sin preguntar | **No se ha reiniciado**: la configuración se lee al arrancar. Es el error típico | Cerrar la ventana negra, doble clic en `2_arrancar_opencode` y **Nueva sesión** |
 | Sigue sin preguntar aun reiniciando | `opencode.json` no está en la raíz del proyecto, o el contenido tiene un error (comillas, llaves) | Pedir al agente la ruta completa del archivo y comparar el contenido con el de la práctica, carácter a carácter |
-| El alumno cierra la terminal en vez de reiniciar y no encuentra opencode | Cerrar la terminal apaga opencode | Abrir una terminal, entrar en la carpeta con `cd` y volver a lanzar `opencode web` |
+| El alumno cierra la ventana negra y la interfaz deja de responder | Cerrar la ventana apaga opencode (es también la forma de reiniciarlo) | Doble clic otra vez en `2_arrancar_opencode` |
 | Sigue pidiendo permiso aunque la ruta sea interna | La carpeta no es la que se cree, o se ha dejado `opencode.json` de antes, o hay un acceso directo a otra ubicación | Comprobar el proyecto de la sesión, revisar si existe `opencode.json` y evitar enlaces, accesos directos y unidades de red |
 | El alumno no encuentra el archivo creado | Lo ha creado en otra subcarpeta de la carpeta de trabajo | Pedir al agente la **ruta completa** del archivo y abrirla |
 | Pregunta por editar y por ejecutar órdenes | `edit` y `bash` son acciones distintas, cada una con su aviso | Explicar que cada tipo de acción se evalúa por separado |
@@ -266,7 +270,7 @@ Qué haría el agente:
 | En la sesión nueva el agente ignora las instrucciones | `AGENTS.md` no está en la raíz del proyecto activo (o está en otra carpeta), o no se llegó a crear | Comprobar que el archivo existe en la raíz del proyecto abierto; el global es `C:\Users\<tu_usuario>\.config\opencode\AGENTS.md` |
 | El alumno cree que el agente "recuerda" la conversación anterior | Lo está probando en la misma conversación, o no distingue contexto y notas | Abrir una **Nueva sesión**: lo permanente vive en `AGENTS.md` o en la skill, no en la conversación |
 | Instrucciones contradictorias y resultado raro | Hay reglas viejas que chocan con las nuevas | Leer el archivo y limpiar: menos reglas y más claras |
-| La skill no se usa: el agente responde en el chat | **No se reinició opencode**: las skills se cargan al arrancar. Es el error típico | Ctrl + C, `opencode web`, sesión nueva y repetir «hazme el resumen de informes» |
+| La skill no se usa: el agente responde en el chat | **No se reinició opencode**: las skills se cargan al arrancar. Es el error típico | Cerrar la ventana negra, doble clic en `2_arrancar_opencode`, sesión nueva y repetir «hazme el resumen de informes» |
 | La skill no se usa ni reiniciando | Ruta o nombre incorrectos: debe estar en `.opencode/skills/<nombre>/SKILL.md` dentro del proyecto | Pedir al agente la ruta completa y comparar con el ejemplo del repositorio: `practica_ejemplo/configuracion_agente/.opencode/skills/` |
 | El agente responde en el chat y no guarda nada en `informes`, aunque la nota lo pida | La nota era ambigua: «cuando crees un informe» no dice si un resumen en el chat cuenta | Reescribir la nota diciendo cuándo se aplica: «si creas un archivo de informe, guárdalo en `informes`; si solo respondes en el chat, no crees archivos» |
 | El agente guarda las notas en un sitio raro | No se le indicó la ruta y eligió una carpeta del proyecto | Indicar explícitamente «en la raíz de esta carpeta de trabajo» |
@@ -346,9 +350,33 @@ Recuerda a la clase: **el agente no firma su trabajo; lo firma el alumno** al de
 
 ---
 
-## Práctica 6 — Datos y modelo (avanzada, opcional)
+## Práctica 6 — Python: comprobar y modelar datos
 
-**Objetivo:** que el alumno vea que en análisis de datos el resultado es un **programa** que hay que revisar, y que un modelo señala anomalías pero no explica causas.
+**Objetivo:** que el alumno vea que en análisis de datos el resultado es un **programa** que hay que revisar, y que un modelo señala anomalías pero no explica causas. Dura unos 25 minutos: Parte A (10) y Parte B (15).
+
+**Parte A: `analisis/bajo_minimo.py`** (cruza `inventario_material.csv` con `contactos_proveedores.csv`)
+
+El resultado correcto lista **solo 2 de los 6 artículos**:
+
+| Artículo | Existencias | Mínimo | Proveedor | Plazo |
+|---|---|---|---|---|
+| J-18 | 420 | 600 | V-104 Elastómeros Técnicos | 8 días laborables |
+| S-04 | 18 | 40 | V-101 Instrumentación Bruma | 15 días |
+
+- **No deben salir:** F-12 (27 frente a 20), M-08 (6 frente a 4), R-220 (850 frente a 500) y G-31 (34 frente a 25).
+- El alumno abre el script, busca la condición (debe ser existencias **<** mínimo), contrasta dos filas (una que sale y otra que no) y lo vuelve a ejecutar.
+- Los CSV no se han modificado.
+
+**Errores frecuentes de la Parte A**
+
+| Lo que se ve | Qué está pasando | Qué hacer |
+|---|---|---|
+| Salen F-12 y M-08 (y quizá más de dos artículos) | El script usa `<=` o un criterio de «cerca del mínimo» (un margen sobre el mínimo, por ejemplo) | Abrir la condición y pedir que compare existencias **<** mínimo; contrastar F-12 (27 frente a 20) a mano |
+| Faltan el proveedor o el plazo, o salen vacíos | El cruce entre los dos CSV falla (clave mal elegida) | Pedir que explique con qué columna cruza y que muestre una fila cruzada |
+| El agente da la lista en el chat pero no deja el script | Calculó «a ojo» sin programa | Repetir el encargo exigiendo `analisis/bajo_minimo.py` y su ejecución |
+| El agente modifica los CSV | No se ha leído el «No modifiques los CSV» | Restaurar desde el ZIP y repetir |
+
+**Parte B: análisis de energía**
 
 **Las dos trampas del CSV** (`lecturas_energia_diarias.csv`, 28 filas, del 1 al 28 de mayo de 2025)
 
@@ -368,7 +396,7 @@ Recuerda a la clase: **el agente no firma su trabajo; lo firma el alumno** al de
 - Recta ajustada con los 28 días: unos 289 kWh fijos al día más ~1,37 kWh por unidad. Ajustada sin la semana 3, apenas cambia (~267 + 1,38 × unidades).
 - Con cualquiera de los dos ajustes, la semana 3 es la que más consume por encima de lo que le corresponde (unos +295 kWh en la semana con la recta de los 28 días; unos +390 si se ajusta sin la semana 3), y la columna `kwh_nocturno`, que no aparece en el informe, lo confirma: unos 60 kWh más cada noche, también el domingo sin producción.
 
-**Cómo saber que salió bien**
+**Cómo saber que salió bien (Parte B)**
 
 - El agente describe los datos (filas, columnas, unidades, anomalías) **antes** de calcular.
 - El CSV original no se ha modificado; la corrección está en el script y explicada.
@@ -384,8 +412,10 @@ Recuerda a la clase: **el agente no firma su trabajo; lo firma el alumno** al de
 | El total sale unos 31.650 kWh y nadie lo nota | La lectura en MWh se ha sumado tal cual | Es el momento estrella de la práctica: totales de control contra el informe |
 | El agente «limpia» la fila del 10 de mayo borrándola | Tratar lo raro como basura en lugar de entenderlo | Pedir que corrija y justifique en vez de descartar; comparar los totales |
 | El agente edita el CSV original | El encargo no se ha leído entero o se ha aprobado sin mirar | Restaurar desde el ZIP; repasar la parte «qué NO tocar» |
-| No hay Python o faltan librerías | El agente propone instalar Python o librerías (pandas, matplotlib) | No aceptar instalaciones sin pensarlo; pedirle que use JavaScript con Node.js, que ya está instalado, o que lo haga sin librerías |
+| No hay Python o faltan librerías | Python lo instala el lanzador (`1_instalar_opencode`): si falta, no se ejecutó o dio [FALTA] Python; o el agente propone instalar algo | No aceptar instalaciones sin pensarlo; repetir el doble clic en `1_instalar_opencode` (en Windows, comprobar *Add python.exe to PATH*). Con `pandas` y `matplotlib` basta |
 | El informe final afirma que la causa es el compresor | El modelo ha pasado de señal a conclusión | Preguntar «¿qué dato lo demuestra?» y separar hecho de hipótesis |
+
+**Para llevárselo:** las skills de ejemplo de la página Entorno de práctica ejecutan scripts de Python: `propuesta-reposicion` ejecuta `bajo_minimo.py` y `analisis-energia-mensual` ejecuta `energia.py`.
 
 **Para el debate (si hay tiempo)**
 
@@ -398,12 +428,12 @@ Recuerda a la clase: **el agente no firma su trabajo; lo firma el alumno** al de
 
 | Síntoma | Causa probable | Solución |
 |---|---|---|
-| Al arrancar dice que el puerto está ocupado, o la dirección no es la 4096 | Ya hay otra instancia de opencode u otro programa usando ese puerto; el puerto puede variar | Cerrar la otra instancia, o fijar otro puerto con `--port`, y copiar la dirección que muestra la terminal |
-| `opencode` no se reconoce | opencode no está instalado, o la terminal se abrió antes de instalarlo | Instalar con `npm install -g opencode-ai@1.19.5`, **abrir una terminal nueva** y comprobar con `opencode --version` |
-| `node` o `npm` no se reconocen, o dan errores de versión | Node.js no está instalado o es demasiado antiguo | Instalar o actualizar Node.js y **abrir una terminal nueva** para que tome el PATH |
+| Al arrancar dice que el puerto está ocupado, o la dirección no es la 4096 | Ya hay otra instancia de opencode u otro programa usando ese puerto; el puerto puede variar | Cerrar la otra instancia, o fijar otro puerto con `--port`, y copiar la dirección que muestra la ventana negra |
+| Un lanzador dice **[FALTA] opencode** o **[FALTA] Node.js** | opencode no está instalado, o Node.js falta o es demasiado antiguo (menos de la 22) | Instalar o actualizar Node.js LTS, reiniciar el ordenador si es nuevo y hacer doble clic en `1_instalar_opencode`. Vía terminal: `npm install -g opencode-ai@1.19.5` en una terminal nueva |
+| Un lanzador dice **[FALTA] Python** | Python no está instalado o falta PATH en Windows | Instalar Python (3.10 o superior) marcando *Add python.exe to PATH* y repetir `1_instalar_opencode` |
 | PowerShell bloquea la ejecución de scripts | Política de ejecución de PowerShell | Equipo personal: usar **cmd**. Equipo gestionado: soporte informático o práctica en pareja |
-| La interfaz no carga en el navegador | Se abrió una dirección equivocada, o la terminal se cerró | Copiar a mano la dirección que aparece en la terminal; probar con otro navegador |
-| El navegador no se abre solo | Puede pasar en algunos equipos | Copiar la dirección de la terminal (por ejemplo, http://127.0.0.1:4096) y pegarla en el navegador |
+| La interfaz no carga en el navegador | Se abrió una dirección equivocada, o la ventana negra se cerró | Copiar a mano la dirección que aparece en la ventana negra; probar con otro navegador |
+| El navegador no se abre solo | Puede pasar en algunos equipos | Copiar la dirección de la ventana negra (por ejemplo, http://127.0.0.1:4096) y pegarla en el navegador |
 | Error de modelo, respuesta vacía o modelo «saturado» | Los modelos gratuitos a veces se saturan | Pulsar el nombre del modelo → **Seleccionar modelo** → elegir otro marcado como **Gratis** |
 | Un modelo gratuito ha desaparecido de la lista | Los gratuitos son por tiempo limitado y cambian a menudo | Elegir otro marcado como **Gratis** y comprobar su política de datos en la documentación de opencode |
 | No encuentra la carpeta en **Añadir proyecto** | El buscador no muestra carpetas ocultas o temporales | Escribir la ruta desde el usuario: `Documents/practica_agente` |
@@ -412,9 +442,9 @@ Recuerda a la clase: **el agente no firma su trabajo; lo firma el alumno** al de
 | El firewall o el antivirus bloquean el programa | Bloqueo de ejecución o de conexión local | Añadir una excepción para Node.js y para la dirección local; si no se puede, usar otro portátil |
 | "Permiso denegado" al leer o escribir una carpeta | Permisos del sistema operativo, carpeta sincronizada o de solo lectura | Usar una carpeta propia y sencilla del usuario; evitar carpetas sincronizadas en la nube |
 | El agente dice que no puede escribir el archivo | Se ha pulsado **Denegar**, o la ruta está fuera de la carpeta del proyecto | Mover la tarea dentro de la carpeta de trabajo o repetir la petición y pulsar **Permitir una vez** tras leer el aviso |
-| Un cambio en `opencode.json`, `AGENTS.md` o una skill no surte efecto | La configuración y las skills se leen al arrancar | Ctrl + C, `opencode web` y **Nueva sesión** |
+| Un cambio en `opencode.json`, `AGENTS.md` o una skill no surte efecto | La configuración y las skills se leen al arrancar | Cerrar la ventana negra, doble clic en `2_arrancar_opencode` y **Nueva sesión** |
 | Las respuestas empeoran o se vuelven repetitivas | El contexto se ha llenado: la mesa está llena de papeles | Abrir una **sesión nueva** y guardar lo importante en `AGENTS.md` o en una skill |
-| El alumno cierra la terminal y opencode se para | El servidor vive en esa terminal: cerrarla lo apaga | Abrir una terminal, entrar en la carpeta con `cd` y volver a arrancar con `opencode web` |
+| El alumno cierra la ventana negra y opencode se para | El servidor vive en esa ventana: cerrarla lo apaga | Doble clic otra vez en `2_arrancar_opencode` |
 | Un alumno no puede instalar nada | Portátil corporativo o usuario restringido | Práctica por parejas con un compañero que sí lo tenga funcionando |
 
 ---

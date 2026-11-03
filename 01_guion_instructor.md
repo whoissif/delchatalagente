@@ -1,9 +1,9 @@
 # Guion del instructor — Del chat al agente: qué es un harness y cómo se usa
 
-**Duración:** 150 minutos de núcleo, ampliable a 180.
+**Duración:** 170 minutos de núcleo, ampliable a 190.
 **Audiencia:** profesionales que ya usan chats o bots de IA; no se requiere experiencia previa en programación.
 **Formato:** sesión práctica. Cada alumno trabaja en su portátil.
-**Herramienta:** opencode con modelos gratuitos (sin clave ni cuenta), arrancado con `opencode web`.
+**Herramienta:** opencode con modelos gratuitos (sin clave ni cuenta), arrancado con doble clic en `2_arrancar_opencode` (ventana negra que ejecuta `opencode web`; no hace falta terminal) y Python para los cálculos de la Práctica 6.
 
 > Este guion está pensado para leerse en diagonal mientras se imparte. Lo que está en **negrita dentro de las secciones «Qué decir»** son las frases que conviene decir casi literalmente: son las que sostienen las analogías y evitan que el grupo se pierda.
 
@@ -21,7 +21,8 @@
 | 4 | Permisos, sandbox y aprobaciones (Prácticas 2 y 3) | 30 | 105 | Práctica |
 | 5 | Herramientas, contexto y memoria (Práctica 4) | 22 | 127 | Práctica |
 | 6 | Práctica 5 — Encargo integrador | 13 | 140 | Práctica |
-| 7 | Cierre, límites y evaluación | 10 | 150 | Charla |
+| 7 | Práctica 6 — Python: comprobar y modelar datos | 20 | 160 | Práctica |
+| 8 | Cierre, límites y evaluación | 10 | 170 | Charla |
 
 **El bloque 4 es el corazón del seminario.** Si vas mal de tiempo, recorta de cualquier sitio menos de ahí.
 
@@ -32,13 +33,14 @@ Orden de recorte, de menos a más doloroso:
 1. Bloque 5: deja MCP para una diapositiva y una frase, sin demo, y resume las partes 6 y 7 (ecosistema y datos) con la diapositiva «Mismas piezas, otras marcas» y la frase «revisa el programa, no solo el número».
 2. Bloque 6: reduce a un encargo guiado hecho por todos a la vez con el instructor.
 3. Bloque 2: acorta la demo del instructor a 3 minutos mostrando solo el panel de pasos.
-4. Nunca recortes: bloque 4 completo, la Práctica 1 y el cierre.
+4. Bloque 7: deja solo la Parte A (10 min) y la Parte B en casa.
+5. Nunca recortes: bloque 4 completo, la Práctica 1 y el cierre.
 
-### Si vas sobrado (hasta 180)
+### Si vas sobrado (hasta 190)
 
 Orden de ampliación:
 
-1. Práctica 6 — Datos y modelo (20 min, opcional): análisis de un CSV de energía y un modelo lineal, con dos errores de registro puestos a propósito. Ideal para grupos técnicos (análisis de datos, ingeniería).
+1. Bloque 7: de 20 a 25 minutos, para terminar la Parte B (análisis de energía con modelo lineal) con calma.
 2. Bloque 6: de 13 a 25 minutos, con puesta en común de tres voluntarios.
 3. Bloque 5: MCP con una demo real de conexión, o enseña el mismo encargo en Claude Code o Codex si tienes licencia.
 4. Bloque 1: añade dos ejemplos más de tareas que el grupo reconozca.
@@ -48,7 +50,8 @@ Orden de ampliación:
 
 ## 2. Materiales que hay que tener listos
 
-- Proyector y **letra grande** en el terminal y en el navegador. La mitad del grupo no verá una terminal a tamaño normal.
+- Proyector y **letra grande** en la ventana negra y en el navegador. La mitad del grupo no verá una ventana a tamaño normal.
+- Los lanzadores (`1_instalar_opencode` y `2_arrancar_opencode`) probados en tu equipo, y Python instalado. opencode Desktop no se usa: trae el motor 2.x en beta y, en las pruebas, escribió fuera de la carpeta sin preguntar.
 - Una **carpeta de práctica de ejemplo**, sin datos sensibles, con 5-10 archivos variados (un texto, una hoja de cálculo, alguna imagen) y sus subcarpetas.
 - **Copia de seguridad** de esa carpeta, en otro sitio. El agente va a modificarla delante de todos.
 - **Un plan B de modelo.** No hace falta clave, pero los modelos gratuitos pueden ir saturados: ten anotado otro gratuito de la lista y prueba el tuyo el día anterior.
@@ -188,7 +191,7 @@ Trabaja con `03_laboratorio.md` delante. Reparte el documento o pide que lo abra
 
 ### Secuencia
 
-1. **Demuestra el arranque completo en tu portátil (4 min),** narrando cada paso: abrir la terminal, comprobar Node con `node -v`, comprobar opencode con `opencode --version`, entrar en la carpeta con `cd`, arrancar con `opencode web`, abrir el navegador, pulsar **Añadir proyecto**, abrir una **Nueva sesión**, elegir un modelo marcado como **«Gratis»** y escribir el primer mensaje.
+1. **Demuestra el arranque completo en tu portátil (4 min),** narrando cada paso: abrir la carpeta `practica_agente`, hacer doble clic en `2_arrancar_opencode`, señalar en la ventana negra la carpeta y la versión (1.19.5), ver cómo se abre el navegador, pulsar **Añadir proyecto**, abrir una **Nueva sesión**, elegir un modelo marcado como **«Gratis»** y escribir el primer mensaje.
 2. **Todos a la vez (12 min).** Tú circulas. No te quedes con el primero que levante la mano: los que ya lo tienen, que ayuden al de al lado. Un alumno que explica arranca dos aprendizajes.
 3. **Puesta en común (4 min).** Pregunta al grupo: *«¿Qué herramientas ha usado vuestro agente para hacer el resumen?»*. Que las nombren ellos.
 
@@ -196,7 +199,7 @@ Trabaja con `03_laboratorio.md` delante. Reparte el documento o pide que lo abra
 
 - **No encuentra la carpeta en «Añadir proyecto».** Que escriba la ruta a mano: `Documents/practica_agente`. Hasta que el proyecto no está añadido, el agente no tiene dónde trabajar.
 - **El modelo está saturado o no responde.** Que elija otro modelo gratuito de la lista. Aprovecha para explicar que **el modelo es el motor, y aquí el motor lo pone gratis el proveedor a cambio de condiciones: algunos usan los datos que les envías**. Por eso, solo la carpeta de práctica.
-- **Cambió `opencode.json` o creó una skill y no se nota.** opencode lee la configuración y las skills solo al arrancar: que lo apague con Ctrl+C y lo arranque de nuevo.
+- **Cambió `opencode.json` o creó una skill y no se nota.** opencode lee la configuración y las skills solo al arrancar: que cierre la ventana negra y haga doble clic otra vez en `2_arrancar_opencode`.
 
 ### Qué decir mientras circulas
 
@@ -261,7 +264,7 @@ Aquí aparecen dos comportamientos que hay que desactivar ya:
 
 La misma tarea que antes, pero hecha dentro de la carpeta de trabajo. Todos la repiten y observan: **ya no pregunta nada.** Es la política de serie de opencode: dentro de la carpeta lee, escribe y ejecuta órdenes sin preguntar.
 
-Después cambian la política: piden al agente que cree `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`, **reinician** opencode (Ctrl + C y `opencode web`, sesión nueva) y repiten con `prueba_dentro2.txt`: **ahora sí pregunta**. El tropiezo típico es no reiniciar: la política se lee al arrancar. Al terminar, que borren `opencode.json` y reinicien.
+Después cambian la política: piden al agente que cree `opencode.json` en la raíz con `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`, **reinician** opencode (cierran la ventana negra, doble clic en `2_arrancar_opencode`, sesión nueva) y repiten con `prueba_dentro2.txt`: **ahora sí pregunta**. El tropiezo típico es no reiniciar: la política se lee al arrancar. Al terminar, que borren `opencode.json` y reinicien.
 
 Que saquen ellos la conclusión. Si no sale, dila tú:
 
@@ -324,7 +327,7 @@ Solo el concepto, sin tecnicismos: **MCP es un enchufe estándar, como el USB.**
 
 Aviso de seguridad, obligatorio: **cada enchufe es una conexión nueva a tus cosas. Instalar un plugin o conectar un servidor es una decisión de confianza, igual que instalar un programa.** Si vas a conectar algo que toca datos reales de la empresa, consúltalo antes.
 
-> **Las partes 6 y 7 no caben en los 22 minutos del bloque.** Salen del margen de ampliación (hasta 180 minutos). En la sesión de 150, aplica el recorte nº 1: una diapositiva y una frase para cada una.
+> **Las partes 6 y 7 no caben en los 22 minutos del bloque.** Salen del margen de ampliación (hasta 190 minutos). En la sesión de 170, aplica el recorte nº 1: una diapositiva y una frase para cada una.
 
 ### Parte 6 — Más allá de opencode: Anthropic y OpenAI (3 min, del margen)
 
@@ -373,7 +376,18 @@ Tres voluntarios, un minuto cada uno: qué pidieron, qué les devolvió el agent
 
 ---
 
-## Bloque 7 — Cierre, límites y evaluación (10 min)
+## Bloque 7 — Práctica 6 — Python: comprobar y modelar datos (20 min)
+
+**Objetivo:** que vean que el agente **escribe y ejecuta un programa**, y que revisen el programa, no solo el número. Cuaderno: `03_laboratorio.md`; soluciones y errores en `04_soluciones_y_errores.md`.
+
+1. **Parte A (10 min).** Encargo del cuaderno: `analisis/bajo_minimo.py` cruza `inventario_material.csv` con `contactos_proveedores.csv` y lista los artículos con existencias por debajo del mínimo, con proveedor y plazo. Resultado correcto: **solo J-18 y S-04**. F-12, M-08, R-220 y G-31 no deben salir. Que abran el script, miren la condición (**<**, no «cerca del mínimo») y contrasten dos filas.
+2. **Parte B (10 min en clase, el resto en casa).** El análisis de energía con `lecturas_energia_diarias.csv`, solo en Python. Insiste en los tres controles: describir los datos antes de calcular, total con y sin la lectura sospechosa, y exceso con dos ajustes.
+
+**Qué decir:** **un chat «lee» tu tabla; un agente escribe un programa que puedes revisar y repetir.** Al final, menciona las skills de ejemplo con scripts: `propuesta-reposicion` ejecuta `bajo_minimo.py` y `analisis-energia-mensual` ejecuta `energia.py`.
+
+---
+
+## Bloque 8 — Cierre, límites y evaluación (10 min)
 
 ### Los tres errores que va a cometer todo el mundo
 

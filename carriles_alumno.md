@@ -19,22 +19,28 @@ Si en tu ordenador del trabajo no puedes instalar nada, no intentes saltarte esa
 
 ## Carril A — Sin suscripción: opencode (el del curso)
 
-Es el carril por defecto y el que siguen todas las instrucciones. Lo dejaste instalado en «Prepara tu ordenador». No necesitas cuenta ni clave.
+Es el carril por defecto y el que siguen todas las instrucciones. Lo dejaste instalado en «Prepara tu ordenador» y se arranca con doble clic en `2_arrancar_opencode`, sin escribir órdenes. No necesitas cuenta ni clave.
+
+**¿Por qué no la aplicación de escritorio de opencode?** Existe (opencode Desktop), pero a 3 de noviembre de 2026 trae un motor nuevo todavía en pruebas, se actualiza sola y, en nuestras pruebas, con su configuración de serie escribió fuera de la carpeta de trabajo sin preguntar. Para aprender permisos necesitamos que el freno funcione como se describe, así que usamos la versión 1.19.5 con los lanzadores de doble clic.
 
 ## Carril B — Ya tengo suscripción
 
-Puedes usar el agente que incluye tu plan. Las prácticas son las mismas; en las prácticas 1 a 4 verás recuadros **«Si usas Claude Code o Codex»** con lo poco que cambia.
+Puedes usar el agente que incluye tu plan, **desde su aplicación de escritorio, sin terminal**. Las prácticas son las mismas; en las prácticas 1 a 4 verás recuadros **«Si usas Claude Code o Codex»** con lo poco que cambia.
 
 | | Claude Code | Codex |
 |---|---|---|
 | Plan que lo incluye | Claude Pro o Max | ChatGPT Plus o Pro (y planes de empresa o educación) |
-| Instalación | Instalador de claude.com/claude-code, o la pestaña **Code** de la aplicación de escritorio de Claude (sin terminal) | `npm install -g @openai/codex` |
-| Arranque | `claude` dentro de tu carpeta, e inicias sesión con tu cuenta | `codex` dentro de tu carpeta, e inicias sesión con tu cuenta de ChatGPT |
+| Sin terminal (recomendado) | Aplicación de escritorio de **Claude** (Windows y macOS), pestaña **Code** | Aplicación de escritorio de **ChatGPT** (Windows y macOS), modo **Codex** |
+| Arranque | Pestaña Code → **Local** → selecciona la carpeta `practica_agente`, e inicias sesión con tu cuenta | Abre la carpeta `practica_agente` desde la app, e inicias sesión con tu cuenta de ChatGPT |
+| Requisito extra | En Windows, **Git for Windows** (la app te lo pide la primera vez) | — |
+| Con terminal (alternativa) | `claude` dentro de tu carpeta | `npm install -g @openai/codex` y `codex` dentro de tu carpeta |
 | Notas permanentes | `CLAUDE.md` (puede apuntar a tu `AGENTS.md`) | `AGENTS.md` |
 | Procedimientos (skills) | `.claude/skills/<nombre>/SKILL.md` | `.agents/skills/<nombre>/SKILL.md` |
 | Política de permisos | `.claude/settings.json`, o modos con Mayús + Tab | Orden `/permissions` dentro de Codex |
 
-*(Datos a 30 de octubre de 2026. Estos programas cambian casi cada semana: si algo no coincide, mira su documentación.)*
+*(Datos a 3 de noviembre de 2026, de la documentación oficial; las aplicaciones de escritorio del carril B no se han probado con este curso. Estos programas cambian casi cada semana: si algo no coincide, mira su documentación.)*
+
+En los dos casos, **Python** te sirve igual: estos agentes también escriben y ejecutan scripts de Python en tu carpeta (Práctica 6).
 
 **¿Y DeepSeek?** Su chat es gratuito, pero su suscripción no incluye un agente. Si tienes saldo en su API, puedes conectarla en opencode; para el curso no hace falta.
 

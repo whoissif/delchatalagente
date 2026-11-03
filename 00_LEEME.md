@@ -1,10 +1,10 @@
 # Seminario «Del chat al agente» — Paquete de material didáctico
 
 **Título:** Del chat al agente: qué es un harness y cómo se usa.
-**Duración:** 150 minutos de núcleo, ampliable a 180.
+**Duración:** 170 minutos de núcleo, ampliable a 190.
 **Audiencia:** profesionales que ya usan chats o bots de IA. No se requiere experiencia previa en programación.
 **Formato:** sesión práctica, con el portátil delante. Cada alumno arranca el harness y lo usa.
-**Herramienta:** opencode con modelos gratuitos (sin clave ni cuenta). Quien ya tenga suscripción puede usar Claude Code o Codex.
+**Herramienta:** opencode con modelos gratuitos (sin clave ni cuenta), que se instala y arranca con doble clic en los lanzadores del paquete, sin terminal. Quien ya tenga suscripción puede usar Claude Code o Codex desde su aplicación de escritorio.
 
 ---
 
@@ -18,12 +18,12 @@ El paquete tiene **tres capas**: los documentos fuente, los formatos para usarlo
 |---|---|---|
 | `01_guion_instructor.md` | Instructor | El guion de la sesión, minuto a minuto: qué decir, qué demostrar, qué recortar si vas con retraso y qué hacer si algo falla en directo. |
 | `02_apuntes_alumno.md` | Alumno | Los apuntes que se lleva. Escritos para entenderse **sin** el instructor delante. |
-| `03_laboratorio.md` | Alumno | El cuaderno de prácticas: cinco prácticas paso a paso y una sexta, opcional, de análisis de datos y modelos, con comprobaciones y una hoja de registro. |
+| `03_laboratorio.md` | Alumno | El cuaderno de prácticas: seis prácticas paso a paso, la última de Python (comprobar y modelar datos), con comprobaciones y una hoja de registro. |
 | `04_soluciones_y_errores.md` | Instructor | Qué debería pasar en cada práctica, errores frecuentes con su solución, problemas técnicos de sala y frases de rescate. |
 | `05_glosario_chuleta.md` | Alumno | Glosario de unos 30 términos en lenguaje llano y una chuleta de una página para imprimir. |
 | `06_evaluacion.md` | Instructor | Cuestionario inicial de diagnóstico, cuestionario final con clave, rúbrica y encuesta de satisfacción. |
 | `07_instalacion_previa.md` | Instructor y alumno | El mensaje para enviar antes del seminario, la guía de instalación paso a paso y la lista de comprobación del instructor. |
-| `preparacion_alumno.md` | Alumno | Lección del curso online «Prepara tu ordenador»: instalar Node.js y opencode, descargar la carpeta de práctica y comprobar que arranca. |
+| `preparacion_alumno.md` | Alumno | Lección del curso online «Prepara tu ordenador»: instalar Node.js y Python, descargar la carpeta de práctica, hacer doble clic en `1_instalar_opencode` y comprobar que `2_arrancar_opencode` abre la interfaz. |
 | `carriles_alumno.md` | Alumno | Lección del curso online «Elige tu carril»: carril A gratis con opencode; carril B con Claude Code o Codex para quien ya tiene suscripción. |
 
 **Orden de lectura rápido:** si solo tienes diez minutos para prepararte, lee el archivo `01` y la tabla de problemas técnicos del `04`.
@@ -36,7 +36,7 @@ El paquete tiene **tres capas**: los documentos fuente, los formatos para usarlo
 | **Curso interactivo** | `curso/index.html` | Los documentos organizados en 3 módulos, una preparación previa y 28 lecciones, con búsqueda, progreso guardado en el navegador y los dos cuestionarios corregidos al momento. Sin servidor y sin conexión. |
 | **Diapositivas** | `slides/diapositivas.html` y `slides/diapositivas.pdf` | 64 diapositivas para proyectar, con **notas del presentador** en todas ellas (tecla `N`). El PDF imprime una diapositiva por página. |
 | **PDF imprimibles** | `pdf/` | Un PDF por documento, más `completo.pdf` con los ocho en un volumen de 85 páginas. |
-| **Entorno de práctica** | `practica_ejemplo/LEEME.html` | Expediente ficticio de una empresa de ejemplo; descarga el ZIP y usa una copia como espacio de trabajo. |
+| **Entorno de práctica** | `practica_ejemplo/LEEME.html` | Expediente ficticio de una empresa de ejemplo; descarga el ZIP (`descarga_entorno.zip`, con los lanzadores `1_instalar_opencode` y `2_arrancar_opencode` en `.bat` y `.command`) y usa una copia como espacio de trabajo. |
 | **Configuración de ejemplo** | `practica_ejemplo/configuracion_agente/` y su ZIP | Para opencode (`opencode.json` y `.opencode/skills`) y para Claude Code (`.claude/`): permisos que preguntan antes de editar o ejecutar, prohibición de salir de la carpeta, un hook de Claude Code que bloquea escrituras fuera de ella y cuatro skills con scripts. Se usa después de las prácticas. |
 | **Fuente Marp** | `slides/slides.md` | La presentación en Markdown de Marp, por si prefieres editarla en VS Code con la extensión Marp o exportarla con `marp-cli`. |
 
@@ -60,7 +60,7 @@ Las dependencias ya están instaladas dentro de `build/`, así que todo se regen
 ### Antes del seminario (3-5 días antes)
 
 1. Lee `01_guion_instructor.md` entero una vez, de principio a fin. Es el único imprescindible.
-2. Envía a los alumnos la Parte A de `07_instalacion_previa.md`. **Esto no es opcional:** si la mitad del grupo llega sin Node.js ni opencode instalados, el primer bloque práctico se convierte en una clase de instalación y se pierde el seminario.
+2. Envía a los alumnos la Parte A de `07_instalacion_previa.md`. **Esto no es opcional:** si la mitad del grupo llega sin Node.js, Python ni opencode instalados, el primer bloque práctico se convierte en una clase de instalación y se pierde el seminario.
 3. Trabaja la Parte C del `07`: la lista de comprobación del día anterior.
 4. Ten pensado un plan B por si los modelos gratuitos de opencode van saturados el día del seminario: elegir otro modelo gratuito de la lista o, si el alumno ya tiene suscripción, usar el carril B (Claude Code o Codex).
 5. Descarga el expediente ficticio de `practica_ejemplo/`, extrae una copia de trabajo y conserva el ZIP original como respaldo.
@@ -103,7 +103,7 @@ Todo el material usa **las mismas ocho comparaciones** a propósito. Un alumno q
 
 ## Las prácticas
 
-El laboratorio gira alrededor de cinco prácticas, más una sexta opcional, siempre con el mismo nombre en todos los documentos:
+El laboratorio gira alrededor de cinco prácticas, más una sexta, siempre con el mismo nombre en todos los documentos:
 
 | # | Práctica | Qué demuestra |
 |---|---|---|
@@ -112,7 +112,7 @@ El laboratorio gira alrededor de cinco prácticas, más una sexta opcional, siem
 | 3 | Cambiar de política | Que tú eliges el tamaño de la sala. |
 | 4 | Enseñarle un procedimiento | Que la memoria permanente existe y se prueba en conversación nueva. |
 | 5 | Encargo integrador | Que el trabajo no acaba cuando el agente dice «hecho». |
-| 6 | Datos y modelo (opcional) | Que en análisis de datos se revisa el programa, no solo el número, y que un modelo señala anomalías pero no explica causas. |
+| 6 | Python: comprobar y modelar datos | Que en análisis de datos se revisa el programa, no solo el número, y que un modelo señala anomalías pero no explica causas. |
 
 **La práctica 2 y la 3 son el corazón del seminario**, y su pareja es deliberada: la primera provoca el aviso, la segunda lo elimina cambiando **dónde** trabaja el agente. Esa comparación es la que se llevan a casa.
 

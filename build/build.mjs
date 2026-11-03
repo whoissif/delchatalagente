@@ -226,7 +226,7 @@ function cursoPortada(primeroPorGrupo) {
 
   <div class="rejilla">
     <div class="tarjeta"><div class="cifra">3</div><div class="titulo">Módulos</div><div class="detalle">De los conceptos a un encargo real, más una preparación previa.</div></div>
-    <div class="tarjeta"><div class="cifra">5 + 1</div><div class="titulo">Prácticas guiadas</div><div class="detalle">Con un agente de verdad, en tu portátil; la sexta es avanzada y opcional.</div></div>
+    <div class="tarjeta"><div class="cifra">6</div><div class="titulo">Prácticas guiadas</div><div class="detalle">Con un agente de verdad, en tu portátil, sin escribir órdenes; la sexta, con Python.</div></div>
     <div class="tarjeta"><div class="cifra">${diagnostico.length + quizFinal.length}</div><div class="titulo">Preguntas con clave</div><div class="detalle">Diagnóstico y evaluación comentados.</div></div>
     <div class="tarjeta"><div class="cifra">Offline</div><div class="titulo">Sin conexión</div><div class="detalle">Un solo archivo; puedes publicarlo donde quieras.</div></div>
   </div>

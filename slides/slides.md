@@ -11,7 +11,7 @@ header: 'Del chat al agente'
 # Del chat al agente
 ## Qué es un harness y cómo se usa
 
-**Seminario práctico · 150 minutos**
+**Seminario práctico · 170 minutos**
 
 Instructor/a: ______________________
 
@@ -36,7 +36,8 @@ Logística antes de empezar: regletas y alargadores repartidos, y recordar que c
 | 4 | Permisos, sandbox y aprobaciones | 30 |
 | 5 | Herramientas, contexto y memoria | 22 |
 | 6 | Práctica 5 — Encargo integrador | 13 |
-| 7 | Cierre, límites y evaluación | 10 |
+| 7 | Práctica 6 — Python: comprobar y modelar datos | 20 |
+| 8 | Cierre, límites y evaluación | 10 |
 
 <!--
 AGENDA (2 min, dentro del bloque 0)
@@ -49,20 +50,20 @@ Avisar del descanso a mitad de camino para que nadie se organice mal.
 
 # Datos verificados
 
-**Requisito previo:** Node.js instalado.
+**Requisitos previos:** Node.js y Python instalados.
 
-**Instalación (una vez):** `npm install -g opencode-ai@1.19.5`
+**Instalación (una vez):** doble clic en `1_instalar_opencode` (instala opencode 1.19.5, `pandas` y `matplotlib`).
 
-**Arranque:** `opencode web`, desde la carpeta de trabajo.
+**Arranque:** doble clic en `2_arrancar_opencode`. Apagar o reiniciar: cierra la ventana negra.
 
-**Interfaz web:** la dirección que muestra la terminal, p. ej. `http://127.0.0.1:4096`.
+**Interfaz web:** se abre sola; si no, la dirección que muestra la ventana negra, p. ej. `http://127.0.0.1:4096`.
 
 **Proyecto y modelo:** **Añadir proyecto** (tu carpeta) → **Nueva sesión** → modelo «Gratis». Sin clave ni cuenta.
 
 <!--
 FICHA DE REFERENCIA — consultar cuando haga falta
 Esta diapositiva se puede recuperar en cualquier momento con las flechas del teclado. Es la chuleta de los datos que todo el mundo va a necesitar.
-No dictar la dirección entera: está proyectada y en el documento del laboratorio, `03_laboratorio.md`. El puerto puede cambiar: vale la que muestre la terminal de cada uno.
+No dictar la dirección entera: está proyectada y en el documento del laboratorio, `03_laboratorio.md`. El puerto puede cambiar: vale la que muestre la ventana negra de cada uno. La terminal es solo una alternativa.
 Insistir en una sola cosa aquí: no hace falta clave ni cuenta, pero hay que elegir el modelo «Gratis» en la sesión.
 -->
 
@@ -74,7 +75,7 @@ Insistir en una sola cosa aquí: no hace falta clave ni cuenta, pero hay que ele
 |---|---|---|
 | **Agente** | **opencode** con modelos gratuitos | Claude Code o Codex |
 | **Requisito** | Ninguno: ni cuenta ni clave | Claude Pro o Max, o ChatGPT Plus o Pro |
-| **Arranque** | `opencode web` en tu carpeta | `claude` o `codex` en tu carpeta |
+| **Arranque** | doble clic en `2_arrancar_opencode` | app de escritorio de Claude o ChatGPT |
 
 **El curso se sigue entero en el carril A.** Lo que aprendes es lo mismo en los dos.
 
@@ -413,7 +414,7 @@ Insistir: es donde más se aprovecha la herramienta. El panel de pasos es tu ven
 <!--
 BLOQUE 2 — demo (6-7 min)
 Hazlo tú, en pantalla grande, narrando. No lo expliques antes: que lo vean y luego lo comentáis.
-Proyector con letra grande: la mitad del grupo no verá una terminal a tamaño normal.
+Proyector con letra grande: la mitad del grupo no verá la ventana negra a tamaño normal.
 Al terminar, ese es el momento «ajá» del bloque: un archivo que antes no existía.
 Señal de que ha funcionado: preguntan por qué usó esa herramienta y no otra. Anota la duda y respóndela en el bloque 5.
 -->
@@ -436,7 +437,7 @@ Ten delante `03_laboratorio.md` y reparte el documento o pide que lo abran.
 
 # La secuencia
 
-1. **Demuestra el arranque completo (4 min),** narrando cada paso: abrir la terminal, comprobar Node con `node -v`, arrancar con `opencode web` desde la carpeta, ver la dirección en la terminal, abrir el navegador, pulsar **Añadir proyecto**, **Nueva sesión**, elegir el modelo «Gratis», escribir el primer mensaje.
+1. **Demuestra el arranque completo (4 min),** narrando cada paso: abrir la carpeta, doble clic en `2_arrancar_opencode`, ver carpeta y versión en la ventana negra, abrir el navegador, pulsar **Añadir proyecto**, **Nueva sesión**, elegir el modelo «Gratis», escribir el primer mensaje.
 2. **Todos a la vez (12 min).** Tú circulas.
 3. **Puesta en común (4 min).** «¿Qué herramientas ha usado vuestro agente para hacer el resumen?»
 
@@ -451,13 +452,13 @@ Señal de éxito: todos tienen una sesión con al menos un encargo terminado y u
 
 # Los dos tropiezos que vas a ver seguro
 
-⚠️ **No arranca `opencode web` o no abre la página.** Casi siempre: no está instalado (`npm install -g opencode-ai@1.19.5`) o se ha lanzado fuera de la carpeta de trabajo. Abre la dirección que muestra la terminal, que puede no ser la proyectada.
+⚠️ **No arranca opencode o no abre la página.** Casi siempre: falta Node.js o no se ha hecho doble clic en `1_instalar_opencode` (lee la línea **[FALTA]**). Abre la dirección que muestra la ventana negra, que puede no ser la proyectada.
 
 **No responde o dice que no hay modelo.** Mira que la sesión tenga elegido el modelo «Gratis». **No hace falta clave ni cuenta.**
 
 <!--
 BLOQUE 3 — mientras circulas
-Antes de tocar nada, pregunta: «¿Has arrancado desde tu carpeta y has creado una sesión nueva?»
+Antes de tocar nada, pregunta: «¿Has arrancado con doble clic en `2_arrancar_opencode` y has creado una sesión nueva?»
 Los modelos gratuitos pueden ir lentos o cambiar de nombre: si uno falla, probar otro «Gratis» de la lista.
 -->
 
@@ -614,7 +615,7 @@ Chuleta de emergencia si ves a alguien aprobando sin leer: «Para. Léelo en voz
 
 Si algo se repite mucho, la solución no es aprobar cien avisos: **es mover el trabajo dentro de la carpeta de trabajo**, donde no hace falta permiso.
 
-**Y si prefieres que pregunte siempre,** también dentro: crea `opencode.json` en tu carpeta con `permission` en `ask` para `edit` y `bash`, y **reinicia** `opencode web` para que lo lea.
+**Y si prefieres que pregunte siempre,** también dentro: crea `opencode.json` en tu carpeta con `permission` en `ask` para `edit` y `bash`, y **reinicia** (cierra la ventana negra y doble clic en `2_arrancar_opencode`) para que lo lea.
 
 <!--
 BLOQUE 4, parte 2 — segundo comportamiento a desactivar
@@ -787,7 +788,7 @@ Ejemplos de preferencia que se repiten: usar los del guion, son los que el grupo
 
 Cuando repites una tarea siempre igual, la escribes una vez con sus pasos y el agente la sigue cuando le dices «hazme el informe mensual».
 
-Se guardan en `.opencode/skills/<nombre>/SKILL.md` y se cargan **al arrancar**: si añades una, reinicia `opencode web`.
+Se guardan en `.opencode/skills/<nombre>/SKILL.md` y se cargan **al arrancar**: si añades una, reinicia (cierra la ventana negra y doble clic otra vez).
 
 En la configuración de ejemplo del curso tienes cuatro: por ejemplo, `resumen-informes`.
 
@@ -878,9 +879,10 @@ Si hay alguien que ya usa Claude Code o Codex en su trabajo, que diga qué modo 
 - **Ingeniería:** normas solo con el PDF vigente delante; probar con un caso conocido. **El cálculo lo firma una persona.**
 
 <!--
-BLOQUE 5, parte 7 — (3 min) o como introducción a la práctica 6 opcional.
+BLOQUE 5, parte 7 — (3 min) o como introducción a la práctica 6 (bloque 7, 20 min: Parte A con `bajo_minimo.py`, que debe listar solo J-18 y S-04; Parte B, el análisis de energía en Python).
 Ejemplo para contar: en la práctica 6, una lectura de energía está en MWh en vez de kWh; si nadie lo nota, el total mensual sale 750 kWh más bajo y con un gráfico precioso.
 Mensaje: un modelo dice qué es raro; no dice por qué.
+Al cerrar la práctica 6, mencionar las skills de ejemplo con scripts Python: `propuesta-reposicion` ejecuta `bajo_minimo.py` y `analisis-energia-mensual` ejecuta `energia.py`.
 -->
 
 ---
@@ -941,7 +943,7 @@ No vale «tiene buena pinta». Cuenta las filas, mira si los cinco informes est�
 <!--
 BLOQUE 6 — cierre de la práctica (5 min)
 Recalcar la frase final: es una de las tres que se llevan del día.
-Puesta en común si vas sobrado (hasta 180): tres voluntarios, un minuto cada uno: qué pidieron, qué les devolvió el agente y QUÉ COMPROBARON. Insiste en la tercera parte: lo interesante es lo que revisaron, no lo que pidieron.
+Puesta en común si vas sobrado (hasta 190): tres voluntarios, un minuto cada uno: qué pidieron, qué les devolvió el agente y QUÉ COMPROBARON. Insiste en la tercera parte: lo interesante es lo que revisaron, no lo que pidieron.
 -->
 
 ---

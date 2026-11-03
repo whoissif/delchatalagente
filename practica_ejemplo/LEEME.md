@@ -6,6 +6,8 @@ Esta carpeta reúne documentos de una empresa ficticia de ejemplo de bombas prof
 
 **[Descargar el expediente completo (ZIP)](descarga_entorno.zip)** para extraerlo y usar una copia como espacio de trabajo.
 
+**Arranque sin terminal.** El ZIP incluye cuatro lanzadores de doble clic: `1_instalar_opencode` (comprueba Node.js y Python e instala opencode 1.19.5, `pandas` y `matplotlib`) y `2_arrancar_opencode` (abre opencode en esta carpeta). Usa los `.bat` en Windows y los `.command` en macOS. Son archivos de texto: puedes abrirlos con un editor para ver qué hacen.
+
 Puedes usar el conjunto para probar tareas habituales de análisis y documentación profesional: cruzar cifras entre informes, priorizar una incidencia, resumir una reunión, revisar existencias o preparar un informe para el equipo. No es un modelo de datos de producción ni sustituye procedimientos técnicos o de seguridad reales.
 
 ## Empezar de forma segura
@@ -29,9 +31,9 @@ No necesitas programación para las prácticas iniciales. El agente puede leer l
 
 ### Datos y actas
 
-- [Inventario de componentes](inventario_material.csv): existencias, mínimos de reposición y proveedor asignado.
+- [Inventario de componentes](inventario_material.csv): existencias, mínimos de reposición y proveedor asignado. Se usa en la parte A de la práctica 6.
 - [Proveedores de mantenimiento](contactos_proveedores.csv): especialidad y plazo orientativo de respuesta.
-- [Lecturas diarias de energía](lecturas_energia_diarias.csv): consumo eléctrico diario, consumo nocturno, unidades y horas de operación de las cuatro semanas del informe de energía. Se usa en la práctica 6 (análisis de datos y modelo) y contiene dos errores de registro puestos a propósito.
+- [Lecturas diarias de energía](lecturas_energia_diarias.csv): consumo eléctrico diario, consumo nocturno, unidades y horas de operación de las cuatro semanas del informe de energía. Se usa en la parte B de la práctica 6 (Python: comprobar y modelar datos) y contiene dos errores de registro puestos a propósito.
 - [Configuración del ejemplo](configuracion_ejemplo.json): parámetros ficticios de planta y criterios para los informes.
 - [Notas de coordinación](notas_reunion.txt): apuntes informales sobre las prioridades de la semana.
 - [Acta de operaciones](acta_constitucion.md): acuerdos, responsables y fechas de seguimiento.

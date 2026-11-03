@@ -205,6 +205,7 @@ if (botonP1) {
   const textoP1 = doc.getElementById('hoja').textContent;
   comprobar('La Práctica 1 menciona Node.js', textoP1.includes('Node.js'));
   comprobar('La Práctica 1 enseña a comprobar opencode', textoP1.includes('opencode --version'));
+  comprobar('La Práctica 1 arranca con doble clic', textoP1.includes('2_arrancar_opencode'));
 }
 
 console.log('\n12. Regresión: curso para el alumno online');
@@ -221,6 +222,8 @@ comprobar('No quedan frases de seminario presencial',
 comprobar('La portada no anuncia módulos vacíos', !/· 0 lecciones|1 lecciones/.test(todoElTexto));
 comprobar('Las prácticas usan opencode, sin clave de API de pago', /opencode web/.test(todoElTexto) && !/dsh|DeepSeek Harness|platform\.deepseek|127\.0\.0\.1:3080/.test(todoElTexto));
 comprobar('La instalación fija la versión probada de opencode', /opencode-ai@1\.19\.5/.test(todoElTexto) && !/ install -g opencode-ai(?!@)/.test(todoElTexto));
+comprobar('La preparación instala Python y usa los lanzadores', /python\.org/.test(todoElTexto) && todoElTexto.includes('1_instalar_opencode'));
+comprobar('La Práctica 6 es de Python y ya no es opcional', titulos.some((t) => /Práctica 6 — Python/.test(t)) && !titulos.some((t) => /Práctica 6.*opcional/.test(t)));
 comprobar('«Elige tu carril» va justo después de la preparación, con carril gratuito y de suscripción',
   titulos.indexOf('Elige tu carril') === titulos.indexOf('Prepara tu ordenador') + 1 && /Claude Code/.test(todoElTexto) && /Codex/.test(todoElTexto) && /Min. con agente/.test(todoElTexto));
 
