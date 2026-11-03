@@ -34,6 +34,7 @@ No necesitas programación para las prácticas iniciales. El agente puede leer l
 - [Inventario de componentes](inventario_material.csv): existencias, mínimos de reposición y proveedor asignado. Se usa en la parte A de la práctica 6.
 - [Proveedores de mantenimiento](contactos_proveedores.csv): especialidad y plazo orientativo de respuesta.
 - [Lecturas diarias de energía](lecturas_energia_diarias.csv): consumo eléctrico diario, consumo nocturno, unidades y horas de operación de las cuatro semanas del informe de energía. Se usa en la parte B de la práctica 6 (Python: comprobar y modelar datos) y contiene dos errores de registro puestos a propósito.
+- [Diccionario de datos](diccionario_datos.html): qué significa cada columna de los tres CSV, en qué unidad está y qué valores son normales. Los CSV están en UTF-8: si ves caracteres raros al abrirlos, revisa la codificación con la que los abre tu programa.
 - [Configuración del ejemplo](configuracion_ejemplo.json): parámetros ficticios de planta y criterios para los informes.
 - [Notas de coordinación](notas_reunion.txt): apuntes informales sobre las prioridades de la semana.
 - [Acta de operaciones](acta_constitucion.md): acuerdos, responsables y fechas de seguimiento.
