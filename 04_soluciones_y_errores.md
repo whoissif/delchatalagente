@@ -60,14 +60,14 @@ Qué haría el agente:
 4. Dice dónde ha dejado el archivo nuevo y confirma que no ha tocado los originales.
 5. Si algo queda fuera de la carpeta del proyecto, pide permiso antes de acceder.
 
-> **Carril B (Claude Code o Codex):** se usa la aplicación de escritorio de Claude (pestaña **Code** → **Local** → carpeta; en Windows requiere Git for Windows) o la de ChatGPT en modo Codex (abrir la carpeta); con terminal, `claude` o `codex` desde la carpeta. En los dos casos se inicia sesión con la cuenta del alumno; no hay que elegir modelo gratuito. Claude Code pregunta antes de editar de serie, así que verá avisos que con opencode no aparecen.
+> **Carril B (Claude Code o Codex):** se usa la aplicación de escritorio de Claude (pestaña **Code** → **Local** → carpeta; en Windows requiere Git for Windows) o la aplicación Codex de OpenAI (abrir la carpeta); con terminal, `claude` o `codex` desde la carpeta. En los dos casos se inicia sesión con la cuenta del alumno; no hay que elegir modelo gratuito. Claude Code pregunta antes de editar de serie, así que verá avisos que con opencode no aparecen.
 
 **Errores frecuentes**
 
 | Lo que se ve | Qué está pasando | Qué hacer |
 |---|---|---|
 | La ventana negra dice **[FALTA] opencode** o **[FALTA] Node.js** | No se ha ejecutado el instalador, o falta Node.js (o se instaló y hay que reiniciar el ordenador) | Instalar Node.js LTS, reiniciar si acaba de instalarse y hacer doble clic en `1_instalar_opencode` |
-| El instalador dice **[FALTA] Python** | Python no está instalado o, en Windows, no se marcó *Add python.exe to PATH* | Instalar Python (python.org); en Windows, ejecutar otra vez su instalador, **Modify** y marcar PATH; después, doble clic en `1_instalar_opencode` |
+| El instalador dice **[FALTA] Python** | Python no está instalado o, en Windows, no se marcó *Add python.exe to PATH* (o se descargó el «install manager» del botón amarillo en vez del instalador clásico) | Instalar Python (python.org); en Windows, con el instalador clásico (*standalone installer*): ejecutarlo otra vez, **Modify** y marcar PATH; después, doble clic en `1_instalar_opencode` |
 | Windows dice «Windows protegió su PC» o macOS no deja abrir el archivo | Aviso por archivo descargado de internet | **Más información → Ejecutar de todas formas**; macOS: **Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente**. En equipo gestionado, soporte o pareja |
 | Un alumno trae **opencode Desktop** instalado | La app de escritorio trae el motor 2.x (beta), se actualiza sola y con su configuración de serie escribió fuera de la carpeta sin preguntar | No usarla en el curso: que arranque con `2_arrancar_opencode`, que usa la **1.19.5**. Si ya la ha usado, que no mezcle proyectos entre las dos |
 | Con la vía terminal, PowerShell se niega a ejecutar `opencode` (scripts bloqueados) | La política de ejecución de scripts de PowerShell | Usar **cmd**, o los lanzadores de doble clic. En un equipo gestionado, no esquivarla: práctica en pareja |
@@ -430,7 +430,7 @@ El resultado correcto lista **solo 2 de los 6 artículos**:
 |---|---|---|
 | Al arrancar dice que el puerto está ocupado, o la dirección no es la 4096 | Ya hay otra instancia de opencode u otro programa usando ese puerto; el puerto puede variar | Cerrar la otra instancia, o fijar otro puerto con `--port`, y copiar la dirección que muestra la ventana negra |
 | Un lanzador dice **[FALTA] opencode** o **[FALTA] Node.js** | opencode no está instalado, o Node.js falta o es demasiado antiguo (menos de la 22) | Instalar o actualizar Node.js LTS, reiniciar el ordenador si es nuevo y hacer doble clic en `1_instalar_opencode`. Vía terminal: `npm install -g opencode-ai@1.19.5` en una terminal nueva |
-| Un lanzador dice **[FALTA] Python** | Python no está instalado o falta PATH en Windows | Instalar Python (3.10 o superior) marcando *Add python.exe to PATH* y repetir `1_instalar_opencode` |
+| Un lanzador dice **[FALTA] Python** | Python no está instalado, es anterior a la 3.10 o falta PATH en Windows | Instalar Python (3.10 o superior); en Windows, con el instalador clásico marcando *Add python.exe to PATH*, y repetir `1_instalar_opencode` |
 | PowerShell bloquea la ejecución de scripts | Política de ejecución de PowerShell | Equipo personal: usar **cmd**. Equipo gestionado: soporte informático o práctica en pareja |
 | La interfaz no carga en el navegador | Se abrió una dirección equivocada, o la ventana negra se cerró | Copiar a mano la dirección que aparece en la ventana negra; probar con otro navegador |
 | El navegador no se abre solo | Puede pasar en algunos equipos | Copiar la dirección de la ventana negra (por ejemplo, http://127.0.0.1:4096) y pegarla en el navegador |

@@ -63,7 +63,7 @@ Pulsa sobre el nombre: se abre **Seleccionar modelo**, con los gratuitos marcado
 
 > Gratis no quiere decir privado. **No pongas en esta carpeta datos reales ni confidenciales**: lo que el agente lee se envía al proveedor del modelo.
 
-> **Si usas Claude Code o Codex** (carril B): en vez de los pasos 1 a 3, usa la aplicación de escritorio, sin terminal. **Claude:** abre la app, ve a la pestaña **Code**, elige **Local** y selecciona la carpeta `practica_agente` (en Windows, la primera vez te pedirá instalar **Git for Windows**). **ChatGPT:** abre la app, cambia a **Codex** y abre la carpeta `practica_agente`. La primera vez te pedirá iniciar sesión con tu cuenta y confirmar que confías en la carpeta. El modelo ya viene incluido en tu plan; no hay que elegir uno gratuito. Los datos que envías siguen la política de tu cuenta: revísala igual. *(Si prefieres la terminal: `claude` o `codex` dentro de la carpeta.)*
+> **Si usas Claude Code o Codex** (carril B): en vez de los pasos 1 a 3, usa la aplicación de escritorio, sin terminal. **Claude:** abre la app, ve a la pestaña **Code**, elige **Local** y selecciona la carpeta `practica_agente` (en Windows, la primera vez te pedirá instalar **Git for Windows**). **Codex:** abre la aplicación Codex y abre la carpeta `practica_agente`. La primera vez te pedirá iniciar sesión con tu cuenta y confirmar que confías en la carpeta. El modelo ya viene incluido en tu plan; no hay que elegir uno gratuito. Los datos que envías siguen la política de tu cuenta: revísala igual. *(Si prefieres la terminal: `claude` o `codex` dentro de la carpeta.)*
 
 ### Paso 4 — Tu primer encargo
 

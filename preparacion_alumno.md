@@ -19,17 +19,23 @@ Unos 15 minutos. Hazlo antes del Módulo 2: las prácticas usan un agente de ver
 
 ## Paso 1. Instala Node.js
 
-1. Entra en la web oficial, [nodejs.org](https://nodejs.org/), y descarga la versión marcada como **LTS** (la estable, no la «Current»).
-2. Abre el archivo descargado e instálalo con las opciones por defecto (**Siguiente**, **Siguiente**…).
+1. Entra en la página de descarga oficial, [nodejs.org/en/download](https://nodejs.org/en/download), y comprueba que en la versión pone **LTS** (la estable, no la «Current»).
+2. Arriba verás un bloque de órdenes para la terminal (*nvm*, *fnm*…): **no lo necesitas**. Baja hasta la línea «Or get a prebuilt Node.js® for…» y pulsa **Windows Installer (.msi)** (en macOS, **macOS Installer (.pkg)**).
+3. Abre el archivo descargado e instálalo con las opciones por defecto (**Siguiente**, **Siguiente**…).
 
 Si ya lo tenías instalado (versión 22 o superior), no hace falta repetirlo: el paso 4 lo comprueba.
 
 ## Paso 2. Instala Python
 
-1. Entra en la web oficial, [python.org/downloads](https://www.python.org/downloads/), y pulsa el botón amarillo **Download Python**.
-2. Abre el archivo descargado.
-   - **Windows:** en la primera pantalla, **marca la casilla «Add python.exe to PATH»** antes de pulsar **Install Now**. Si se te olvida, el agente no encontrará Python: vuelve a ejecutar el instalador, elige **Modify** y márcala.
-   - **macOS:** sigue el instalador con las opciones por defecto.
+**Windows:**
+
+1. Descarga el instalador clásico desde la web oficial: [python-3.15.2-amd64.exe](https://www.python.org/ftp/python/3.15.2/python-3.15.2-amd64.exe). **No uses el botón amarillo de python.org**: en Windows descarga ahora el «Python install manager», que funciona de otra forma y no tiene la casilla de abajo. Si el enlace no funciona, entra en [python.org/downloads](https://www.python.org/downloads/) y pulsa el enlace pequeño de debajo del botón, «Or get the standalone installer for Python 3.…».
+2. Ábrelo y, en la primera pantalla, **marca la casilla «Add python.exe to PATH»** antes de pulsar **Install Now**. Si se te olvida, el agente no encontrará Python: vuelve a ejecutar el instalador, elige **Modify** y márcala.
+
+**macOS:**
+
+1. Entra en [python.org/downloads](https://www.python.org/downloads/) y pulsa el botón amarillo **Download Python** (descarga un archivo `.pkg`).
+2. Ábrelo y sigue el instalador con las opciones por defecto.
 
 Si ya lo tenías (versión 3.10 o superior), no hace falta repetirlo.
 
@@ -57,7 +63,7 @@ Cada línea que acaba bien empieza por **[OK]**. Si alguna dice **[FALTA]**, te 
 >
 > **Si es un equipo gestionado por tu empresa o universidad** y no te deja ejecutarlo, no intentes saltarte esa restricción: consulta con soporte informático, usa un equipo personal o sigue las prácticas en pareja.
 
-Instalamos la **versión 1.19.5** porque opencode cambia casi cada semana y una versión más nueva puede cambiar cómo funcionan los permisos. opencode queda instalado **en tu usuario**; para quitarlo más adelante, `npm uninstall -g opencode-ai`.
+Instalamos la **versión 1.19.5** porque opencode cambia casi cada semana y una versión más nueva puede cambiar cómo funcionan los permisos. Para quitarlo más adelante, `npm uninstall -g opencode-ai`. En macOS, si el sistema no deja instalarlo para todos los usuarios, el instalador lo pone en tu carpeta personal (`~/.npm-global`) sin pedirte contraseña.
 
 ## Paso 5. Prueba que arranca (y apágalo)
 
@@ -78,7 +84,7 @@ Si tienes una suscripción a Claude o a ChatGPT, sus aplicaciones de escritorio 
 
 - **Un error casi nunca significa que hayas roto algo**: suele faltar un paso. Lee la línea **[FALTA]** o **[ERROR]**: dice qué hacer.
 - **[FALTA] Node.js justo después de instalarlo:** cierra la ventana, reinicia el ordenador y vuelve a hacer doble clic.
-- **[FALTA] Python en Windows, aunque lo instalaste:** faltó marcar *Add python.exe to PATH*. Ejecuta otra vez el instalador de Python, elige **Modify**, sigue hasta **Advanced Options**, marca *Add Python to environment variables* y termina.
+- **[FALTA] Python en Windows, aunque lo instalaste:** faltó marcar *Add python.exe to PATH*, o descargaste el «install manager» en vez del instalador clásico (mira el paso 2). Ejecuta otra vez el instalador de Python, elige **Modify**, sigue hasta **Advanced Options**, marca *Add Python to environment variables* y termina.
 - **La página no carga:** comprueba que la ventana negra de `2_arrancar_opencode` sigue abierta y copia exactamente la dirección que aparece en ella.
 - **No tienes permisos para instalar** (ordenador del trabajo): pide ayuda a tu departamento de informática o usa un ordenador personal.
 - **Te has atascado más de diez minutos:** no te quedes ahí. Copia el texto del error y búscalo en la [documentación oficial de opencode](https://opencode.ai/docs/) o pregunta en su comunidad (en *Recursos oficiales*, al final del menú).
