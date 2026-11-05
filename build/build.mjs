@@ -60,7 +60,8 @@ function limpiarTitulo(t) {
 
 /** Convierte Markdown a HTML y añade identificadores a los encabezados. */
 async function aHtml(md) {
-  const bruto = await marked.parse(md);
+  // <!-- encargo --> delante de una cita la convierte en un encargo con botón «Copiar» en el curso.
+  const bruto = (await marked.parse(md)).replace(/<!-- encargo -->\s*<blockquote>/g, '<blockquote class="encargo">');
   const usados = new Map();
   return bruto.replace(/<h([1-4])>([\s\S]*?)<\/h\1>/g, (_todo, nivel, interior) => {
     let id = aId(interior) || 'seccion';
@@ -130,6 +131,32 @@ for (const [id, archivo] of [['preparacion', 'preparacion_alumno.md'], ['carrile
   const ruta = path.join(RAIZ, archivo);
   LECCIONES_MD[id] = fs.existsSync(ruta) ? await aHtml(fs.readFileSync(ruta, 'utf8')) : '';
 }
+
+/** Términos del glosario («**Término** — definición») para mostrar su definición desde las lecciones.
+ *  Se omiten las palabras tan comunes en el curso que enlazarlas sería ruido. */
+const GLOSARIO_OMITIR = new Set(['Agente', 'Chat', 'Comando', 'Copia de seguridad', 'Herramienta', 'Iteración',
+  'Memoria', 'Permiso', 'Prompt', 'Python', 'opencode', 'Ruta', 'Sesión', 'Aprobación', 'Espacio de trabajo',
+  'Detener', 'Contexto', 'Proveedor', 'Interfaz web']);
+function leerGlosario() {
+  const ruta = path.join(RAIZ, '05_glosario_chuleta.md');
+  if (!fs.existsSync(ruta)) return [];
+  const terminos = [];
+  for (const linea of fs.readFileSync(ruta, 'utf8').split(/\r?\n/)) {
+    const m = linea.match(/^\*\*([^*]+)\*\* — (.+)$/);
+    if (!m) continue;
+    const nombre = m[1].trim();
+    const principal = nombre.replace(/\s*\(.*\)$/, '');
+    if (GLOSARIO_OMITIR.has(principal) || / vs\. /.test(nombre)) continue;
+    // El paréntesis suele ser una palabra común («modelo», «plan»): solo se usa el anglicismo técnico.
+    const parentesis = (nombre.match(/\(([^)]+)\)$/) || [])[1];
+    const formas = [principal];
+    if (parentesis === 'prompt injection') formas.push(parentesis);
+    const definicion = sinMarcas(m[2].replace(/`/g, '').replace(/\*/g, ''));
+    terminos.push({ t: nombre, formas, d: definicion });
+  }
+  return terminos;
+}
+const glosario = leerGlosario();
 
 // ---------------------------------------------------------------- plantilla HTML
 
@@ -481,6 +508,7 @@ for (const d of docs.values()) {
     diagnostico,
     final: quizFinal,
     bandas,
+    glosario,
   };
   const app = fs.readFileSync(path.join(AQUI, 'app_cliente.js'), 'utf8');
 
@@ -504,7 +532,14 @@ for (const d of docs.values()) {
       <kbd>/</kbd>
     </div>
     <nav id="nav"></nav>
-    <div class="lateral-pie" id="cuenta">0 de 0 completadas</div>
+    <div class="lateral-pie">
+      <span id="cuenta">0 de 0 completadas</span>
+      <div class="pie-acciones">
+        <button type="button" id="btn-resumen">Mi resumen</button>
+        <button type="button" id="btn-exportar">Exportar</button>
+        <button type="button" id="btn-reiniciar">Reiniciar</button>
+      </div>
+    </div>
   </aside>
   <div class="principal">
     <div class="barra">

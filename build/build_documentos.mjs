@@ -9,6 +9,7 @@ const documents = [
   { source: '05_glosario_chuleta.md', output: '05_glosario_chuleta.html', section: 'Referencia', audience: 'Consulta rápida' },
   { source: '01_guion_instructor.md', output: '01_guion_instructor.html', section: 'Facilitación', audience: 'Guía del instructor' },
   { source: 'practica_ejemplo/LEEME.md', output: 'practica_ejemplo/LEEME.html', section: 'Laboratorio', audience: 'Datos de práctica' },
+  { source: 'practica_ejemplo/diccionario_datos.md', output: 'practica_ejemplo/diccionario_datos.html', section: 'Laboratorio', audience: 'Datos de práctica' },
 ];
 
 const css = `

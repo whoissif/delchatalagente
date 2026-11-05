@@ -307,6 +307,50 @@ html[data-tema="oscuro"] .figura{background:#131722}
 .marcar input{width:19px;height:19px;accent-color:var(--ok);cursor:pointer;flex:0 0 auto}
 .marcar.hecho{background:var(--ok-suave);border-color:color-mix(in srgb,var(--ok) 40%,transparent)}
 .marcar.hecho label{color:var(--ok);font-weight:640}
+.marcar-nota{font-size:.78rem;color:var(--texto-tenue)}
+.contenido blockquote.encargo{padding-bottom:52px;position:relative}
+.copiar{
+  position:absolute;right:14px;bottom:12px;padding:7px 13px;border-radius:9px;
+  border:1px solid var(--primario);background:var(--primario);color:#fff;
+  font:inherit;font-size:.8rem;font-weight:650;cursor:pointer;
+}
+.copiar:hover{filter:brightness(1.08)}
+.termino{
+  font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;
+  border-bottom:1px dotted var(--primario);
+}
+.termino:hover,.termino:focus-visible{color:var(--primario)}
+.definicion{
+  position:fixed;right:22px;bottom:22px;z-index:70;width:min(380px,calc(100vw - 32px));
+  padding:18px 20px;background:var(--superficie);border:1px solid var(--borde-fuerte);
+  border-radius:var(--radio);box-shadow:var(--sombra-fuerte);display:none;font-size:.9rem;line-height:1.55;
+}
+.definicion.visible{display:block}
+.definicion b{display:block;font-size:1rem;margin-right:28px}
+.definicion p{margin:8px 0 10px;color:var(--texto-suave)}
+.definicion .cerrar{
+  position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:8px;
+  border:1px solid var(--borde);background:var(--superficie-2);color:var(--texto);font-size:1.1rem;cursor:pointer;
+}
+.enlace{font:inherit;background:none;border:0;padding:0;color:var(--primario);cursor:pointer;text-decoration:underline;text-align:left}
+.pie-acciones{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.pie-acciones button{
+  font:inherit;font-size:.72rem;padding:4px 9px;border-radius:7px;cursor:pointer;
+  border:1px solid var(--borde-fuerte);background:var(--superficie);color:var(--texto-suave);
+}
+.pie-acciones button:hover{border-color:var(--primario);color:var(--primario)}
+.cierre{max-width:780px}
+.cierre h1{font-size:2rem;margin:0}
+.cierre .sub{color:var(--texto-tenue);margin:6px 0 22px}
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:0 0 26px}
+.cifra{padding:16px 18px;border:1px solid var(--borde);border-radius:var(--radio);background:var(--superficie)}
+.cifra b{display:block;font-size:1.5rem;color:var(--primario);letter-spacing:-.02em}
+.cifra span{font-size:.82rem;color:var(--texto-suave)}
+.cierre-grupo h2{font-size:1rem;margin:20px 0 6px}
+.cierre-grupo ul{list-style:none;margin:0;padding:0}
+.cierre-grupo li{display:flex;gap:10px;padding:3px 0;font-size:.9rem}
+.cierre-grupo li .senal{flex:0 0 16px;color:var(--ok);font-weight:700}
+.cierre-grupo li.pendiente .senal{color:var(--texto-tenue)}
 .navegacion{display:flex;gap:12px;margin:32px 0 0;padding-top:22px;border-top:1px solid var(--borde)}
 .navegacion button{
   flex:1;padding:14px 17px;border:1px solid var(--borde);background:var(--superficie);
@@ -390,7 +434,9 @@ html[data-tema="oscuro"] .figura{background:#131722}
 
 /* ---------- Impresión ---------- */
 @media print{
-  .lateral,.barra,.navegacion,.marcar,.abrir-menu,.velo,.acciones,.hero-cta,.leccion-meta{display:none!important}
+  .lateral,.barra,.navegacion,.marcar,.abrir-menu,.velo,.acciones,.hero-cta,.leccion-meta,.copiar,.definicion{display:none!important}
+  .contenido blockquote.encargo{padding-bottom:14px}
+  .termino{border:0}
   body{background:#fff;font-size:10.5pt;line-height:1.5}
   .lienzo{padding:0}
   .hoja{max-width:none}

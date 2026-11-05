@@ -12,10 +12,10 @@
 
 Vas a trabajar **siempre dentro de una copia de la carpeta de práctica**. Eso no es un capricho: es tu principal medida de seguridad. Usaremos un expediente ficticio de una empresa de ejemplo, preparado para el curso.
 
-1. Descarga `descarga_entorno.zip` desde la página **Entorno de práctica** del curso y descomprímelo en un lugar fácil de encontrar, como Documentos.
+1. **[Descarga `descarga_entorno.zip`](https://delchatalagente.vercel.app/practica_ejemplo/descarga_entorno.zip)** (también está en la página [Entorno de práctica](https://delchatalagente.vercel.app/practica_ejemplo/LEEME.html) del curso) y descomprímelo en un lugar fácil de encontrar, como Documentos.
 2. Cambia el nombre de la carpeta extraída a `practica_agente`.
 3. Conserva aparte el ZIP original como copia limpia para empezar de nuevo si hace falta.
-4. Comprueba que dentro de `practica_agente` hay una carpeta `informes`, tres archivos CSV, los documentos de configuración y reunión, y los archivos para arrancar opencode (`1_instalar_opencode` y `2_arrancar_opencode`).
+4. Comprueba que dentro de `practica_agente` hay una carpeta `informes`, tres archivos CSV con su `diccionario_datos.md` (qué significa cada columna y en qué unidad está), los documentos de configuración y reunión, y los archivos para arrancar opencode (`1_instalar_opencode` y `2_arrancar_opencode`).
 5. **Trabaja siempre en la copia `practica_agente`**, nunca en el ZIP ni en otra carpeta con tus archivos. El agente puede modificar lo que haya dentro.
 
 > ⚠️ **Por qué insistimos con la copia de seguridad:** el agente va a poder leer y modificar los archivos de esta carpeta, y va a ejecutar acciones de verdad. No es una simulación. Si prefieres practicar con algo que no te importe perder, mejor.
@@ -69,6 +69,8 @@ Pulsa sobre el nombre: se abre **Seleccionar modelo**, con los gratuitos marcado
 
 Escribe esto tal cual, cambiando lo que haga falta para que encaje con tu carpeta:
 
+<!-- encargo -->
+
 > Mira qué hay en la carpeta `informes` y hazme un índice de los archivos, agrupados por tipo, en un archivo nuevo llamado `INDICE.md`, guardado en la raíz de la carpeta de trabajo (no dentro de `informes`). No modifiques ningún archivo original.
 
 ### Qué deberías ver
@@ -109,6 +111,8 @@ Primero, **tú a mano**, crea en el escritorio una carpeta vacía llamada `prueb
 
 **Asegúrate de que estás en una sesión del proyecto `practica_agente`.** Ahora pídele algo que ocurra **fuera** de ella, en esa carpeta:
 
+<!-- encargo -->
+
 > Crea un archivo llamado `prueba_agente.txt` en la carpeta `prueba_permisos` del escritorio de mi usuario, con el texto «prueba».
 
 ### Paso 2 — Para y mira
@@ -146,6 +150,8 @@ Ahora sí: pulsa **Permitir una vez**. Y observa lo que pasa.
 ### Paso 5 — El detalle que hay que entender
 
 Repite la petición otra vez:
+
+<!-- encargo -->
 
 > Crea un archivo llamado `prueba_agente2.txt` en la carpeta `prueba_permisos` del escritorio.
 
@@ -185,6 +191,8 @@ Borra el archivo de prueba, `prueba_agente.txt`. Deja la carpeta `prueba_permiso
 
 Pide lo mismo que antes, esta vez **dentro** de tu carpeta de trabajo:
 
+<!-- encargo -->
+
 > Crea un archivo llamado `prueba_dentro.txt` en la carpeta de trabajo, con el texto «prueba».
 
 ### Paso 2 — Observa
@@ -194,6 +202,8 @@ Pide lo mismo que antes, esta vez **dentro** de tu carpeta de trabajo:
 ### Paso 3 — Cambia la política
 
 La política se guarda en un archivo, `opencode.json`, en la raíz de tu carpeta. Pídeselo al propio agente:
+
+<!-- encargo -->
 
 > Crea en la raíz de esta carpeta un archivo `opencode.json` con exactamente este contenido: `{"$schema": "https://opencode.ai/config.json", "permission": {"edit": "ask", "bash": "ask", "external_directory": "ask"}}`
 
@@ -209,11 +219,15 @@ Lo que dice: antes de **editar** cualquier archivo (`edit`) o **ejecutar** cualq
 
 ### Paso 5 — Repite la prueba
 
+<!-- encargo -->
+
 > Crea un archivo llamado `prueba_dentro2.txt` en la carpeta de trabajo, con el texto «prueba».
 
 **Ahora sí pregunta**, aunque sea dentro de la sala: *Modificar archivos mediante ediciones, escrituras y parches*. Pulsa **Permitir una vez**.
 
 Comprueba también que la puerta sigue cerrada:
+
+<!-- encargo -->
 
 > Crea un archivo llamado `prueba_fuera.txt` en la carpeta `prueba_permisos` del escritorio de mi usuario.
 
@@ -269,6 +283,8 @@ Hasta ahora, cada vez que quieres algo tienes que explicárselo. Si tienes una p
 
 Lo más fácil es pedírselo al propio agente:
 
+<!-- encargo -->
+
 > Crea en la raíz de esta carpeta de trabajo un archivo `AGENTS.md` con estas instrucciones para ti:
 > - Responde siempre en español.
 > - Si creas un archivo de informe, guárdalo en la carpeta `informes`. Si solo respondes en el chat, no crees archivos.
@@ -291,6 +307,8 @@ En la misma conversación no demuestra nada: el agente se acuerda de lo que le h
 
 En la conversación nueva, pídele algo normal, por ejemplo:
 
+<!-- encargo -->
+
 > Hazme un resumen de los archivos de la carpeta `informes`.
 
 Y observa si cumple las notas: ¿responde en español?, ¿guarda el resultado en `informes`?, ¿te dice qué archivos ha tocado?
@@ -309,6 +327,8 @@ Las notas son preferencias. Los **procedimientos guardados** (skills) son para t
 > **Las skills son procedimientos guardados, como recetas de cocina.**
 
 Pídele al agente que te cree una:
+
+<!-- encargo -->
 
 > Crea una skill llamada `resumen-informes` que consista en: leer los informes `.txt` de la carpeta `informes` (no el propio resumen ni otros archivos), crear o sustituir `informes/resumen_general.md` con una tabla de tres columnas (archivo, tema, conclusión) y no modificar los originales.
 
@@ -346,6 +366,8 @@ Este patrón es lo más útil que te llevas hoy. Cópialo de aquí en adelante:
 > **4. Cómo sabré que está bien** — tu criterio de éxito.
 
 **Ejemplo completo:**
+
+<!-- encargo -->
 
 > «En la carpeta `practica_agente/informes` hay cinco informes en texto (`informe_*.txt`). Léelos y créame `informes/resumen_general.md` con una tabla de tres columnas: tema, conclusión y nivel de urgencia.
 > **No modifiques ninguno de los cinco archivos originales.**
@@ -402,6 +424,8 @@ En la Práctica 5 comprobaste a ojo las filas de una tabla. Ahora haz que lo com
 
 **Paso 1 — El encargo.** Copia esto tal cual:
 
+<!-- encargo -->
+
 > «Escribe un script en Python, `analisis/bajo_minimo.py`, que lea `inventario_material.csv` y `contactos_proveedores.csv`, liste los artículos con **existencias por debajo del stock mínimo** y, para cada uno, el nombre del proveedor y su plazo de suministro. Ejecútalo y enséñame la salida tal cual. **No modifiques los CSV.**»
 
 **Paso 2 — Mira el programa.** Ábrelo (está en `analisis/`). Busca la línea que decide si un artículo está bajo mínimo. Tiene que comparar **existencias < mínimo**, no otra cosa (por ejemplo, «cerca del mínimo»).
@@ -410,11 +434,15 @@ En la Práctica 5 comprobaste a ojo las filas de una tabla. Ahora haz que lo com
 
 **Paso 4 — Repítelo.** Pídele «ejecuta otra vez el script» o cambia a mano una cifra en una **copia** del CSV y pídele que lo ejecute sobre la copia. El mismo programa da siempre la misma respuesta: esa es la diferencia con preguntarle otra vez al chat.
 
+**Paso 5 — Compara con la solución** (solo después de haberlo contrastado tú). Con los datos originales, la lista correcta tiene **dos** artículos: **J-18** (420 frente a un mínimo de 600; proveedor V-104, Elastómeros Técnicos, 8 días laborables) y **S-04** (18 frente a 40; V-101, Instrumentación Bruma, 15 días). Si sale otro, o falta uno, mira en el script la comparación y el cruce entre los dos archivos.
+
 ### Parte B — Datos y modelo (15 minutos)
 
 En la carpeta está `lecturas_energia_diarias.csv`: el consumo eléctrico diario de la planta ficticia durante las cuatro semanas del informe `informe_04_energia_mayo.txt`, con las unidades producidas y las horas de operación. El informe dice que la semana 3 consumió más y sospecha del compresor por la noche. Vamos a comprobarlo.
 
 **Paso 1 — El encargo.** Copia este encargo tal cual (tiene las cuatro partes):
+
+<!-- encargo -->
 
 > «En `practica_agente` está `lecturas_energia_diarias.csv`. Quiero:
 > 1. Antes de calcular nada, dime cuántas filas hay, qué columnas, en qué unidades crees que está cada una y si ves valores vacíos o raros.

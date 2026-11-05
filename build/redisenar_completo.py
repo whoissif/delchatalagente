@@ -438,6 +438,7 @@ def parse_document(path: Path, width: float):
     while i<len(lines):
         line=lines[i]
         if not line.strip():i+=1;continue
+        if re.match(r'^\s*<!--.*-->\s*$',line):i+=1;continue  # marcas para la web, p. ej. <!-- encargo -->
         fence=re.match(r'^\s*```',line)
         if fence:
             i+=1;code=[]

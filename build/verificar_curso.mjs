@@ -227,6 +227,47 @@ comprobar('La Práctica 6 es de Python y ya no es opcional', titulos.some((t) =>
 comprobar('«Elige tu carril» va justo después de la preparación, con carril gratuito y de suscripción',
   titulos.indexOf('Elige tu carril') === titulos.indexOf('Prepara tu ordenador') + 1 && /Claude Code/.test(todoElTexto) && /Codex/.test(todoElTexto) && /Min. con agente/.test(todoElTexto));
 
+console.log('\n13. Mejoras de la auditoría de uso (3-nov-2026)');
+window.localStorage.clear();
+window.confirm = () => true;
+doc.getElementById('btn-reiniciar').click();
+comprobar('«Reiniciar» deja el progreso a cero', doc.getElementById('cuenta').textContent.startsWith('0 de 28'),
+  doc.getElementById('cuenta').textContent);
+for (let n = 0; n < 40; n++) {
+  const b = doc.querySelector('#hoja .navegacion .siguiente');
+  const fin = b.textContent.includes('Terminar');
+  b.click();
+  if (fin) break;
+}
+comprobar('Pulsar solo «Siguiente» marca todas las lecciones (26 de 28; faltan los cuestionarios)',
+  doc.getElementById('cuenta').textContent.startsWith('26 de 28'), doc.getElementById('cuenta').textContent);
+comprobar('Al final se muestra el resumen del curso', window.location.hash === '#resumen' && !!doc.querySelector('#hoja .cierre'));
+for (const q of ['quiz-diagnostico', 'quiz-final']) {
+  irA(q);
+  for (let n = 0; n < 40; n++) {
+    const op = doc.querySelector('#hoja .pregunta .opcion:not(:disabled)');
+    if (!op) break;
+    op.click();
+  }
+}
+comprobar('Responder los dos cuestionarios los marca y el curso llega a 28 de 28',
+  doc.getElementById('cuenta').textContent.startsWith('28 de 28') && !!doc.querySelector('#nav button[data-id="quiz-final"] .marca-ok'),
+  doc.getElementById('cuenta').textContent);
+const largoHistorial = window.history.length;
+irA(idPermisos);
+irA(datos.lecciones[datos.lecciones.findIndex((l) => l.id === idPermisos) + 1].id);
+comprobar('Cada lección añade una entrada al historial (para que «Atrás» funcione)', window.history.length >= largoHistorial + 2,
+  `${largoHistorial} -> ${window.history.length}`);
+const idP6 = datos.lecciones.find((l) => /Práctica 6/.test(l.titulo)).id;
+irA(idP6);
+comprobar('Los encargos de la Práctica 6 tienen botón «Copiar»', doc.querySelectorAll('#hoja blockquote.encargo .copiar').length === 2);
+comprobar('Hay encargos copiables en las seis prácticas',
+  datos.lecciones.filter((l) => /Práctica [1-6]/.test(l.titulo) && l.html.includes('class="encargo"')).length === 6);
+comprobar('La lección de la carpeta de práctica enlaza al ZIP',
+  datos.lecciones.find((l) => /carpeta de práctica/.test(l.titulo)).html.includes('descarga_entorno.zip"'));
+irA(idPermisos);
+comprobar('Las lecciones enlazan términos del glosario', doc.querySelectorAll('#hoja .termino').length > 0);
+
 console.log(`\n${pruebas - fallos} de ${pruebas} comprobaciones correctas.`);
 if (avisosIgnorados.length) {
   console.log(`(${avisosIgnorados.length} avisos de jsdom ignorados: scrollTo y similares)`);
