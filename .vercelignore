@@ -5,3 +5,7 @@ build/
 *.log
 *.tmp
 *.bak
+
+# Configuración local de Claude Code
+CLAUDE.md
+.claude/
